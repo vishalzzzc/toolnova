@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Unit Converter - ToolNova</title>
 
-<meta name="description"
-content="Free online unit converter for length, weight, temperature, data and time.">
-
 <style>
-
 *{
     box-sizing:border-box;
 }
@@ -63,60 +55,110 @@ header{
 }
 
 h1{
-    margin-top:0;
     font-size:34px;
+    margin-top:0;
 }
 
 .description{
     color:#9da7bb;
     font-size:18px;
+    line-height:1.6;
 }
 
 label{
     display:block;
-    margin-top:20px;
+    margin-top:22px;
     margin-bottom:8px;
     color:#cbd2df;
     font-weight:bold;
 }
 
-select,
-input{
+.dropdown{
+    position:relative;
     width:100%;
-    padding:15px;
-    border-radius:12px;
+}
+
+.dropdown-button{
+    width:100%;
+    padding:16px;
+    margin:0;
     border:1px solid #354057;
+    border-radius:12px;
     background:#0d1320;
     color:white;
     font-size:17px;
-    outline:none;
+    text-align:left;
+    cursor:pointer;
 }
 
-select:focus,
-input:focus{
+.dropdown-button::after{
+    content:"▼";
+    float:right;
+    color:#9da7bb;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.dropdown.open .dropdown-button{
     border-color:#718cff;
 }
 
-select option{
-    background:#0d1320;
+.dropdown-menu{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:calc(100% + 6px);
+    z-index:1000;
+    max-height:260px;
+    overflow-y:auto;
+    background:#111827;
+    border:1px solid #718cff;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+
+.dropdown.open .dropdown-menu{
+    display:block;
+}
+
+.dropdown-option{
+    padding:15px;
     color:white;
+    border-bottom:1px solid #293348;
+    cursor:pointer;
+    font-size:16px;
 }
 
-.convert-box{
-    margin-top:20px;
+.dropdown-option:last-child{
+    border-bottom:0;
 }
 
-.convert-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+.dropdown-option:active,
+.dropdown-option:hover{
+    background:#202c45;
 }
 
 .value-box{
     margin-top:20px;
 }
 
-button{
+.value-box input{
+    width:100%;
+    padding:16px;
+    border-radius:12px;
+    border:1px solid #354057;
+    background:#0d1320;
+    color:white;
+    font-size:18px;
+    outline:none;
+}
+
+.value-box input:focus{
+    border-color:#718cff;
+}
+
+button.convert{
     width:100%;
     margin-top:25px;
     padding:16px;
@@ -126,11 +168,6 @@ button{
     color:white;
     font-size:17px;
     font-weight:bold;
-    cursor:pointer;
-}
-
-button:active{
-    transform:scale(.99);
 }
 
 .result{
@@ -144,7 +181,6 @@ button:active{
 
 .result-title{
     color:#9da7bb;
-    font-size:17px;
 }
 
 #resultValue{
@@ -201,190 +237,101 @@ footer a{
     h1{
         font-size:29px;
     }
-
-    .convert-row{
-        grid-template-columns:1fr;
-        gap:5px;
-    }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
-
 <div class="logo">
 Tool<span>Nova</span>
 </div>
-
 </header>
 
-
 <div class="container">
-
 
 <a href="index.html" class="back">
 ← Back to ToolNova
 </a>
 
-
 <div class="card">
 
-
-<h1>
-📏 Unit Converter
-</h1>
-
+<h1>📏 Unit Converter</h1>
 
 <p class="description">
 Convert length, weight, temperature, data and time units quickly and easily.
 </p>
 
+<label>Choose Category</label>
 
-<label for="category">
-Choose Category
-</label>
+<div class="dropdown" id="categoryDropdown">
 
-<select id="category">
-
-<option value="length">
+<button class="dropdown-button" type="button">
 📏 Length
-</option>
+</button>
 
-<option value="weight">
+<div class="dropdown-menu">
+
+<div class="dropdown-option" data-value="length">
+📏 Length
+</div>
+
+<div class="dropdown-option" data-value="weight">
 ⚖️ Weight
-</option>
+</div>
 
-<option value="temperature">
+<div class="dropdown-option" data-value="temperature">
 🌡️ Temperature
-</option>
+</div>
 
-<option value="data">
+<div class="dropdown-option" data-value="data">
 💾 Data
-</option>
+</div>
 
-<option value="time">
+<div class="dropdown-option" data-value="time">
 ⏱️ Time
-</option>
+</div>
 
-</select>
-
-
-
-<div class="convert-box">
+</div>
+</div>
 
 
-<div class="convert-row">
+<label>From</label>
 
+<div class="dropdown" id="fromDropdown">
 
-<div>
-
-<label for="fromUnit">
-From
-</label>
-
-<select id="fromUnit">
-
-<option value="meter">
+<button class="dropdown-button" type="button">
 Meter
-</option>
+</button>
 
-<option value="kilometer">
-Kilometer
-</option>
-
-<option value="centimeter">
-Centimeter
-</option>
-
-<option value="millimeter">
-Millimeter
-</option>
-
-<option value="mile">
-Mile
-</option>
-
-<option value="yard">
-Yard
-</option>
-
-<option value="foot">
-Foot
-</option>
-
-<option value="inch">
-Inch
-</option>
-
-</select>
+<div class="dropdown-menu"></div>
 
 </div>
 
 
-<div>
+<label>To</label>
 
-<label for="toUnit">
-To
-</label>
+<div class="dropdown" id="toDropdown">
 
-<select id="toUnit">
-
-<option value="meter">
-Meter
-</option>
-
-<option value="kilometer" selected>
+<button class="dropdown-button" type="button">
 Kilometer
-</option>
+</button>
 
-<option value="centimeter">
-Centimeter
-</option>
-
-<option value="millimeter">
-Millimeter
-</option>
-
-<option value="mile">
-Mile
-</option>
-
-<option value="yard">
-Yard
-</option>
-
-<option value="foot">
-Foot
-</option>
-
-<option value="inch">
-Inch
-</option>
-
-</select>
-
-</div>
-
+<div class="dropdown-menu"></div>
 
 </div>
 
 
 <div class="value-box">
 
-<label for="fromValue">
+<label for="value">
 Enter Value
 </label>
 
 <input
 type="number"
-id="fromValue"
+id="value"
 placeholder="Enter number"
 inputmode="decimal"
 step="any"
@@ -394,12 +341,14 @@ autocomplete="off"
 </div>
 
 
-<button id="convertButton">
+<button
+class="convert"
+id="convertButton"
+type="button">
+
 🔄 Convert
+
 </button>
-
-
-</div>
 
 
 <div class="result">
@@ -414,68 +363,41 @@ Conversion Result
 
 </div>
 
-
 </div>
-
 
 
 <div class="content">
 
-
-<h2>
-What is a Unit Converter?
-</h2>
+<h2>What is a Unit Converter?</h2>
 
 <p>
-A unit converter allows you to convert measurements from one
-unit to another. ToolNova supports length, weight, temperature,
-data and time conversions.
+A unit converter helps convert measurements from one unit to another,
+such as meters to feet, kilograms to pounds and Celsius to Fahrenheit.
 </p>
 
-
-<h2>
-Supported Units
-</h2>
+<h2>Supported Conversions</h2>
 
 <ul>
-
-<li>Length — meter, kilometer, centimeter, millimeter, mile, yard, foot and inch.</li>
-
-<li>Weight — kilogram, gram, milligram, pound and ounce.</li>
-
-<li>Temperature — Celsius, Fahrenheit and Kelvin.</li>
-
-<li>Data — byte, kilobyte, megabyte, gigabyte and terabyte.</li>
-
-<li>Time — second, minute, hour, day and week.</li>
-
+<li>Length</li>
+<li>Weight</li>
+<li>Temperature</li>
+<li>Data</li>
+<li>Time</li>
 </ul>
 
-
-<h2>
-How to Use
-</h2>
+<h2>How to Use</h2>
 
 <ol>
-
 <li>Select a category.</li>
-
-<li>Select the From unit.</li>
-
-<li>Select the To unit.</li>
-
+<li>Tap From and select a unit.</li>
+<li>Tap To and select a unit.</li>
 <li>Enter a number.</li>
-
 <li>Press Convert.</li>
-
 </ol>
 
-
 </div>
 
-
 </div>
-
 
 
 <footer>
@@ -484,21 +406,10 @@ ToolNova — Free Tools. Simple. Fast.
 
 <br><br>
 
-<a href="index.html">
-Home
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="privacy.html">
-Privacy
-</a>
-
-<a href="contact.html">
-Contact
-</a>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
+<a href="contact.html">Contact</a>
 
 <br><br>
 
@@ -507,34 +418,11 @@ Contact
 </footer>
 
 
-
 <script>
 
+const data = {
 
-const category =
-document.getElementById("category");
-
-const fromUnit =
-document.getElementById("fromUnit");
-
-const toUnit =
-document.getElementById("toUnit");
-
-const fromValue =
-document.getElementById("fromValue");
-
-const resultValue =
-document.getElementById("resultValue");
-
-const convertButton =
-document.getElementById("convertButton");
-
-
-
-const unitData = {
-
-length: {
-
+length:{
 meter:1,
 kilometer:1000,
 centimeter:0.01,
@@ -543,184 +431,264 @@ mile:1609.344,
 yard:0.9144,
 foot:0.3048,
 inch:0.0254
-
 },
 
-weight: {
-
+weight:{
 kilogram:1,
 gram:0.001,
 milligram:0.000001,
 pound:0.45359237,
 ounce:0.028349523125
-
 },
 
-data: {
+temperature:{
+celsius:"celsius",
+fahrenheit:"fahrenheit",
+kelvin:"kelvin"
+},
 
+data:{
 byte:1,
 kilobyte:1024,
 megabyte:1024*1024,
 gigabyte:1024*1024*1024,
 terabyte:1024*1024*1024*1024
-
 },
 
-time: {
-
+time:{
 second:1,
 minute:60,
 hour:3600,
 day:86400,
 week:604800
-
 }
 
 };
 
 
+let category = "length";
+let from = "meter";
+let to = "kilometer";
 
-function setOptions(list){
 
-fromUnit.innerHTML = "";
-toUnit.innerHTML = "";
+function nameFormat(text){
 
-for(
-const key in list
+return text.charAt(0).toUpperCase()
++ text.slice(1);
+
+}
+
+
+function setupDropdown(
+dropdownId,
+values,
+selectedValue
 ){
 
-const option1 =
-document.createElement("option");
+const dropdown =
+document.getElementById(dropdownId);
 
-option1.value = key;
-option1.textContent =
-formatName(key);
+const menu =
+dropdown.querySelector(".dropdown-menu");
 
-fromUnit.appendChild(option1);
+const button =
+dropdown.querySelector(".dropdown-button");
 
+menu.innerHTML = "";
 
-const option2 =
-document.createElement("option");
+Object.keys(values).forEach(function(key){
 
-option2.value = key;
-option2.textContent =
-formatName(key);
+const option =
+document.createElement("div");
 
-toUnit.appendChild(option2);
+option.className =
+"dropdown-option";
 
-}
+option.textContent =
+nameFormat(key);
 
+option.dataset.value =
+key;
 
-if(toUnit.options.length > 1){
-
-toUnit.selectedIndex = 1;
-
-}
-
-}
-
-
-
-function formatName(name){
-
-return name
-.charAt(0)
-.toUpperCase()
-+
-name.slice(1);
-
-}
-
-
-
-function setTemperature(){
-
-fromUnit.innerHTML = `
-<option value="celsius">Celsius</option>
-<option value="fahrenheit">Fahrenheit</option>
-<option value="kelvin">Kelvin</option>
-`;
-
-toUnit.innerHTML = `
-<option value="celsius">Celsius</option>
-<option value="fahrenheit" selected>Fahrenheit</option>
-<option value="kelvin">Kelvin</option>
-`;
-
-}
-
-
-
-category.addEventListener(
-"change",
+option.addEventListener(
+"click",
 function(){
 
-const type =
-category.value;
+button.textContent =
+nameFormat(key);
 
-fromValue.value = "";
+dropdown.classList.remove("open");
 
-resultValue.textContent = "0";
+if(dropdownId === "fromDropdown"){
+from = key;
+}
 
-
-if(type === "temperature"){
-
-setTemperature();
-
-}else{
-
-setOptions(
-unitData[type]
-);
+if(dropdownId === "toDropdown"){
+to = key;
+}
 
 }
+);
+
+menu.appendChild(option);
 
 });
 
 
+button.addEventListener(
+"click",
+function(event){
+
+event.stopPropagation();
+
+document.querySelectorAll(".dropdown")
+.forEach(function(d){
+
+if(d !== dropdown){
+d.classList.remove("open");
+}
+
+});
+
+dropdown.classList.toggle("open");
+
+}
+);
+
+}
+
+
+function setupCategory(){
+
+const dropdown =
+document.getElementById("categoryDropdown");
+
+const button =
+dropdown.querySelector(".dropdown-button");
+
+const options =
+dropdown.querySelectorAll(".dropdown-option");
+
+
+button.addEventListener(
+"click",
+function(event){
+
+event.stopPropagation();
+
+document.querySelectorAll(".dropdown")
+.forEach(function(d){
+
+if(d !== dropdown){
+d.classList.remove("open");
+}
+
+});
+
+dropdown.classList.toggle("open");
+
+}
+);
+
+
+options.forEach(function(option){
+
+option.addEventListener(
+"click",
+function(){
+
+category =
+option.dataset.value;
+
+button.textContent =
+option.textContent;
+
+dropdown.classList.remove("open");
+
+from =
+Object.keys(data[category])[0];
+
+to =
+Object.keys(data[category])[1] ||
+from;
+
+setupUnitDropdowns();
+
+document.getElementById("value").value = "";
+
+document.getElementById("resultValue")
+.textContent = "0";
+
+}
+);
+
+});
+
+}
+
+
+function setupUnitDropdowns(){
+
+const list =
+data[category];
+
+const fromDropdown =
+document.getElementById("fromDropdown");
+
+const toDropdown =
+document.getElementById("toDropdown");
+
+fromDropdown.querySelector(".dropdown-button")
+.textContent =
+nameFormat(from);
+
+toDropdown.querySelector(".dropdown-button")
+.textContent =
+nameFormat(to);
+
+
+setupDropdown(
+"fromDropdown",
+list,
+from
+);
+
+setupDropdown(
+"toDropdown",
+list,
+to
+);
+
+}
+
 
 function temperatureConvert(
 value,
-from,
-to
+fromUnit,
+toUnit
 ){
 
 let celsius;
 
-
-if(from === "celsius"){
-
+if(fromUnit === "celsius"){
 celsius = value;
-
 }
 
-else if(from === "fahrenheit"){
-
-celsius =
-(value - 32) * 5 / 9;
-
+else if(fromUnit === "fahrenheit"){
+celsius = (value - 32) * 5 / 9;
 }
 
 else{
-
-celsius =
-value - 273.15;
-
+celsius = value - 273.15;
 }
 
 
-if(to === "celsius"){
-
+if(toUnit === "celsius"){
 return celsius;
-
 }
 
-if(to === "fahrenheit"){
-
-return (
-celsius * 9 / 5
-) + 32;
-
+if(toUnit === "fahrenheit"){
+return (celsius * 9 / 5) + 32;
 }
 
 return celsius + 273.15;
@@ -728,46 +696,36 @@ return celsius + 273.15;
 }
 
 
-
 function convert(){
 
-if(fromValue.value === ""){
+const input =
+document.getElementById("value").value;
 
-resultValue.textContent =
+const result =
+document.getElementById("resultValue");
+
+if(input === ""){
+
+result.textContent =
 "Enter a number";
 
 return;
 
 }
 
-
 const value =
-Number(fromValue.value);
+Number(input);
+
+let answer;
 
 
-if(isNaN(value)){
+if(category === "temperature"){
 
-resultValue.textContent =
-"Invalid number";
-
-return;
-
-}
-
-
-const type =
-category.value;
-
-let result;
-
-
-if(type === "temperature"){
-
-result =
+answer =
 temperatureConvert(
 value,
-fromUnit.value,
-toUnit.value
+from,
+to
 );
 
 }
@@ -776,52 +734,66 @@ else{
 
 const base =
 value *
-unitData[type][fromUnit.value];
+data[category][from];
 
-result =
+answer =
 base /
-unitData[type][toUnit.value];
+data[category][to];
 
 }
 
 
-result =
+answer =
 Number(
-result.toFixed(10)
+answer.toFixed(10)
 );
 
-
-resultValue.textContent =
-result;
+result.textContent =
+answer;
 
 }
 
 
-
-convertButton.addEventListener(
+document.getElementById("convertButton")
+.addEventListener(
 "click",
 convert
 );
 
 
-
-fromValue.addEventListener(
+document.getElementById("value")
+.addEventListener(
 "keydown",
 function(event){
 
 if(event.key === "Enter"){
-
 convert();
+}
 
 }
+);
+
+
+document.addEventListener(
+"click",
+function(){
+
+document.querySelectorAll(".dropdown")
+.forEach(function(dropdown){
+
+dropdown.classList.remove("open");
 
 });
 
+}
+);
 
+
+setupCategory();
+
+setupUnitDropdowns();
 
 </script>
 
-
 </body>
-
 </html>
