@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compound Interest Calculator - ToolNova</title>
+
+<meta name="description"
+content="Calculate compound interest, total investment value and estimated earnings with ToolNova's free online calculator.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#070b14;
+color:#fff;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+padding:18px 20px;
+background:rgba(7,11,20,.92);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #263149;
+}
+
+.nav{
+max-width:900px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+}
+
+.logo span{
+color:#718cff;
+}
+
+.nav a{
+color:#9da7bb;
+text-decoration:none;
+}
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+.back{
+color:#8da5ff;
+text-decoration:none;
+}
+
+.card{
+margin-top:25px;
+padding:30px;
+background:linear-gradient(145deg,#151d2d,#0e1420);
+border:1px solid #29354d;
+border-radius:24px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+h1{
+margin-top:0;
+font-size:36px;
+}
+
+.description{
+color:#929db1;
+line-height:1.7;
+}
+
+.input-group{
+margin-top:22px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+color:#cbd3e1;
+font-weight:bold;
+}
+
+input,
+select{
+width:100%;
+padding:16px;
+border-radius:12px;
+border:1px solid #35415a;
+background:#0c1220;
+color:#fff;
+font-size:17px;
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#718cff;
+box-shadow:0 0 20px rgba(113,140,255,.12);
+}
+
+button{
+width:100%;
+margin-top:28px;
+padding:17px;
+border:0;
+border-radius:13px;
+background:linear-gradient(135deg,#718cff,#806cff);
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 12px 30px rgba(113,140,255,.22);
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.result{
+display:none;
+margin-top:30px;
+padding:25px;
+background:#0d1422;
+border:1px solid #29354d;
+border-radius:18px;
+}
+
+.result h2{
+margin-top:0;
+color:#9eafff;
+}
+
+.main-result{
+padding:22px;
+text-align:center;
+background:rgba(113,140,255,.08);
+border-radius:15px;
+}
+
+.main-result small{
+color:#8b97ab;
+}
+
+#total{
+display:block;
+margin-top:8px;
+font-size:34px;
+font-weight:900;
+color:#718cff;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:18px;
+}
+
+.stat{
+padding:18px;
+background:#141c2b;
+border-radius:14px;
+border:1px solid #29354d;
+}
+
+.stat-title{
+color:#7f8ba0;
+font-size:14px;
+}
+
+.stat-value{
+margin-top:8px;
+font-size:20px;
+font-weight:bold;
+}
+
+.content{
+margin-top:35px;
+padding:28px;
+background:#101722;
+border:1px solid #29354d;
+border-radius:20px;
+}
+
+.content h2{
+color:#8da5ff;
+}
+
+.content p,
+.content li{
+color:#aeb7c9;
+line-height:1.7;
+}
+
+.formula{
+padding:18px;
+margin-top:15px;
+background:#0b111d;
+border-radius:12px;
+color:#9eafff;
+overflow-x:auto;
+}
+
+footer{
+margin-top:50px;
+padding:35px 20px;
+border-top:1px solid #263149;
+text-align:center;
+color:#687287;
+}
+
+footer a{
+color:#8da5ff;
+text-decoration:none;
+margin:0 8px;
+line-height:2.5;
+}
+
+@media(max-width:600px){
+
+.container{
+padding:15px;
+}
+
+.card,
+.content{
+padding:20px;
+}
+
+h1{
+font-size:30px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+#total{
+font-size:29px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
+<a href="index.html">
+Home
+</a>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+
+<a href="index.html" class="back">
+← Back to ToolNova
+</a>
+
+
+<div class="card">
+
+
+<h1>
+📈 Compound Interest Calculator
+</h1>
+
+
+<p class="description">
+Calculate the future value of an investment using compound interest.
+</p>
+
+
+<div class="input-group">
+
+<label for="principal">
+Initial Investment
+</label>
+
+<input
+type="number"
+id="principal"
+placeholder="Example: 100000"
+inputmode="decimal"
+min="0"
+step="any"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label for="rate">
+Annual Interest Rate (%)
+</label>
+
+<input
+type="number"
+id="rate"
+placeholder="Example: 8"
+inputmode="decimal"
+min="0"
+step="0.01"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label for="years">
+Time Period (Years)
+</label>
+
+<input
+type="number"
+id="years"
+placeholder="Example: 10"
+inputmode="decimal"
+min="0"
+step="0.1"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label for="frequency">
+Compounding Frequency
+</label>
+
+<select id="frequency">
+
+<option value="1">
+Yearly
+</option>
+
+<option value="2">
+Half-Yearly
+</option>
+
+<option value="4">
+Quarterly
+</option>
+
+<option value="12" selected>
+Monthly
+</option>
+
+</select>
+
+</div>
+
+
+<button id="calculate">
+📈 Calculate Interest
+</button>
+
+
+<div class="result" id="result">
+
+<h2>
+Investment Summary
+</h2>
+
+
+<div class="main-result">
+
+<small>
+Future Value
+</small>
+
+<span id="total">
+₹0
+</span>
+
+</div>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-title">
+Initial Investment
+</div>
+
+<div
+class="stat-value"
+id="initial">
+₹0
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Interest Earned
+</div>
+
+<div
+class="stat-value"
+id="interest">
+₹0
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Interest Rate
+</div>
+
+<div
+class="stat-value"
+id="rateResult">
+0%
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Time Period
+</div>
+
+<div
+class="stat-value"
+id="timeResult">
+0 years
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="content">
+
+
+<h2>
+What is Compound Interest?
+</h2>
+
+<p>
+Compound interest means earning interest on the original
+investment as well as on interest accumulated during previous
+compounding periods.
+</p>
+
+
+<h2>
+How to Use
+</h2>
+
+<ol>
+
+<li>Enter the initial investment.</li>
+
+<li>Enter the annual interest rate.</li>
+
+<li>Enter the investment period.</li>
+
+<li>Select the compounding frequency.</li>
+
+<li>Tap Calculate Interest.</li>
+
+</ol>
+
+
+<h2>
+Formula
+</h2>
+
+<div class="formula">
+
+A = P × (1 + r/n)ⁿᵗ
+
+</div>
+
+<p>
+A is the final amount, P is the principal, r is the annual
+interest rate, n is the number of compounding periods per year,
+and t is the time in years.
+</p>
+
+
+<h2>
+Important Note
+</h2>
+
+<p>
+This calculator provides a mathematical estimate. Actual
+investment returns may differ because of taxes, fees, changing
+interest rates and investment performance.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
+<a href="contact.html">Contact</a>
+<a href="terms.html">Terms</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
+</footer>
+
+
+<script>
+
+const principal =
+document.getElementById("principal");
+
+const rate =
+document.getElementById("rate");
+
+const years =
+document.getElementById("years");
+
+const frequency =
+document.getElementById("frequency");
+
+const result =
+document.getElementById("result");
+
+
+function money(value){
+
+return new Intl.NumberFormat(
+"en-IN",
+{
+style:"currency",
+currency:"INR",
+maximumFractionDigits:2
+}
+).format(value);
+
+}
+
+
+function calculate(){
+
+const P =
+Number(principal.value);
+
+const annualRate =
+Number(rate.value);
+
+const t =
+Number(years.value);
+
+const n =
+Number(frequency.value);
+
+
+if(
+!principal.value ||
+!rate.value ||
+!years.value ||
+isNaN(P) ||
+isNaN(annualRate) ||
+isNaN(t) ||
+P < 0 ||
+annualRate < 0 ||
+t <= 0
+){
+
+alert(
+"Please enter valid investment, rate and time values."
+);
+
+return;
+
+}
+
+
+const r =
+annualRate / 100;
+
+
+const A =
+P *
+Math.pow(
+1 + r / n,
+n * t
+);
+
+
+const earned =
+A - P;
+
+
+document.getElementById("total").textContent =
+money(A);
+
+document.getElementById("initial").textContent =
+money(P);
+
+document.getElementById("interest").textContent =
+money(earned);
+
+document.getElementById("rateResult").textContent =
+annualRate + "%";
+
+document.getElementById("timeResult").textContent =
+t + (t === 1 ? " year" : " years");
+
+
+result.style.display =
+"block";
+
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+
+document
+.getElementById("calculate")
+.addEventListener(
+"click",
+calculate
+);
+
+
+[principal,rate,years].forEach(
+function(input){
+
+input.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+calculate();
+}
+
+});
+
+});
+
+</script>
+
+
+</body>
+
+</html>
