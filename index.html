@@ -3,14 +3,20 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="google-site-verification"
+content="nw7VRZ-fJdjcraclvYCd8lgERwNY6_9Ub9nUaR__dl8" />
 
 <title>ToolNova - Free Online Tools</title>
 
 <meta name="description"
-content="ToolNova offers free online tools including age calculator, percentage calculator, word counter, password generator, image compressor, image resizer, QR generator and unit converter.">
+content="ToolNova offers free online tools including calculators, image tools, text tools, QR generator, password generator and unit converter.">
 
-<meta name="robots" content="index, follow">
+<meta name="robots"
+content="index, follow">
 
 <link rel="canonical"
 href="https://vishalzzzc.github.io/toolnova/">
@@ -18,252 +24,235 @@ href="https://vishalzzzc.github.io/toolnova/">
 <style>
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #0b0f19;
-  color: white;
-  min-height: 100vh;
+font-family: Arial, sans-serif;
+background: #0b0f19;
+color: white;
+min-height: 100vh;
 }
 
 header {
-  padding: 20px;
-  border-bottom: 1px solid #202737;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(11,15,25,0.96);
-  backdrop-filter: blur(10px);
+padding: 20px;
+border-bottom: 1px solid #202737;
+position: sticky;
+top: 0;
+z-index: 10;
+background: rgba(11,15,25,0.96);
+backdrop-filter: blur(10px);
 }
 
 .nav {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+max-width: 1100px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .logo {
-  font-size: 26px;
-  font-weight: bold;
+font-size: 26px;
+font-weight: bold;
 }
 
 .logo span {
-  color: #718cff;
-}
-
-.rocket {
-  font-size: 22px;
+color: #718cff;
 }
 
 .hero {
-  max-width: 900px;
-  margin: auto;
-  padding: 65px 18px 40px;
-  text-align: center;
+max-width: 900px;
+margin: auto;
+padding: 65px 18px 40px;
+text-align: center;
 }
 
 .badge {
-  display: inline-block;
-  background: #17213a;
-  color: #8da5ff;
-  padding: 8px 15px;
-  border-radius: 50px;
-  font-size: 13px;
-  margin-bottom: 20px;
+display: inline-block;
+background: #17213a;
+color: #8da5ff;
+padding: 8px 15px;
+border-radius: 50px;
+font-size: 13px;
+margin-bottom: 20px;
 }
 
 h1 {
-  font-size: clamp(38px, 8vw, 68px);
-  line-height: 1.05;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
+font-size: clamp(38px,8vw,68px);
+line-height: 1.05;
+margin-bottom: 20px;
 }
 
 h1 span {
-  color: #718cff;
+color: #718cff;
 }
 
 .hero p {
-  color: #9da7bb;
-  font-size: 17px;
-  line-height: 1.6;
-  max-width: 650px;
-  margin: auto;
+color: #9da7bb;
+font-size: 17px;
+line-height: 1.6;
+max-width: 650px;
+margin: auto;
 }
 
 .search {
-  max-width: 650px;
-  margin: 30px auto 0;
+max-width: 650px;
+margin: 30px auto 0;
 }
 
 .search input {
-  width: 100%;
-  padding: 17px 20px;
-  border-radius: 14px;
-  border: 1px solid #30394d;
-  background: #141a28;
-  color: white;
-  font-size: 16px;
-  outline: none;
+width: 100%;
+padding: 17px 20px;
+border-radius: 14px;
+border: 1px solid #30394d;
+background: #141a28;
+color: white;
+font-size: 16px;
+outline: none;
 }
 
 .search input:focus {
-  border-color: #718cff;
+border-color: #718cff;
 }
 
 main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px 18px 70px;
+max-width: 1100px;
+margin: auto;
+padding: 20px 18px 70px;
 }
 
 .section-title {
-  font-size: 25px;
-  margin: 25px 0 18px;
+font-size: 25px;
+margin: 25px 0 18px;
 }
 
 .tools {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+display: grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap: 15px;
 }
 
 .tool {
-  background: #141a28;
-  border: 1px solid #252e40;
-  padding: 22px;
-  border-radius: 18px;
-  transition: 0.25s;
-  text-decoration: none;
-  color: inherit;
-  display: block;
+background: #141a28;
+border: 1px solid #252e40;
+padding: 22px;
+border-radius: 18px;
+transition: 0.25s;
+text-decoration: none;
+color: inherit;
+display: block;
 }
 
 .tool:hover {
-  transform: translateY(-4px);
-  border-color: #718cff;
-  background: #182033;
+transform: translateY(-4px);
+border-color: #718cff;
+background: #182033;
 }
 
 .icon {
-  font-size: 30px;
-  margin-bottom: 14px;
+font-size: 30px;
+margin-bottom: 14px;
 }
 
 .tool h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
+font-size: 18px;
+margin-bottom: 8px;
 }
 
 .tool p {
-  color: #8f99ad;
-  font-size: 14px;
-  line-height: 1.5;
+color: #8f99ad;
+font-size: 14px;
+line-height: 1.5;
 }
 
 .tag {
-  display: inline-block;
-  margin-top: 14px;
-  color: #8da5ff;
-  background: #1a2540;
-  padding: 5px 9px;
-  border-radius: 20px;
-  font-size: 12px;
+display: inline-block;
+margin-top: 14px;
+color: #8da5ff;
+background: #1a2540;
+padding: 5px 9px;
+border-radius: 20px;
+font-size: 12px;
 }
 
 .empty {
-  display: none;
-  text-align: center;
-  color: #8993a8;
-  padding: 30px;
+display: none;
+text-align: center;
+color: #8993a8;
+padding: 30px;
 }
 
 .info {
-  margin-top: 45px;
-  padding: 25px;
-  background: #111827;
-  border: 1px solid #252e40;
-  border-radius: 18px;
+margin-top: 45px;
+padding: 25px;
+background: #111827;
+border: 1px solid #252e40;
+border-radius: 18px;
 }
 
 .info h2 {
-  margin-bottom: 12px;
+margin-bottom: 12px;
 }
 
 .info p {
-  color: #929caf;
-  line-height: 1.7;
-  font-size: 14px;
+color: #929caf;
+line-height: 1.7;
+font-size: 14px;
 }
 
 .footer-links {
-  margin-top: 15px;
+margin-top: 15px;
 }
 
 .footer-links a {
-  color: #8da5ff;
-  text-decoration: none;
-  margin: 0 9px;
+color: #8da5ff;
+text-decoration: none;
+margin: 0 9px;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+text-decoration: underline;
 }
 
 footer {
-  border-top: 1px solid #202737;
-  padding: 30px 18px;
-  text-align: center;
-  color: #788297;
-  font-size: 13px;
+border-top: 1px solid #202737;
+padding: 30px 18px;
+text-align: center;
+color: #788297;
+font-size: 13px;
 }
 
-.footer-brand {
-  color: white;
-  font-weight: bold;
+@media(max-width:500px) {
+
+.tools {
+grid-template-columns: 1fr 1fr;
+gap: 12px;
 }
 
-@media (max-width: 500px) {
+.tool {
+padding: 17px;
+}
 
-  .hero {
-    padding-top: 45px;
-  }
+.icon {
+font-size: 26px;
+}
 
-  .tools {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+.tool h3 {
+font-size: 16px;
+}
 
-  .tool {
-    padding: 17px;
-  }
+.tool p {
+font-size: 12px;
+}
 
-  .icon {
-    font-size: 26px;
-  }
-
-  .tool h3 {
-    font-size: 16px;
-  }
-
-  .tool p {
-    font-size: 12px;
-  }
-
-  .tag {
-    font-size: 11px;
-  }
-
-  .footer-links a {
-    display: inline-block;
-    margin: 5px 6px;
-  }
+.footer-links a {
+display: inline-block;
+margin: 5px 6px;
+}
 
 }
 
@@ -281,7 +270,7 @@ footer {
 Tool<span>Nova</span>
 </div>
 
-<div class="rocket">🚀</div>
+<div>🚀</div>
 
 </div>
 
@@ -301,7 +290,7 @@ Powerful Tools.<br>
 
 <p>
 Fast, useful and easy-to-use online tools
-for everyday tasks. No complicated software required.
+for everyday tasks.
 </p>
 
 <div class="search">
@@ -310,8 +299,7 @@ for everyday tasks. No complicated software required.
 type="text"
 id="searchInput"
 placeholder="🔍 Search a tool..."
-oninput="searchTools()"
->
+oninput="searchTools()">
 
 </div>
 
@@ -328,8 +316,6 @@ oninput="searchTools()"
 <div class="tools">
 
 
-<!-- IMAGE COMPRESSOR -->
-
 <a
 href="image-compressor.html"
 class="tool"
@@ -337,22 +323,16 @@ data-name="image compressor">
 
 <div class="icon">🖼️</div>
 
-<h3>
-Image Compressor
-</h3>
+<h3>Image Compressor</h3>
 
 <p>
-Reduce image size while keeping good visual quality.
+Reduce image size while keeping good quality.
 </p>
 
-<span class="tag">
-Image
-</span>
+<span class="tag">Image</span>
 
 </a>
 
-
-<!-- IMAGE RESIZER -->
 
 <a
 href="image-resizer.html"
@@ -361,22 +341,16 @@ data-name="image resizer">
 
 <div class="icon">📐</div>
 
-<h3>
-Image Resizer
-</h3>
+<h3>Image Resizer</h3>
 
 <p>
-Resize images to custom width and height.
+Resize images quickly for websites and social media.
 </p>
 
-<span class="tag">
-Image
-</span>
+<span class="tag">Image</span>
 
 </a>
 
-
-<!-- QR GENERATOR -->
 
 <a
 href="qr-generator.html"
@@ -385,22 +359,16 @@ data-name="qr generator qr code">
 
 <div class="icon">🔗</div>
 
-<h3>
-QR Code Generator
-</h3>
+<h3>QR Code Generator</h3>
 
 <p>
 Create QR codes for links and text instantly.
 </p>
 
-<span class="tag">
-Generator
-</span>
+<span class="tag">Generator</span>
 
 </a>
 
-
-<!-- AGE CALCULATOR -->
 
 <a
 href="age.html"
@@ -409,22 +377,16 @@ data-name="age calculator">
 
 <div class="icon">🎂</div>
 
-<h3>
-Age Calculator
-</h3>
+<h3>Age Calculator</h3>
 
 <p>
-Calculate your exact age from your date of birth.
+Calculate exact age from date of birth.
 </p>
 
-<span class="tag">
-Calculator
-</span>
+<span class="tag">Calculator</span>
 
 </a>
 
-
-<!-- PERCENTAGE CALCULATOR -->
 
 <a
 href="percentage.html"
@@ -433,22 +395,16 @@ data-name="percentage calculator">
 
 <div class="icon">🧮</div>
 
-<h3>
-Percentage Calculator
-</h3>
+<h3>Percentage Calculator</h3>
 
 <p>
 Calculate percentages quickly and easily.
 </p>
 
-<span class="tag">
-Calculator
-</span>
+<span class="tag">Calculator</span>
 
 </a>
 
-
-<!-- WORD COUNTER -->
 
 <a
 href="word-counter.html"
@@ -457,22 +413,16 @@ data-name="word counter text counter">
 
 <div class="icon">📝</div>
 
-<h3>
-Word Counter
-</h3>
+<h3>Word Counter</h3>
 
 <p>
-Count words, characters, sentences and reading time.
+Count words, characters and reading time.
 </p>
 
-<span class="tag">
-Text
-</span>
+<span class="tag">Text</span>
 
 </a>
 
-
-<!-- PASSWORD GENERATOR -->
 
 <a
 href="password-generator.html"
@@ -481,22 +431,16 @@ data-name="password generator">
 
 <div class="icon">🔐</div>
 
-<h3>
-Password Generator
-</h3>
+<h3>Password Generator</h3>
 
 <p>
 Generate strong random passwords instantly.
 </p>
 
-<span class="tag">
-Security
-</span>
+<span class="tag">Security</span>
 
 </a>
 
-
-<!-- UNIT CONVERTER -->
 
 <a
 href="unit-converter.html"
@@ -505,17 +449,13 @@ data-name="unit converter">
 
 <div class="icon">📏</div>
 
-<h3>
-Unit Converter
-</h3>
+<h3>Unit Converter</h3>
 
 <p>
 Convert length, weight, temperature and data units.
 </p>
 
-<span class="tag">
-Converter
-</span>
+<span class="tag">Converter</span>
 
 </a>
 
@@ -539,9 +479,8 @@ No tools found 🔎
 </h2>
 
 <p>
-ToolNova is a collection of free, fast and simple online tools.
-Use calculators, text tools, image tools, converters and useful
-generators directly from your browser.
+ToolNova is a collection of free, fast and simple
+online tools for everyday digital tasks.
 </p>
 
 </div>
@@ -552,8 +491,7 @@ generators directly from your browser.
 <footer>
 
 <div>
-<span class="footer-brand">ToolNova</span>
-— Free Tools. Simple. Fast.
+ToolNova — Free Tools. Simple. Fast.
 </div>
 
 
@@ -573,7 +511,6 @@ Contact
 
 </div>
 
-
 <br>
 
 © 2026 ToolNova. All rights reserved.
@@ -585,38 +522,39 @@ Contact
 
 function searchTools() {
 
-  const input =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
+const input =
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
 
-  const tools =
-    document.querySelectorAll(".tool");
+const tools =
+document.querySelectorAll(".tool");
 
-  let found = 0;
+let found = 0;
 
-  tools.forEach(function(tool) {
+tools.forEach(function(tool) {
 
-    const name =
-      tool.dataset.name.toLowerCase();
+const name =
+tool.dataset.name.toLowerCase();
 
-    if (name.includes(input)) {
+if(name.includes(input)) {
 
-      tool.style.display = "block";
-      found++;
+tool.style.display = "block";
 
-    } else {
+found++;
 
-      tool.style.display = "none";
+} else {
 
-    }
+tool.style.display = "none";
 
-  });
+}
 
-  document.getElementById("empty").style.display =
-    found === 0 ? "block" : "none";
+});
+
+document.getElementById("empty").style.display =
+found === 0 ? "block" : "none";
 
 }
 
