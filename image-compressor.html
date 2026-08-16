@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Image Compressor - Free Online Image Compressor | ToolNova</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Compress JPG, PNG and WebP images online for free. Reduce image file size directly in your browser.">
+<title>Image Compressor - ToolNova</title>
+
+<meta name="description"
+content="Free online image compressor. Compress JPG, PNG and WebP images directly in your browser.">
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
 font-family:Arial,sans-serif;
 background:#0b0f19;
 color:white;
-line-height:1.6;
 }
 
 header{
@@ -27,11 +34,13 @@ border-bottom:1px solid #293348;
 .logo{
 max-width:850px;
 margin:auto;
-font-size:26px;
+font-size:28px;
 font-weight:bold;
 }
 
-.logo span{color:#718cff}
+.logo span{
+color:#718cff;
+}
 
 .container{
 max-width:850px;
@@ -42,6 +51,7 @@ padding:20px;
 .back{
 color:#8da5ff;
 text-decoration:none;
+font-size:18px;
 }
 
 .card{
@@ -52,11 +62,17 @@ border-radius:20px;
 padding:28px;
 }
 
-h1{margin-top:0;font-size:34px}
+h1{
+font-size:34px;
+margin-top:0;
+}
 
-.description{color:#9da7bb}
+.description{
+color:#9da7bb;
+font-size:18px;
+}
 
-.upload-box{
+.upload{
 margin-top:25px;
 padding:30px 20px;
 border:2px dashed #354057;
@@ -64,15 +80,21 @@ border-radius:16px;
 text-align:center;
 }
 
-.file-input{
+.upload input{
 display:block;
 width:100%;
-margin-top:18px;
+margin-top:20px;
 padding:12px;
 background:#0d1320;
 color:white;
-border-radius:10px;
 border:1px solid #354057;
+border-radius:10px;
+}
+
+.file-name{
+margin-top:15px;
+color:#9da7bb;
+word-break:break-word;
 }
 
 .controls{
@@ -90,10 +112,9 @@ gap:15px;
 flex:1;
 }
 
-#qualityValue{
+.quality-value{
 color:#8da5ff;
 font-weight:bold;
-min-width:45px;
 }
 
 button{
@@ -106,21 +127,10 @@ background:#718cff;
 color:white;
 font-size:16px;
 font-weight:bold;
-cursor:pointer;
 }
 
 button:disabled{
 opacity:.5;
-cursor:not-allowed;
-}
-
-.preview{
-display:none;
-max-width:100%;
-max-height:350px;
-margin:25px auto;
-border-radius:12px;
-background:white;
 }
 
 .result{
@@ -132,8 +142,12 @@ border:1px solid #293348;
 border-radius:16px;
 }
 
-.result p{
-color:#aeb7c9;
+.preview{
+display:none;
+max-width:100%;
+max-height:350px;
+margin:20px auto;
+border-radius:12px;
 }
 
 .download{
@@ -141,23 +155,23 @@ display:none;
 width:100%;
 margin-top:15px;
 padding:15px;
-border-radius:12px;
 background:#718cff;
 color:white;
 text-decoration:none;
 text-align:center;
+border-radius:12px;
 font-weight:bold;
 }
 
 .error{
-color:#ff8585;
 margin-top:15px;
+color:#ff8585;
 text-align:center;
 }
 
 .success{
-color:#7ee2a8;
 margin-top:15px;
+color:#7ee2a8;
 text-align:center;
 }
 
@@ -179,9 +193,10 @@ color:#aeb7c9;
 }
 
 footer{
+margin-top:40px;
+padding:30px;
 border-top:1px solid #293348;
 text-align:center;
-padding:30px 15px;
 color:#687287;
 }
 
@@ -192,97 +207,186 @@ margin:0 8px;
 }
 
 @media(max-width:550px){
-.container{padding:15px}
-.card,.content{padding:20px}
-h1{font-size:29px}
+
+.container{
+padding:15px;
 }
+
+.card,
+.content{
+padding:20px;
+}
+
+h1{
+font-size:29px;
+}
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
+
 <div class="logo">
+
 Tool<span>Nova</span>
+
 </div>
+
 </header>
+
 
 <div class="container">
 
-<a href="index.html" class="back">
+
+<a href="index.html"
+class="back">
+
 ← Back to ToolNova
+
 </a>
+
 
 <div class="card">
 
-<h1>🖼️ Image Compressor</h1>
+
+<h1>
+
+🖼️ Image Compressor
+
+</h1>
+
 
 <p class="description">
-Compress JPG, PNG and WebP images directly in your browser.
+
+Compress JPG, PNG and WebP images directly
+in your browser.
+
 </p>
 
-<div class="upload-box">
 
-<strong>Select an image</strong>
+<div class="upload">
+
+
+<strong>
+
+Select an image
+
+</strong>
+
 
 <input
-class="file-input"
 type="file"
 id="imageInput"
-accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+accept="image/*"
+onchange="imageSelected(this)"
+>
 
-<p id="fileName">
+
+<div
+class="file-name"
+id="fileName">
+
 No image selected
-</p>
 
 </div>
 
-<div id="error" class="error"></div>
 
-<div id="controls" class="controls">
+</div>
+
+
+<div
+id="error"
+class="error">
+
+</div>
+
+
+<div
+id="controls"
+class="controls">
+
 
 <label>
+
 Compression Quality
+
 </label>
 
+
 <div class="quality-row">
+
 
 <input
 type="range"
 id="quality"
 min="10"
 max="100"
-value="80">
+value="80"
+oninput="changeQuality()"
+>
 
-<span id="qualityValue">
+
+<span
+id="qualityValue"
+class="quality-value">
+
 80%
+
 </span>
 
+
 </div>
 
-<button id="compressButton">
+
+<button
+id="compressButton"
+onclick="compressImage()">
+
 ⚡ Compress Image
+
 </button>
 
+
 </div>
+
 
 <img
 id="preview"
 class="preview"
-alt="Compressed image preview">
+alt="Compressed image preview"
+>
 
-<div id="result" class="result">
 
-<h3>Compression Result</h3>
+<div
+id="result"
+class="result">
+
+
+<h3>
+
+Compression Result
+
+</h3>
+
 
 <p id="originalSize"></p>
 
+
 <p id="compressedSize"></p>
+
 
 <p id="savedSize"></p>
 
+
 <a
-id="downloadButton"
+id="download"
 class="download"
 download="toolnova-compressed-image.jpg">
 
@@ -290,42 +394,79 @@ download="toolnova-compressed-image.jpg">
 
 </a>
 
-</div>
-
-<div id="success" class="success"></div>
 
 </div>
+
+
+<div
+id="success"
+class="success">
+
+</div>
+
+
+</div>
+
 
 <div class="content">
 
-<h2>What is Image Compression?</h2>
+
+<h2>
+
+What is Image Compression?
+
+</h2>
+
 
 <p>
-Image compression reduces the file size of an image while
-maintaining useful visual quality. Smaller images can be easier
-to upload, share and use on websites.
+
+Image compression reduces the file size of an image
+while trying to maintain good visual quality.
+
 </p>
 
-<h2>How to Use</h2>
+
+<h2>
+
+How to Use
+
+</h2>
+
 
 <ol>
-<li>Select a JPG, PNG or WebP image.</li>
+
+<li>Select an image.</li>
+
 <li>Choose compression quality.</li>
+
 <li>Tap Compress Image.</li>
+
 <li>Download the compressed image.</li>
+
 </ol>
 
-<h2>Privacy</h2>
+
+<h2>
+
+Privacy
+
+</h2>
+
 
 <p>
-The image is processed locally in the browser using JavaScript
-and Canvas. The image is not intentionally uploaded to a
-ToolNova server.
+
+The image is processed directly in the browser.
+The selected image is not intentionally uploaded
+to a ToolNova server.
+
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 <footer>
 
@@ -333,10 +474,21 @@ ToolNova — Free Tools. Simple. Fast.
 
 <br><br>
 
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="privacy.html">Privacy</a>
-<a href="contact.html">Contact</a>
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a href="contact.html">
+Contact
+</a>
 
 <br><br>
 
@@ -345,34 +497,18 @@ ToolNova — Free Tools. Simple. Fast.
 </footer>
 
 
+
 <script>
 
+
 let selectedFile = null;
+
 let compressedURL = null;
 
-const imageInput =
-document.getElementById("imageInput");
 
-const fileName =
-document.getElementById("fileName");
 
-const controls =
-document.getElementById("controls");
+function imageSelected(input){
 
-const quality =
-document.getElementById("quality");
-
-const qualityValue =
-document.getElementById("qualityValue");
-
-const compressButton =
-document.getElementById("compressButton");
-
-const preview =
-document.getElementById("preview");
-
-const result =
-document.getElementById("result");
 
 const error =
 document.getElementById("error");
@@ -380,97 +516,124 @@ document.getElementById("error");
 const success =
 document.getElementById("success");
 
-const downloadButton =
-document.getElementById("downloadButton");
+const controls =
+document.getElementById("controls");
+
+const result =
+document.getElementById("result");
+
+const preview =
+document.getElementById("preview");
+
+const download =
+document.getElementById("download");
+
+const fileName =
+document.getElementById("fileName");
 
 
-quality.addEventListener("input", function(){
+error.innerHTML = "";
 
-qualityValue.textContent =
-this.value + "%";
+success.innerHTML = "";
 
-});
-
-
-imageInput.addEventListener("change", function(){
-
-error.textContent = "";
-success.textContent = "";
 result.style.display = "none";
+
 preview.style.display = "none";
-downloadButton.style.display = "none";
 
-const file = this.files[0];
+download.style.display = "none";
 
-if(!file){
+
+if(!input.files ||
+input.files.length === 0){
 
 selectedFile = null;
-controls.style.display = "none";
-fileName.textContent = "No image selected";
+
+fileName.innerHTML =
+"No image selected";
+
+controls.style.display =
+"none";
 
 return;
 
 }
 
 
-if(!file.type.startsWith("image/")){
-
-error.textContent =
-"Please select an image file.";
-
-this.value = "";
-controls.style.display = "none";
-
-return;
-
-}
+selectedFile =
+input.files[0];
 
 
-selectedFile = file;
+fileName.innerHTML =
+"✅ " +
+selectedFile.name +
+"<br>" +
+formatBytes(selectedFile.size);
 
-fileName.textContent =
-file.name +
-" • " +
-formatBytes(file.size);
 
 controls.style.display =
 "block";
 
-});
+
+success.innerHTML =
+"Image selected successfully!";
 
 
-compressButton.addEventListener(
-"click",
-compressImage
-);
+}
+
+
+
+function changeQuality(){
+
+const value =
+document.getElementById("quality").value;
+
+document.getElementById("qualityValue")
+.innerHTML =
+value + "%";
+
+}
+
 
 
 function compressImage(){
 
-error.textContent = "";
-success.textContent = "";
+
+const error =
+document.getElementById("error");
+
+const success =
+document.getElementById("success");
+
+const button =
+document.getElementById("compressButton");
+
 
 if(!selectedFile){
 
-error.textContent =
-"Please select an image first.";
+error.innerHTML =
+"❌ Please select an image first.";
 
 return;
 
 }
 
 
-compressButton.disabled = true;
+error.innerHTML = "";
 
-compressButton.textContent =
-"Compressing...";
+success.innerHTML = "";
+
+button.disabled = true;
+
+button.innerHTML =
+"⏳ Compressing...";
 
 
 const reader =
 new FileReader();
 
 
-reader.onload = function(e){
+reader.onload = function(event){
+
 
 const img =
 new Image();
@@ -478,8 +641,10 @@ new Image();
 
 img.onload = function(){
 
+
 const canvas =
 document.createElement("canvas");
+
 
 let width =
 img.naturalWidth;
@@ -488,19 +653,17 @@ let height =
 img.naturalHeight;
 
 
-/*
-Keep very large images within a
-reasonable browser canvas size.
-*/
+const max =
+4000;
 
-const maxSize = 4000;
 
-if(width > maxSize || height > maxSize){
+if(width > max ||
+height > max){
 
 const ratio =
 Math.min(
-maxSize / width,
-maxSize / height
+max / width,
+max / height
 );
 
 width =
@@ -512,14 +675,20 @@ Math.round(height * ratio);
 }
 
 
-canvas.width = width;
-canvas.height = height;
+canvas.width =
+width;
+
+canvas.height =
+height;
 
 
 const ctx =
 canvas.getContext("2d");
 
-ctx.fillStyle = "#ffffff";
+
+ctx.fillStyle =
+"#ffffff";
+
 
 ctx.fillRect(
 0,
@@ -527,6 +696,7 @@ ctx.fillRect(
 width,
 height
 );
+
 
 ctx.drawImage(
 img,
@@ -537,23 +707,28 @@ height
 );
 
 
-const qualityNumber =
-Number(quality.value) / 100;
+const quality =
+Number(
+document.getElementById("quality").value
+) / 100;
 
 
 canvas.toBlob(
+
 function(blob){
 
-compressButton.disabled = false;
 
-compressButton.textContent =
+button.disabled =
+false;
+
+button.innerHTML =
 "⚡ Compress Image";
 
 
 if(!blob){
 
-error.textContent =
-"Compression failed. Please try another image.";
+error.innerHTML =
+"❌ Compression failed.";
 
 return;
 
@@ -573,34 +748,49 @@ compressedURL =
 URL.createObjectURL(blob);
 
 
+const preview =
+document.getElementById("preview");
+
+
 preview.src =
 compressedURL;
+
 
 preview.style.display =
 "block";
 
 
 document.getElementById("originalSize")
-.textContent =
+.innerHTML =
 "Original size: " +
-formatBytes(selectedFile.size);
+formatBytes(
+selectedFile.size
+);
 
 
 document.getElementById("compressedSize")
-.textContent =
+.innerHTML =
 "Compressed size: " +
-formatBytes(blob.size);
+formatBytes(
+blob.size
+);
 
 
 let saved =
 0;
 
+
 if(selectedFile.size > 0){
 
 saved =
-(1 - blob.size / selectedFile.size) * 100;
+(
+1 -
+blob.size /
+selectedFile.size
+) * 100;
 
 }
+
 
 if(saved < 0){
 
@@ -610,65 +800,80 @@ saved = 0;
 
 
 document.getElementById("savedSize")
-.textContent =
+.innerHTML =
 "Size reduction: " +
 saved.toFixed(1) +
 "%";
 
 
-downloadButton.href =
+const download =
+document.getElementById("download");
+
+
+download.href =
 compressedURL;
 
-downloadButton.download =
-"toolnova-compressed-image.jpg";
 
-downloadButton.style.display =
+download.style.display =
 "block";
 
 
-result.style.display =
+document.getElementById("result")
+.style.display =
 "block";
 
 
-success.textContent =
-"Image compressed successfully!";
+success.innerHTML =
+"✅ Image compressed successfully!";
+
 
 },
+
 "image/jpeg",
-qualityNumber
+
+quality
+
 );
+
 
 };
 
 
 img.onerror = function(){
 
-compressButton.disabled = false;
 
-compressButton.textContent =
+button.disabled =
+false;
+
+button.innerHTML =
 "⚡ Compress Image";
 
-error.textContent =
-"Could not read this image.";
+
+error.innerHTML =
+"❌ This image could not be processed.";
 
 };
 
 
 img.src =
-e.target.result;
+event.target.result;
+
 
 };
 
 
 reader.onerror = function(){
 
-compressButton.disabled = false;
 
-compressButton.textContent =
+button.disabled =
+false;
+
+button.innerHTML =
 "⚡ Compress Image";
 
-error.textContent =
-"Could not load the selected file.";
+
+error.innerHTML =
+"❌ Could not read the image.";
 
 };
 
@@ -677,13 +882,65 @@ reader.readAsDataURL(
 selectedFile
 );
 
+
 }
 
 
+
 function formatBytes(bytes){
+
 
 if(bytes === 0){
 
 return "0 Bytes";
 
 }
+
+
+const units = [
+"Bytes",
+"KB",
+"MB",
+"GB"
+];
+
+
+const index =
+Math.floor(
+Math.log(bytes) /
+Math.log(1024)
+);
+
+
+return (
+
+parseFloat(
+
+(
+bytes /
+Math.pow(
+1024,
+index
+)
+
+).toFixed(2)
+
+)
+
++
+
+" " +
+
+units[index]
+
+);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
