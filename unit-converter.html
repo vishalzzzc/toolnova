@@ -8,183 +8,204 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Unit Converter - Free Online Unit Converter | ToolNova</title>
+<title>Unit Converter - ToolNova</title>
 
 <meta name="description"
-content="Convert length, weight, temperature and other common units online for free with ToolNova.">
+content="Free online unit converter for length, weight, temperature, data and time.">
 
 <style>
 
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#0b0f19;
-color:white;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b0f19;
+    color:white;
 }
 
 header{
-padding:20px;
-border-bottom:1px solid #293348;
+    padding:20px;
+    border-bottom:1px solid #293348;
 }
 
 .logo{
-max-width:850px;
-margin:auto;
-font-size:28px;
-font-weight:bold;
+    max-width:850px;
+    margin:auto;
+    font-size:28px;
+    font-weight:bold;
 }
 
 .logo span{
-color:#718cff;
+    color:#718cff;
 }
 
 .container{
-max-width:850px;
-margin:40px auto;
-padding:20px;
+    max-width:850px;
+    margin:40px auto;
+    padding:20px;
 }
 
 .back{
-color:#8da5ff;
-text-decoration:none;
+    color:#8da5ff;
+    text-decoration:none;
+    font-size:18px;
 }
 
 .card{
-margin-top:25px;
-background:#141a28;
-border:1px solid #293348;
-border-radius:20px;
-padding:28px;
+    margin-top:25px;
+    background:#141a28;
+    border:1px solid #293348;
+    border-radius:20px;
+    padding:28px;
 }
 
 h1{
-font-size:34px;
-margin-top:0;
+    margin-top:0;
+    font-size:34px;
 }
 
 .description{
-color:#9da7bb;
+    color:#9da7bb;
+    font-size:18px;
+}
+
+label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:8px;
+    color:#cbd2df;
+    font-weight:bold;
 }
 
 select,
 input{
-width:100%;
-padding:15px;
-margin-top:8px;
-border-radius:12px;
-border:1px solid #354057;
-background:#0d1320;
-color:white;
-font-size:17px;
-outline:none;
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #354057;
+    background:#0d1320;
+    color:white;
+    font-size:17px;
+    outline:none;
 }
 
 select:focus,
 input:focus{
-border-color:#718cff;
+    border-color:#718cff;
 }
 
-label{
-display:block;
-margin-top:20px;
-color:#cbd2df;
-font-weight:bold;
+select option{
+    background:#0d1320;
+    color:white;
+}
+
+.convert-box{
+    margin-top:20px;
 }
 
 .convert-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.value-box{
+    margin-top:20px;
 }
 
 button{
-width:100%;
-margin-top:25px;
-padding:16px;
-border:0;
-border-radius:12px;
-background:#718cff;
-color:white;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+    width:100%;
+    margin-top:25px;
+    padding:16px;
+    border:0;
+    border-radius:12px;
+    background:#718cff;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-button:hover{
-opacity:.9;
+button:active{
+    transform:scale(.99);
 }
 
 .result{
-margin-top:25px;
-padding:20px;
-background:#111827;
-border:1px solid #293348;
-border-radius:15px;
-text-align:center;
+    margin-top:25px;
+    padding:25px;
+    background:#111827;
+    border:1px solid #293348;
+    border-radius:16px;
+    text-align:center;
+}
+
+.result-title{
+    color:#9da7bb;
+    font-size:17px;
 }
 
 #resultValue{
-font-size:28px;
-font-weight:bold;
-color:#8da5ff;
-word-break:break-word;
+    margin-top:10px;
+    color:#8da5ff;
+    font-size:30px;
+    font-weight:bold;
+    word-break:break-word;
 }
 
 .content{
-margin-top:35px;
-padding:25px;
-background:#111827;
-border:1px solid #293348;
-border-radius:18px;
+    margin-top:35px;
+    padding:25px;
+    background:#111827;
+    border:1px solid #293348;
+    border-radius:18px;
 }
 
 .content h2{
-color:#8da5ff;
+    color:#8da5ff;
 }
 
 .content p,
 .content li{
-color:#aeb7c9;
+    color:#aeb7c9;
+    line-height:1.6;
 }
 
 footer{
-margin-top:40px;
-padding:30px;
-border-top:1px solid #293348;
-text-align:center;
-color:#687287;
+    margin-top:40px;
+    padding:30px;
+    border-top:1px solid #293348;
+    text-align:center;
+    color:#687287;
 }
 
 footer a{
-color:#8da5ff;
-text-decoration:none;
-margin:0 8px;
+    color:#8da5ff;
+    text-decoration:none;
+    margin:0 8px;
 }
 
 @media(max-width:600px){
 
-.container{
-padding:15px;
-}
+    .container{
+        padding:15px;
+    }
 
-.card,
-.content{
-padding:20px;
-}
+    .card,
+    .content{
+        padding:20px;
+    }
 
-h1{
-font-size:29px;
-}
+    h1{
+        font-size:29px;
+    }
 
-.convert-row{
-grid-template-columns:1fr;
-gap:5px;
-}
+    .convert-row{
+        grid-template-columns:1fr;
+        gap:5px;
+    }
 
 }
 
@@ -222,38 +243,41 @@ Tool<span>Nova</span>
 
 
 <p class="description">
-Convert common units quickly and easily.
+Convert length, weight, temperature, data and time units quickly and easily.
 </p>
 
 
 <label for="category">
-Select Category
+Choose Category
 </label>
-
 
 <select id="category">
 
 <option value="length">
-Length
+📏 Length
 </option>
 
 <option value="weight">
-Weight
+⚖️ Weight
 </option>
 
 <option value="temperature">
-Temperature
+🌡️ Temperature
 </option>
 
 <option value="data">
-Data
+💾 Data
 </option>
 
 <option value="time">
-Time
+⏱️ Time
 </option>
 
 </select>
+
+
+
+<div class="convert-box">
 
 
 <div class="convert-row">
@@ -265,18 +289,41 @@ Time
 From
 </label>
 
-<select id="fromUnit"></select>
+<select id="fromUnit">
 
+<option value="meter">
+Meter
+</option>
 
-<input
-type="number"
-id="fromValue"
-placeholder="Enter number"
-inputmode="decimal"
-step="any"
-autocomplete="off"
->
+<option value="kilometer">
+Kilometer
+</option>
 
+<option value="centimeter">
+Centimeter
+</option>
+
+<option value="millimeter">
+Millimeter
+</option>
+
+<option value="mile">
+Mile
+</option>
+
+<option value="yard">
+Yard
+</option>
+
+<option value="foot">
+Foot
+</option>
+
+<option value="inch">
+Inch
+</option>
+
+</select>
 
 </div>
 
@@ -287,35 +334,78 @@ autocomplete="off"
 To
 </label>
 
-<select id="toUnit"></select>
+<select id="toUnit">
 
+<option value="meter">
+Meter
+</option>
+
+<option value="kilometer" selected>
+Kilometer
+</option>
+
+<option value="centimeter">
+Centimeter
+</option>
+
+<option value="millimeter">
+Millimeter
+</option>
+
+<option value="mile">
+Mile
+</option>
+
+<option value="yard">
+Yard
+</option>
+
+<option value="foot">
+Foot
+</option>
+
+<option value="inch">
+Inch
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<div class="value-box">
+
+<label for="fromValue">
+Enter Value
+</label>
 
 <input
-type="text"
-id="toValue"
-readonly
-placeholder="Result"
+type="number"
+id="fromValue"
+placeholder="Enter number"
+inputmode="decimal"
+step="any"
+autocomplete="off"
 >
 
-
 </div>
 
 
-</div>
-
-
-<button
-id="convertButton">
-
+<button id="convertButton">
 🔄 Convert
-
 </button>
+
+
+</div>
 
 
 <div class="result">
 
-<div>
-Result
+<div class="result-title">
+Conversion Result
 </div>
 
 <div id="resultValue">
@@ -328,6 +418,7 @@ Result
 </div>
 
 
+
 <div class="content">
 
 
@@ -335,30 +426,28 @@ Result
 What is a Unit Converter?
 </h2>
 
-
 <p>
-A unit converter helps convert measurements from one unit
-to another, such as meters to feet, kilograms to pounds,
-Celsius to Fahrenheit and more.
+A unit converter allows you to convert measurements from one
+unit to another. ToolNova supports length, weight, temperature,
+data and time conversions.
 </p>
 
 
 <h2>
-Supported Conversions
+Supported Units
 </h2>
-
 
 <ul>
 
-<li>Length</li>
+<li>Length — meter, kilometer, centimeter, millimeter, mile, yard, foot and inch.</li>
 
-<li>Weight</li>
+<li>Weight — kilogram, gram, milligram, pound and ounce.</li>
 
-<li>Temperature</li>
+<li>Temperature — Celsius, Fahrenheit and Kelvin.</li>
 
-<li>Data</li>
+<li>Data — byte, kilobyte, megabyte, gigabyte and terabyte.</li>
 
-<li>Time</li>
+<li>Time — second, minute, hour, day and week.</li>
 
 </ul>
 
@@ -367,16 +456,15 @@ Supported Conversions
 How to Use
 </h2>
 
-
 <ol>
 
 <li>Select a category.</li>
 
 <li>Select the From unit.</li>
 
-<li>Enter a number.</li>
-
 <li>Select the To unit.</li>
+
+<li>Enter a number.</li>
 
 <li>Press Convert.</li>
 
@@ -387,6 +475,7 @@ How to Use
 
 
 </div>
+
 
 
 <footer>
@@ -422,54 +511,6 @@ Contact
 <script>
 
 
-const units = {
-
-length: {
-
-meter: 1,
-kilometer: 1000,
-centimeter: 0.01,
-millimeter: 0.001,
-mile: 1609.344,
-yard: 0.9144,
-foot: 0.3048,
-inch: 0.0254
-
-},
-
-weight: {
-
-kilogram: 1,
-gram: 0.001,
-milligram: 0.000001,
-pound: 0.45359237,
-ounce: 0.028349523125
-
-},
-
-data: {
-
-byte: 1,
-kilobyte: 1024,
-megabyte: 1024 * 1024,
-gigabyte: 1024 * 1024 * 1024,
-terabyte: 1024 * 1024 * 1024 * 1024
-
-},
-
-time: {
-
-second: 1,
-minute: 60,
-hour: 3600,
-day: 86400,
-week: 604800
-
-}
-
-};
-
-
 const category =
 document.getElementById("category");
 
@@ -482,9 +523,6 @@ document.getElementById("toUnit");
 const fromValue =
 document.getElementById("fromValue");
 
-const toValue =
-document.getElementById("toValue");
-
 const resultValue =
 document.getElementById("resultValue");
 
@@ -492,58 +530,88 @@ const convertButton =
 document.getElementById("convertButton");
 
 
-function fillUnits(){
 
-const type =
-category.value;
+const unitData = {
+
+length: {
+
+meter:1,
+kilometer:1000,
+centimeter:0.01,
+millimeter:0.001,
+mile:1609.344,
+yard:0.9144,
+foot:0.3048,
+inch:0.0254
+
+},
+
+weight: {
+
+kilogram:1,
+gram:0.001,
+milligram:0.000001,
+pound:0.45359237,
+ounce:0.028349523125
+
+},
+
+data: {
+
+byte:1,
+kilobyte:1024,
+megabyte:1024*1024,
+gigabyte:1024*1024*1024,
+terabyte:1024*1024*1024*1024
+
+},
+
+time: {
+
+second:1,
+minute:60,
+hour:3600,
+day:86400,
+week:604800
+
+}
+
+};
+
+
+
+function setOptions(list){
 
 fromUnit.innerHTML = "";
-
 toUnit.innerHTML = "";
 
+for(
+const key in list
+){
 
-if(type === "temperature"){
+const option1 =
+document.createElement("option");
 
-addOption(fromUnit,"celsius","Celsius");
+option1.value = key;
+option1.textContent =
+formatName(key);
 
-addOption(fromUnit,"fahrenheit","Fahrenheit");
-
-addOption(fromUnit,"kelvin","Kelvin");
-
-
-addOption(toUnit,"celsius","Celsius");
-
-addOption(toUnit,"fahrenheit","Fahrenheit");
-
-addOption(toUnit,"kelvin","Kelvin");
-
-return;
-
-}
+fromUnit.appendChild(option1);
 
 
-const list =
-units[type];
+const option2 =
+document.createElement("option");
 
+option2.value = key;
+option2.textContent =
+formatName(key);
 
-for(const key in list){
-
-addOption(
-fromUnit,
-key,
-capitalize(key)
-);
-
-addOption(
-toUnit,
-key,
-capitalize(key)
-);
+toUnit.appendChild(option2);
 
 }
 
 
-if(fromUnit.options.length > 1){
+if(toUnit.options.length > 1){
 
 toUnit.selectedIndex = 1;
 
@@ -552,98 +620,66 @@ toUnit.selectedIndex = 1;
 }
 
 
-function addOption(
-select,
-value,
-text
-){
 
-const option =
-document.createElement("option");
+function formatName(name){
 
-option.value = value;
-
-option.textContent = text;
-
-select.appendChild(option);
-
-}
-
-
-function capitalize(text){
-
-return text.charAt(0).toUpperCase()
+return name
+.charAt(0)
+.toUpperCase()
 +
-text.slice(1);
+name.slice(1);
 
 }
 
 
-function convert(){
 
-const value =
-Number(fromValue.value);
+function setTemperature(){
 
+fromUnit.innerHTML = `
+<option value="celsius">Celsius</option>
+<option value="fahrenheit">Fahrenheit</option>
+<option value="kelvin">Kelvin</option>
+`;
 
-if(
-fromValue.value === "" ||
-isNaN(value)
-){
-
-resultValue.textContent =
-"Enter a number";
-
-toValue.value = "";
-
-return;
+toUnit.innerHTML = `
+<option value="celsius">Celsius</option>
+<option value="fahrenheit" selected>Fahrenheit</option>
+<option value="kelvin">Kelvin</option>
+`;
 
 }
 
+
+
+category.addEventListener(
+"change",
+function(){
 
 const type =
 category.value;
 
-let result;
+fromValue.value = "";
+
+resultValue.textContent = "0";
 
 
 if(type === "temperature"){
 
-result =
-convertTemperature(
-value,
-fromUnit.value,
-toUnit.value
-);
+setTemperature();
 
 }else{
 
-const baseValue =
-value *
-units[type][fromUnit.value];
-
-result =
-baseValue /
-units[type][toUnit.value];
-
-}
-
-
-const rounded =
-Number(
-result.toFixed(10)
+setOptions(
+unitData[type]
 );
 
-
-resultValue.textContent =
-rounded;
-
-toValue.value =
-rounded;
-
 }
 
+});
 
-function convertTemperature(
+
+
+function temperatureConvert(
 value,
 from,
 to
@@ -661,8 +697,7 @@ celsius = value;
 else if(from === "fahrenheit"){
 
 celsius =
-(value - 32) *
-5 / 9;
+(value - 32) * 5 / 9;
 
 }
 
@@ -683,8 +718,7 @@ return celsius;
 if(to === "fahrenheit"){
 
 return (
-celsius *
-9 / 5
+celsius * 9 / 5
 ) + 32;
 
 }
@@ -694,20 +728,74 @@ return celsius + 273.15;
 }
 
 
-category.addEventListener(
-"change",
-function(){
 
-fillUnits();
+function convert(){
 
-fromValue.value = "";
+if(fromValue.value === ""){
 
-toValue.value = "";
+resultValue.textContent =
+"Enter a number";
 
-resultValue.textContent = "0";
+return;
 
 }
+
+
+const value =
+Number(fromValue.value);
+
+
+if(isNaN(value)){
+
+resultValue.textContent =
+"Invalid number";
+
+return;
+
+}
+
+
+const type =
+category.value;
+
+let result;
+
+
+if(type === "temperature"){
+
+result =
+temperatureConvert(
+value,
+fromUnit.value,
+toUnit.value
 );
+
+}
+
+else{
+
+const base =
+value *
+unitData[type][fromUnit.value];
+
+result =
+base /
+unitData[type][toUnit.value];
+
+}
+
+
+result =
+Number(
+result.toFixed(10)
+);
+
+
+resultValue.textContent =
+result;
+
+}
+
 
 
 convertButton.addEventListener(
@@ -716,7 +804,6 @@ convert
 );
 
 
-/* Enter key */
 
 fromValue.addEventListener(
 "keydown",
@@ -728,13 +815,8 @@ convert();
 
 }
 
-}
-);
+});
 
-
-/* Load units */
-
-fillUnits();
 
 
 </script>
