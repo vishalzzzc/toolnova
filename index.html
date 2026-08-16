@@ -15,10 +15,6 @@ content="ToolNova offers free online calculators, converters, image tools, text 
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -35,11 +31,6 @@ body{
     color:#fff;
     overflow-x:hidden;
 }
-
-
-/* =========================
-   BACKGROUND
-========================= */
 
 body::before{
     content:"";
@@ -72,11 +63,6 @@ body::after{
     pointer-events:none;
     z-index:-2;
 }
-
-
-/* =========================
-   PARTICLES
-========================= */
 
 .particles{
     position:fixed;
@@ -120,11 +106,6 @@ transform:translateY(0) translateX(0);
 }
 
 }
-
-
-/* =========================
-   HEADER
-========================= */
 
 header{
 position:sticky;
@@ -172,11 +153,6 @@ transition:.25s;
 color:#fff;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
 .hero{
 max-width:1150px;
 margin:auto;
@@ -194,7 +170,6 @@ border-radius:50px;
 background:rgba(113,140,255,.08);
 color:#aab8ff;
 font-size:13px;
-box-shadow:0 0 25px rgba(113,140,255,.08);
 animation:badgePulse 3s ease-in-out infinite;
 }
 
@@ -248,11 +223,6 @@ line-height:1.8;
 color:#8e99ad;
 }
 
-
-/* =========================
-   SEARCH
-========================= */
-
 .search-wrapper{
 max-width:650px;
 margin:35px auto 0;
@@ -279,9 +249,6 @@ background:rgba(15,22,36,.82);
 color:#fff;
 font-size:16px;
 outline:none;
-box-shadow:
-0 15px 50px rgba(0,0,0,.25),
-inset 0 0 20px rgba(255,255,255,.015);
 transition:.3s;
 }
 
@@ -295,11 +262,6 @@ box-shadow:
 #search::placeholder{
 color:#69758b;
 }
-
-
-/* =========================
-   TOOLS SECTION
-========================= */
 
 .section{
 max-width:1150px;
@@ -323,17 +285,11 @@ color:#68758b;
 font-size:14px;
 }
 
-
 .tools{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:18px;
 }
-
-
-/* =========================
-   TOOL CARD
-========================= */
 
 .tool{
 position:relative;
@@ -432,11 +388,6 @@ transition:.3s;
 transform:translateX(6px);
 }
 
-
-/* =========================
-   NO RESULTS
-========================= */
-
 .no-results{
 display:none;
 padding:35px;
@@ -446,11 +397,6 @@ border-radius:18px;
 background:#101722;
 color:#77839a;
 }
-
-
-/* =========================
-   INFO
-========================= */
 
 .info{
 max-width:1150px;
@@ -531,11 +477,6 @@ line-height:1.6;
 color:#78859a;
 }
 
-
-/* =========================
-   CTA
-========================= */
-
 .cta{
 max-width:900px;
 margin:70px auto;
@@ -582,11 +523,6 @@ transform:translateY(-3px);
 box-shadow:0 15px 40px rgba(113,140,255,.35);
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
 margin-top:80px;
 padding:45px 20px;
@@ -631,11 +567,6 @@ color:#718cff;
 font-size:12px;
 }
 
-
-/* =========================
-   SCROLL TOP
-========================= */
-
 #topButton{
 position:fixed;
 right:20px;
@@ -650,13 +581,7 @@ font-size:20px;
 cursor:pointer;
 display:none;
 z-index:500;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:1000px){
 
@@ -739,11 +664,6 @@ font-size:27px;
 
 }
 
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
 @media(prefers-reduced-motion:reduce){
 
 *{
@@ -762,8 +682,6 @@ transition:none !important;
 <body>
 
 
-<!-- Floating background particles -->
-
 <div class="particles">
 
 <div class="particle p1"></div>
@@ -777,9 +695,6 @@ transition:none !important;
 
 </div>
 
-
-
-<!-- HEADER -->
 
 <header>
 
@@ -810,15 +725,11 @@ Contact
 </header>
 
 
-
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="badge">
 ⚡ Free • Fast • Browser Based
 </div>
-
 
 <h1>
 
@@ -830,14 +741,12 @@ All in One Place.
 
 </h1>
 
-
 <p class="hero-description">
 
 Powerful, simple and free online tools for calculations,
 images, text, passwords and everyday digital tasks.
 
 </p>
-
 
 <div class="search-wrapper">
 
@@ -853,13 +762,7 @@ autocomplete="off"
 </section>
 
 
-
-<!-- TOOLS -->
-
-<section
-class="section"
-id="tools">
-
+<section class="section" id="tools">
 
 <div class="section-heading">
 
@@ -878,11 +781,33 @@ No account required • Free to use
 </div>
 
 
+<div class="tools" id="toolGrid">
 
-<div
-class="tools"
-id="toolGrid">
 
+<!-- NEW EMI TOOL -->
+
+<a
+class="tool"
+href="emi-calculator.html"
+data-name="emi calculator loan finance">
+
+<div class="tool-icon">
+💰
+</div>
+
+<h3>
+EMI Calculator
+</h3>
+
+<p>
+Calculate monthly EMI, total interest and total loan payment.
+</p>
+
+<span class="arrow">
+→
+</span>
+
+</a>
 
 
 <a
@@ -909,7 +834,6 @@ Calculate exact age in years, months and days.
 </a>
 
 
-
 <a
 class="tool"
 href="percentage.html"
@@ -932,7 +856,6 @@ Calculate percentages, increases and decreases.
 </span>
 
 </a>
-
 
 
 <a
@@ -959,7 +882,6 @@ Create QR codes from text and website links.
 </a>
 
 
-
 <a
 class="tool"
 href="unit-converter.html"
@@ -982,7 +904,6 @@ Convert length, weight, temperature, data and time.
 </span>
 
 </a>
-
 
 
 <a
@@ -1009,7 +930,6 @@ Count words, characters and basic text statistics.
 </a>
 
 
-
 <a
 class="tool"
 href="password-generator.html"
@@ -1034,7 +954,6 @@ Generate strong random passwords instantly.
 </a>
 
 
-
 <a
 class="tool"
 href="image-compressor.html"
@@ -1057,7 +976,6 @@ Compress images directly inside your browser.
 </span>
 
 </a>
-
 
 
 <a
@@ -1087,7 +1005,6 @@ Resize images to custom dimensions.
 </div>
 
 
-
 <div
 class="no-results"
 id="noResults">
@@ -1097,31 +1014,22 @@ Try searching for something else.
 
 </div>
 
-
 </section>
 
-
-
-<!-- INFO -->
 
 <section class="info">
 
 <div class="info-card">
 
-
 <h2>
 Why ToolNova?
 </h2>
 
-
 <p>
-
 ToolNova is built to make everyday digital tasks faster and
 simpler. Use useful tools directly from your browser without
 unnecessary steps.
-
 </p>
-
 
 
 <div class="features">
@@ -1144,7 +1052,6 @@ Lightweight tools designed to work quickly in your browser.
 </div>
 
 
-
 <div class="feature">
 
 <div class="feature-icon">
@@ -1160,7 +1067,6 @@ Designed to work smoothly on phones, tablets and computers.
 </p>
 
 </div>
-
 
 
 <div class="feature">
@@ -1182,14 +1088,10 @@ Use ToolNova's available tools without creating an account.
 
 </div>
 
-
 </div>
 
 </section>
 
-
-
-<!-- CTA -->
 
 <section class="cta">
 
@@ -1216,21 +1118,15 @@ Explore Tools →
 </section>
 
 
-
-<!-- FOOTER -->
-
 <footer>
-
 
 <div class="footer-logo">
 Tool<span>Nova</span>
 </div>
 
-
 <div class="footer-text">
 Free tools for everyday digital tasks.
 </div>
-
 
 <div class="footer-links">
 
@@ -1256,17 +1152,12 @@ Terms
 
 </div>
 
-
 <div class="copyright">
 © 2026 ToolNova. All rights reserved.
 </div>
 
-
 </footer>
 
-
-
-<!-- TOP BUTTON -->
 
 <button
 id="topButton"
@@ -1277,12 +1168,7 @@ onclick="window.scrollTo({top:0,behavior:'smooth'})">
 </button>
 
 
-
 <script>
-
-/* =========================
-   SEARCH
-========================= */
 
 const search =
 document.getElementById("search");
@@ -1304,7 +1190,6 @@ search.value
 .trim();
 
 let found = 0;
-
 
 tools.forEach(
 function(tool){
@@ -1341,11 +1226,6 @@ noResults.style.display="none";
 });
 
 
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
 const observer =
 new IntersectionObserver(
 function(entries){
@@ -1376,11 +1256,6 @@ observer.observe(tool);
 });
 
 
-
-/* =========================
-   TOP BUTTON
-========================= */
-
 const topButton =
 document.getElementById("topButton");
 
@@ -1401,11 +1276,6 @@ topButton.style.display="none";
 
 });
 
-
-
-/* =========================
-   CARD TILT EFFECT
-========================= */
 
 tools.forEach(
 function(card){
@@ -1451,6 +1321,7 @@ rotateY
 "deg)";
 
 });
+
 
 card.addEventListener(
 "mouseleave",
