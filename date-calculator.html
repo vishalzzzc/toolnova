@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Date Calculator - Free Online Date Calculator | ToolNova</title>
+
+<meta name="description"
+content="Calculate days between dates and add or subtract days from a date with ToolNova's free Date Calculator.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#070b14;
+color:#fff;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+padding:18px 20px;
+background:rgba(7,11,20,.92);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #263149;
+}
+
+.nav{
+max-width:900px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+}
+
+.logo span{
+color:#718cff;
+}
+
+.nav a{
+color:#9da7bb;
+text-decoration:none;
+}
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+.back{
+color:#8da5ff;
+text-decoration:none;
+}
+
+.card{
+margin-top:25px;
+padding:30px;
+background:linear-gradient(145deg,#151d2d,#0e1420);
+border:1px solid #29354d;
+border-radius:24px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+h1{
+margin-top:0;
+font-size:36px;
+}
+
+.description{
+color:#929db1;
+line-height:1.7;
+}
+
+.input-group{
+margin-top:22px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+color:#cbd3e1;
+font-weight:bold;
+}
+
+input,
+select{
+width:100%;
+padding:16px;
+border-radius:12px;
+border:1px solid #35415a;
+background:#0c1220;
+color:#fff;
+font-size:17px;
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#718cff;
+box-shadow:0 0 20px rgba(113,140,255,.12);
+}
+
+button{
+width:100%;
+margin-top:28px;
+padding:17px;
+border:0;
+border-radius:13px;
+background:linear-gradient(135deg,#718cff,#806cff);
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 12px 30px rgba(113,140,255,.22);
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.result{
+display:none;
+margin-top:30px;
+padding:25px;
+background:#0d1422;
+border:1px solid #29354d;
+border-radius:18px;
+}
+
+.result h2{
+margin-top:0;
+color:#9eafff;
+}
+
+.main-result{
+padding:22px;
+text-align:center;
+background:rgba(113,140,255,.08);
+border-radius:15px;
+}
+
+.main-result small{
+color:#8b97ab;
+}
+
+#days{
+display:block;
+margin-top:8px;
+font-size:36px;
+font-weight:900;
+color:#718cff;
+}
+
+.info-box{
+margin-top:18px;
+padding:18px;
+background:#141c2b;
+border-radius:14px;
+border:1px solid #29354d;
+color:#aeb7c9;
+line-height:1.6;
+}
+
+.content{
+margin-top:35px;
+padding:28px;
+background:#101722;
+border:1px solid #29354d;
+border-radius:20px;
+}
+
+.content h2{
+color:#8da5ff;
+}
+
+.content p,
+.content li{
+color:#aeb7c9;
+line-height:1.7;
+}
+
+footer{
+margin-top:50px;
+padding:35px 20px;
+border-top:1px solid #263149;
+text-align:center;
+color:#687287;
+}
+
+footer a{
+color:#8da5ff;
+text-decoration:none;
+margin:0 8px;
+line-height:2.5;
+}
+
+@media(max-width:600px){
+
+.container{
+padding:15px;
+}
+
+.card,
+.content{
+padding:20px;
+}
+
+h1{
+font-size:30px;
+}
+
+#days{
+font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
+<a href="index.html">
+Home
+</a>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+
+<a href="index.html" class="back">
+← Back to ToolNova
+</a>
+
+
+<div class="card">
+
+
+<h1>
+📅 Date Calculator
+</h1>
+
+
+<p class="description">
+Calculate the exact number of days between two dates.
+</p>
+
+
+<div class="input-group">
+
+<label for="startDate">
+Start Date
+</label>
+
+<input
+type="date"
+id="startDate"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label for="endDate">
+End Date
+</label>
+
+<input
+type="date"
+id="endDate"
+>
+
+</div>
+
+
+<button id="calculate">
+📅 Calculate Difference
+</button>
+
+
+<div class="result" id="result">
+
+<h2>
+Date Difference
+</h2>
+
+
+<div class="main-result">
+
+<small>
+Total Difference
+</small>
+
+<span id="days">
+0 days
+</span>
+
+</div>
+
+
+<div class="info-box" id="details">
+Select two dates to calculate the difference.
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="content">
+
+
+<h2>
+What is a Date Calculator?
+</h2>
+
+<p>
+A date calculator helps determine the amount of time between
+two calendar dates. It can be useful for planning events,
+deadlines, projects, trips and other activities.
+</p>
+
+
+<h2>
+How to Use</h2>
+
+<ol>
+
+<li>Select the start date.</li>
+
+<li>Select the end date.</li>
+
+<li>Tap Calculate Difference.</li>
+
+<li>The number of days between the dates will be displayed.</li>
+
+</ol>
+
+
+<h2>
+Important Note
+</h2>
+
+<p>
+The calculation uses calendar dates and does not include
+time-of-day differences.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
+<a href="contact.html">Contact</a>
+<a href="terms.html">Terms</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
+</footer>
+
+
+<script>
+
+const startDate =
+document.getElementById("startDate");
+
+const endDate =
+document.getElementById("endDate");
+
+const result =
+document.getElementById("result");
+
+const days =
+document.getElementById("days");
+
+const details =
+document.getElementById("details");
+
+
+function calculateDifference(){
+
+if(
+!startDate.value ||
+!endDate.value
+){
+
+alert("Please select both dates.");
+
+return;
+
+}
+
+
+const start =
+new Date(startDate.value + "T00:00:00");
+
+const end =
+new Date(endDate.value + "T00:00:00");
+
+
+const difference =
+Math.abs(end - start);
+
+
+const totalDays =
+Math.round(
+difference /
+(1000 * 60 * 60 * 24)
+);
+
+
+days.textContent =
+totalDays +
+(totalDays === 1 ? " day" : " days");
+
+
+if(end > start){
+
+details.textContent =
+"The end date is " +
+totalDays +
+" days after the start date.";
+
+}else if(end < start){
+
+details.textContent =
+"The end date is " +
+totalDays +
+" days before the start date.";
+
+}else{
+
+details.textContent =
+"Both dates are the same.";
+
+}
+
+
+result.style.display =
+"block";
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+
+document
+.getElementById("calculate")
+.addEventListener(
+"click",
+calculateDifference
+);
+
+
+</script>
+
+
+</body>
+
+</html>
