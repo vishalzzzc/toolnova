@@ -10,7 +10,7 @@ content="width=device-width, initial-scale=1.0">
 <title>ToolNova - Free Online Tools</title>
 
 <meta name="description"
-content="ToolNova provides free online calculators, text tools, image tools and useful generators.">
+content="ToolNova - Free online calculators, text tools, image tools and useful generators.">
 
 <style>
 
@@ -33,7 +33,7 @@ border-bottom: 1px solid #202737;
 position: sticky;
 top: 0;
 z-index: 10;
-background: rgba(11,15,25,0.95);
+background: rgba(11,15,25,0.96);
 }
 
 .nav {
@@ -54,10 +54,10 @@ color: #718cff;
 }
 
 .hero {
-text-align: center;
 max-width: 900px;
 margin: auto;
 padding: 65px 18px 40px;
+text-align: center;
 }
 
 .badge {
@@ -90,7 +90,7 @@ margin: auto;
 
 .search {
 max-width: 650px;
-margin: 30px auto;
+margin: 30px auto 0;
 }
 
 .search input {
@@ -136,6 +136,7 @@ display: block;
 .tool:hover {
 transform: translateY(-4px);
 border-color: #718cff;
+background: #182033;
 }
 
 .icon {
@@ -158,10 +159,10 @@ line-height: 1.5;
 display: inline-block;
 margin-top: 14px;
 color: #8da5ff;
-font-size: 12px;
 background: #1a2540;
 padding: 5px 9px;
 border-radius: 20px;
+font-size: 12px;
 }
 
 .empty {
@@ -228,6 +229,7 @@ font-size: 12px;
 
 <body>
 
+
 <header>
 
 <div class="nav">
@@ -241,6 +243,7 @@ Tool<span>Nova</span>
 </div>
 
 </header>
+
 
 <section class="hero">
 
@@ -258,11 +261,12 @@ Fast, useful and easy-to-use online tools
 for everyday tasks.
 </p>
 
+
 <div class="search">
 
 <input
-id="searchInput"
 type="text"
+id="searchInput"
 placeholder="🔍 Search a tool..."
 oninput="searchTools()"
 >
@@ -271,98 +275,128 @@ oninput="searchTools()"
 
 </section>
 
+
 <main>
 
 <h2 class="section-title">
 🔥 Popular Tools
 </h2>
 
+
 <div class="tools">
 
-<div class="tool"
+
+<div
+class="tool"
 data-name="image compressor">
 
 <div class="icon">🖼️</div>
 
-<h3>Image Compressor</h3>
+<h3>
+Image Compressor
+</h3>
 
 <p>
 Reduce image size while keeping good quality.
 </p>
 
-<span class="tag">Image</span>
+<span class="tag">
+Image
+</span>
 
 </div>
 
 
-<div class="tool"
+<div
+class="tool"
 data-name="image resizer">
 
 <div class="icon">📐</div>
 
-<h3>Image Resizer</h3>
+<h3>
+Image Resizer
+</h3>
 
 <p>
 Resize images quickly for websites and social media.
 </p>
 
-<span class="tag">Image</span>
+<span class="tag">
+Image
+</span>
 
 </div>
 
 
-<div class="tool"
+<div
+class="tool"
 data-name="qr generator">
 
 <div class="icon">🔗</div>
 
-<h3>QR Generator</h3>
+<h3>
+QR Generator
+</h3>
 
 <p>
 Create QR codes for links and text.
 </p>
 
-<span class="tag">Generator</span>
+<span class="tag">
+Generator
+</span>
 
 </div>
 
 
-<!-- AGE CALCULATOR -->
+<!-- AGE -->
 
 <a
 href="age.html"
 class="tool"
 data-name="age calculator">
 
-<div class="icon">🎂</div>
+<div class="icon">
+🎂
+</div>
 
-<h3>Age Calculator</h3>
+<h3>
+Age Calculator
+</h3>
 
 <p>
-Calculate your exact age from date of birth.
+Calculate your exact age from your date of birth.
 </p>
 
-<span class="tag">Calculator</span>
+<span class="tag">
+Calculator
+</span>
 
 </a>
 
 
-<!-- PERCENTAGE CALCULATOR -->
+<!-- PERCENTAGE -->
 
 <a
 href="percentage.html"
 class="tool"
 data-name="percentage calculator">
 
-<div class="icon">🧮</div>
+<div class="icon">
+🧮
+</div>
 
-<h3>Percentage Calculator</h3>
+<h3>
+Percentage Calculator
+</h3>
 
 <p>
 Calculate percentages quickly and easily.
 </p>
 
-<span class="tag">Calculator</span>
+<span class="tag">
+Calculator
+</span>
 
 </a>
 
@@ -374,51 +408,76 @@ href="word-counter.html"
 class="tool"
 data-name="word counter">
 
-<div class="icon">📝</div>
+<div class="icon">
+📝
+</div>
 
-<h3>Word Counter</h3>
+<h3>
+Word Counter
+</h3>
 
 <p>
 Count words, characters, sentences and reading time.
 </p>
 
-<span class="tag">Text</span>
+<span class="tag">
+Text
+</span>
 
 </a>
 
 
-<div class="tool"
-data-name="unit converter">
+<!-- PASSWORD GENERATOR -->
 
-<div class="icon">📏</div>
-
-<h3>Unit Converter</h3>
-
-<p>
-Convert length, weight, temperature and more.
-</p>
-
-<span class="tag">Converter</span>
-
-</div>
-
-
-<div class="tool"
+<a
+href="password-generator.html"
+class="tool"
 data-name="password generator">
 
-<div class="icon">🔐</div>
+<div class="icon">
+🔐
+</div>
 
-<h3>Password Generator</h3>
+<h3>
+Password Generator
+</h3>
 
 <p>
 Generate strong random passwords instantly.
 </p>
 
-<span class="tag">Security</span>
+<span class="tag">
+Security
+</span>
+
+</a>
+
+
+<div
+class="tool"
+data-name="unit converter">
+
+<div class="icon">
+📏
+</div>
+
+<h3>
+Unit Converter
+</h3>
+
+<p>
+Convert length, weight, temperature and more.
+</p>
+
+<span class="tag">
+Converter
+</span>
 
 </div>
 
+
 </div>
+
 
 <div
 class="empty"
@@ -427,6 +486,7 @@ id="empty">
 No tools found 🔎
 
 </div>
+
 
 <div class="info">
 
@@ -445,6 +505,7 @@ directly from your browser.
 
 </main>
 
+
 <footer>
 
 ToolNova — Free Tools. Simple. Fast.
@@ -454,6 +515,7 @@ ToolNova — Free Tools. Simple. Fast.
 © 2026 ToolNova. All rights reserved.
 
 </footer>
+
 
 <script>
 
