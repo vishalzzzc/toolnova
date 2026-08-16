@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EMI Calculator - Free Online Loan EMI Calculator | ToolNova</title>
+
+<meta name="description"
+content="Calculate monthly loan EMI, total interest and total payment with ToolNova's free EMI Calculator.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070b14;
+    color:#fff;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:18px 20px;
+    background:rgba(7,11,20,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #222d42;
+}
+
+.nav{
+    max-width:950px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#718cff;
+}
+
+.home{
+    color:#9aa6bb;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.home:hover{
+    color:white;
+}
+
+.container{
+    max-width:950px;
+    margin:45px auto;
+    padding:20px;
+}
+
+.card{
+    background:linear-gradient(145deg,#151d2c,#0f1623);
+    border:1px solid #293650;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#111b32;
+    border:1px solid #34456c;
+    color:#9eafff;
+    font-size:13px;
+}
+
+h1{
+    margin:18px 0 10px;
+    font-size:38px;
+}
+
+.intro{
+    color:#8f9bb0;
+    line-height:1.7;
+}
+
+.inputs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:30px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:9px;
+    color:#c7cfdd;
+    font-weight:bold;
+}
+
+.field input{
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #35415a;
+    background:#0b111d;
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+
+.field input:focus{
+    border-color:#718cff;
+}
+
+.hint{
+    margin-top:7px;
+    color:#68758b;
+    font-size:12px;
+}
+
+.calculate{
+    width:100%;
+    margin-top:25px;
+    padding:16px;
+    border:0;
+    border-radius:13px;
+    background:#718cff;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.calculate:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(113,140,255,.25);
+}
+
+.results{
+    display:none;
+    margin-top:30px;
+}
+
+.main-result{
+    padding:25px;
+    text-align:center;
+    border-radius:18px;
+    background:#101a2d;
+    border:1px solid #33476f;
+}
+
+.main-result p{
+    margin:0;
+    color:#8f9bb0;
+}
+
+#emiResult{
+    margin-top:8px;
+    font-size:38px;
+    font-weight:900;
+    color:#8da5ff;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:15px;
+}
+
+.result-box{
+    padding:20px;
+    background:#111827;
+    border:1px solid #27344c;
+    border-radius:15px;
+}
+
+.result-box span{
+    display:block;
+    color:#7d899d;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.result-box strong{
+    font-size:20px;
+}
+
+.error{
+    margin-top:15px;
+    color:#ff8585;
+    text-align:center;
+    display:none;
+}
+
+.content{
+    margin-top:35px;
+    padding:28px;
+    background:#101722;
+    border:1px solid #263149;
+    border-radius:20px;
+}
+
+.content h2{
+    color:#8da5ff;
+    margin-top:28px;
+}
+
+.content h2:first-child{
+    margin-top:0;
+}
+
+.content p,
+.content li{
+    color:#aab4c5;
+    line-height:1.8;
+}
+
+.example{
+    padding:18px;
+    background:#0b111d;
+    border-left:3px solid #718cff;
+    border-radius:10px;
+    color:#aeb7c9;
+}
+
+footer{
+    margin-top:60px;
+    padding:35px 20px;
+    text-align:center;
+    border-top:1px solid #222d42;
+    color:#66738a;
+}
+
+footer a{
+    color:#8da5ff;
+    text-decoration:none;
+    margin:0 8px;
+    line-height:2.5;
+}
+
+@media(max-width:700px){
+
+    .container{
+        padding:15px;
+        margin:30px auto;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .inputs{
+        grid-template-columns:1fr;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
+<a
+class="home"
+href="index.html">
+
+← Back to Tools
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<div class="badge">
+💰 Loan Calculator
+</div>
+
+
+<h1>
+EMI Calculator
+</h1>
+
+
+<p class="intro">
+Calculate your monthly loan EMI, total interest and total
+repayment amount instantly.
+</p>
+
+
+
+<div class="inputs">
+
+
+<div class="field">
+
+<label for="loan">
+Loan Amount (₹)
+</label>
+
+<input
+type="number"
+id="loan"
+placeholder="Example: 500000"
+min="1"
+inputmode="decimal"
+>
+
+<div class="hint">
+Enter the amount you want to borrow.
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="rate">
+Interest Rate (%)
+</label>
+
+<input
+type="number"
+id="rate"
+placeholder="Example: 8.5"
+min="0"
+step="0.01"
+inputmode="decimal"
+>
+
+<div class="hint">
+Annual interest rate.
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="years">
+Loan Tenure (Years)
+</label>
+
+<input
+type="number"
+id="years"
+placeholder="Example: 5"
+min="1"
+step="0.1"
+inputmode="decimal"
+>
+
+<div class="hint">
+Loan repayment period.
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<button
+class="calculate"
+id="calculate">
+
+Calculate EMI
+
+</button>
+
+
+<div
+class="error"
+id="error">
+
+Please enter valid loan amount, interest rate and tenure.
+
+</div>
+
+
+
+<div
+class="results"
+id="results">
+
+
+<div class="main-result">
+
+<p>
+Your Monthly EMI
+</p>
+
+<div id="emiResult">
+₹0
+</div>
+
+</div>
+
+
+
+<div class="result-grid">
+
+
+<div class="result-box">
+
+<span>
+Total Principal
+</span>
+
+<strong id="principalResult">
+₹0
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+<span>
+Total Interest
+</span>
+
+<strong id="interestResult">
+₹0
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+<span>
+Total Payment
+</span>
+
+<strong id="paymentResult">
+₹0
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+<span>
+Number of Payments
+</span>
+
+<strong id="monthsResult">
+0 months
+</strong>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="content">
+
+
+<h2>
+What is EMI?
+</h2>
+
+<p>
+EMI stands for Equated Monthly Instalment. It is the fixed
+amount generally paid every month toward a loan. An EMI
+usually consists of both principal and interest.
+</p>
+
+
+<h2>
+How to Use the EMI Calculator
+</h2>
+
+<ol>
+
+<li>
+Enter the loan amount.
+</li>
+
+<li>
+Enter the annual interest rate.
+</li>
+
+<li>
+Enter the loan tenure in years.
+</li>
+
+<li>
+Press Calculate EMI.
+</li>
+
+</ol>
+
+
+<h2>
+Example
+</h2>
+
+<div class="example">
+
+For example, if the loan amount is ₹5,00,000,
+the annual interest rate is 8.5% and the tenure is 5 years,
+the calculator will show the estimated monthly EMI,
+total interest and total repayment.
+
+</div>
+
+
+<h2>
+EMI Formula
+</h2>
+
+<p>
+The standard EMI calculation uses the monthly interest rate,
+loan principal and total number of monthly payments.
+</p>
+
+
+<h2>
+Important Note
+</h2>
+
+<p>
+This calculator provides an estimate for informational
+purposes. Actual EMI, interest and repayment amounts may
+differ depending on the lender, fees, taxes, processing
+charges and loan terms.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="terms.html">
+Terms
+</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+
+const loanInput =
+document.getElementById("loan");
+
+const rateInput =
+document.getElementById("rate");
+
+const yearsInput =
+document.getElementById("years");
+
+const calculateButton =
+document.getElementById("calculate");
+
+const results =
+document.getElementById("results");
+
+const error =
+document.getElementById("error");
+
+
+
+function formatRupees(number){
+
+return new Intl.NumberFormat(
+"en-IN",
+{
+style:"currency",
+currency:"INR",
+maximumFractionDigits:2
+}
+).format(number);
+
+}
+
+
+
+function calculateEMI(){
+
+
+const principal =
+Number(loanInput.value);
+
+const annualRate =
+Number(rateInput.value);
+
+const years =
+Number(yearsInput.value);
+
+
+if(
+!principal ||
+principal <= 0 ||
+isNaN(principal) ||
+isNaN(annualRate) ||
+annualRate < 0 ||
+!years ||
+years <= 0 ||
+isNaN(years)
+){
+
+error.style.display="block";
+
+results.style.display="none";
+
+return;
+
+}
+
+
+error.style.display="none";
+
+
+const months =
+Math.round(years * 12);
+
+
+const monthlyRate =
+annualRate / 12 / 100;
+
+
+let emi;
+
+
+if(monthlyRate === 0){
+
+emi =
+principal / months;
+
+}else{
+
+const power =
+Math.pow(
+1 + monthlyRate,
+months
+);
+
+emi =
+principal *
+monthlyRate *
+power /
+(power - 1);
+
+}
+
+
+const totalPayment =
+emi * months;
+
+
+const totalInterest =
+totalPayment - principal;
+
+
+document.getElementById(
+"emiResult"
+).textContent =
+formatRupees(emi);
+
+
+document.getElementById(
+"principalResult"
+).textContent =
+formatRupees(principal);
+
+
+document.getElementById(
+"interestResult"
+).textContent =
+formatRupees(totalInterest);
+
+
+document.getElementById(
+"paymentResult"
+).textContent =
+formatRupees(totalPayment);
+
+
+document.getElementById(
+"monthsResult"
+).textContent =
+months + " months";
+
+
+results.style.display="block";
+
+
+results.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+
+
+calculateButton.addEventListener(
+"click",
+calculateEMI
+);
+
+
+
+[loanInput,rateInput,yearsInput]
+.forEach(
+function(input){
+
+input.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+
+calculateEMI();
+
+}
+
+});
+
+});
+
+</script>
+
+
+</body>
+
+</html>
