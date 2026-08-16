@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Age Calculator - ToolNova</title>
+<title>Age Calculator - Calculate Exact Age | ToolNova</title>
+
+<meta name="description"
+content="Calculate your exact age in years, months and days with ToolNova's free online age calculator.">
+
+<meta name="robots" content="index, follow">
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -16,6 +23,7 @@ body {
   font-family: Arial, sans-serif;
   background: #0b0f19;
   color: white;
+  line-height: 1.6;
 }
 
 header {
@@ -24,6 +32,8 @@ header {
 }
 
 .logo {
+  max-width: 850px;
+  margin: auto;
   font-size: 26px;
   font-weight: bold;
 }
@@ -33,8 +43,8 @@ header {
 }
 
 .container {
-  max-width: 600px;
-  margin: 50px auto;
+  max-width: 800px;
+  margin: 40px auto;
   padding: 20px;
 }
 
@@ -48,71 +58,186 @@ header {
   background: #141a28;
   border: 1px solid #293348;
   border-radius: 20px;
-  padding: 30px;
+  padding: 28px;
 }
 
 h1 {
   margin-top: 0;
+  font-size: 34px;
 }
 
-p {
+.description {
   color: #9da7bb;
-  line-height: 1.6;
 }
 
-input {
+label {
+  display: block;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  color: #cbd2df;
+}
+
+input[type="date"] {
   width: 100%;
   padding: 15px;
-  margin: 20px 0;
+  border-radius: 12px;
+  border: 1px solid #354057;
   background: #0d1320;
   color: white;
-  border: 1px solid #354057;
-  border-radius: 12px;
   font-size: 16px;
+  outline: none;
 }
 
 button {
   width: 100%;
+  margin-top: 22px;
   padding: 16px;
-  background: #718cff;
-  color: white;
   border: 0;
   border-radius: 12px;
+  background: #718cff;
+  color: white;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-#result {
+button:hover {
+  opacity: .9;
+}
+
+.result {
   display: none;
   margin-top: 25px;
-  padding: 20px;
+}
+
+.main-result {
+  padding: 25px;
+  border-radius: 16px;
   background: #18233a;
-  border-radius: 15px;
   text-align: center;
 }
 
-#answer {
+.big {
   color: #8da5ff;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
-  line-height: 1.7;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.stat {
+  background: #111827;
+  border: 1px solid #293348;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  color: #8da5ff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.stat-label {
+  color: #8f99ad;
+  font-size: 13px;
+}
+
+.content {
+  margin-top: 35px;
+  padding: 25px;
+  background: #111827;
+  border: 1px solid #293348;
+  border-radius: 18px;
+}
+
+.content h2 {
+  color: #8da5ff;
+  margin-top: 25px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #aeb7c9;
+}
+
+.faq {
+  margin-top: 12px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #141a28;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.error {
+  color: #ff8585;
+  margin-top: 15px;
+  text-align: center;
 }
 
 footer {
+  border-top: 1px solid #293348;
   text-align: center;
+  padding: 30px 15px;
   color: #687287;
-  padding: 30px;
 }
+
+footer a {
+  color: #8da5ff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@media (max-width: 500px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .card,
+  .content {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    Tool<span>Nova</span>
-  </div>
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
 </header>
+
 
 <div class="container">
 
@@ -120,81 +245,439 @@ footer {
 ← Back to ToolNova
 </a>
 
+
 <div class="card">
 
 <h1>🎂 Age Calculator</h1>
 
-<p>
-Enter your date of birth and calculate your exact age.
+<p class="description">
+Calculate your exact age in years, months and days from your date of birth.
 </p>
 
-<input type="date" id="dob">
+
+<label for="birthDate">
+Date of Birth
+</label>
+
+<input
+type="date"
+id="birthDate"
+>
+
 
 <button onclick="calculateAge()">
-Calculate Age
+Calculate My Age
 </button>
 
-<div id="result">
 
-<h2>Your Age</h2>
+<div
+class="error"
+id="error">
+</div>
 
-<div id="answer"></div>
+
+<div
+class="result"
+id="result">
+
+<div class="main-result">
+
+<div class="big" id="ageText">
+0 Years, 0 Months, 0 Days
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="totalDays">
+0
+</span>
+
+<span class="stat-label">
+Total Days
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="totalWeeks">
+0
+</span>
+
+<span class="stat-label">
+Total Weeks
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="totalMonths">
+0
+</span>
+
+<span class="stat-label">
+Approx. Months
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="nextBirthday">
+0
+</span>
+
+<span class="stat-label">
+Days Until Birthday
+</span>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+
+<div class="content">
+
+<h2>
+What is an Age Calculator?
+</h2>
+
+<p>
+An age calculator determines a person's age based on their
+date of birth and today's date. ToolNova's calculator shows
+the result in years, months and days.
+</p>
+
+
+<h2>
+How to Calculate Your Age
+</h2>
+
+<ol>
+<li>Select your date of birth.</li>
+<li>Tap "Calculate My Age".</li>
+<li>Your exact age will appear instantly.</li>
+</ol>
+
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<div class="faq">
+
+<strong>
+How accurate is the calculator?
+</strong>
+
+<p>
+The calculator uses the current date on your device and calculates
+the difference between the selected birth date and today's date.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+Can I calculate my age on mobile?
+</strong>
+
+<p>
+Yes. ToolNova's age calculator works on smartphones, tablets and
+desktop browsers.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+Does ToolNova store my date of birth?
+</strong>
+
+<p>
+The calculation is performed directly in your browser. The page
+does not require an account to calculate an age.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 
 <footer>
+
 ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="privacy.html">Privacy</a>
+
+<a href="contact.html">Contact</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
 </footer>
+
 
 <script>
 
 function calculateAge() {
 
-var value = document.getElementById("dob").value;
+  const input =
+    document.getElementById("birthDate");
 
-if (!value) {
-alert("Please select your date of birth.");
-return;
-}
+  const error =
+    document.getElementById("error");
 
-var dob = new Date(value);
-var today = new Date();
+  const result =
+    document.getElementById("result");
 
-var years = today.getFullYear() - dob.getFullYear();
+  const birthValue =
+    input.value;
 
-var months = today.getMonth() - dob.getMonth();
+  error.textContent = "";
 
-var days = today.getDate() - dob.getDate();
+  result.style.display = "none";
 
-if (days < 0) {
-months--;
-days += new Date(
-today.getFullYear(),
-today.getMonth(),
-0
-).getDate();
-}
 
-if (months < 0) {
-years--;
-months += 12;
-}
+  if (!birthValue) {
 
-if (dob > today) {
-alert("Date of birth cannot be in the future.");
-return;
-}
+    error.textContent =
+      "Please select your date of birth.";
 
-document.getElementById("answer").innerHTML =
-years + " Years<br>" +
-months + " Months<br>" +
-days + " Days";
+    return;
+  }
 
-document.getElementById("result").style.display = "block";
+
+  const birth =
+    new Date(birthValue + "T00:00:00");
+
+  const today =
+    new Date();
+
+
+  birth.setHours(0,0,0,0);
+
+  today.setHours(0,0,0,0);
+
+
+  if (birth > today) {
+
+    error.textContent =
+      "Date of birth cannot be in the future.";
+
+    return;
+  }
+
+
+  let years =
+    today.getFullYear() -
+    birth.getFullYear();
+
+  let months =
+    today.getMonth() -
+    birth.getMonth();
+
+  let days =
+    today.getDate() -
+    birth.getDate();
+
+
+  if (days < 0) {
+
+    months--;
+
+    const previousMonth =
+      new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      );
+
+    days +=
+      previousMonth.getDate();
+
+  }
+
+
+  if (months < 0) {
+
+    years--;
+    months += 12;
+
+  }
+
+
+  const difference =
+    today.getTime() -
+    birth.getTime();
+
+
+  const totalDays =
+    Math.floor(
+      difference /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  const totalWeeks =
+    Math.floor(totalDays / 7);
+
+
+  const totalMonths =
+    years * 12 + months;
+
+
+  const thisYearBirthday =
+    new Date(
+      today.getFullYear(),
+      birth.getMonth(),
+      birth.getDate()
+    );
+
+
+  let nextBirthday;
+
+
+  if (thisYearBirthday >= today) {
+
+    nextBirthday =
+      thisYearBirthday;
+
+  } else {
+
+    nextBirthday =
+      new Date(
+        today.getFullYear() + 1,
+        birth.getMonth(),
+        birth.getDate()
+      );
+
+  }
+
+
+  let birthdayDifference =
+    Math.ceil(
+      (
+        nextBirthday.getTime() -
+        today.getTime()
+      ) /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  /*
+    Handle birthdays falling on February 29.
+  */
+
+  if (
+    birth.getMonth() === 1 &&
+    birth.getDate() === 29
+  ) {
+
+    const year =
+      today.getFullYear();
+
+    const isLeap =
+      new Date(year, 1, 29).getDate() === 29;
+
+    if (!isLeap) {
+
+      const birthday =
+        new Date(
+          year,
+          2,
+          1
+        );
+
+      if (birthday < today) {
+
+        birthday.setFullYear(
+          year + 1
+        );
+
+      }
+
+      birthdayDifference =
+        Math.ceil(
+          (
+            birthday.getTime() -
+            today.getTime()
+          ) /
+          (1000 * 60 * 60 * 24)
+        );
+
+    }
+
+  }
+
+
+  document.getElementById("ageText")
+    .textContent =
+    years +
+    " Years, " +
+    months +
+    " Months, " +
+    days +
+    " Days";
+
+
+  document.getElementById("totalDays")
+    .textContent =
+    totalDays.toLocaleString();
+
+
+  document.getElementById("totalWeeks")
+    .textContent =
+    totalWeeks.toLocaleString();
+
+
+  document.getElementById("totalMonths")
+    .textContent =
+    totalMonths.toLocaleString();
+
+
+  document.getElementById("nextBirthday")
+    .textContent =
+    birthdayDifference.toLocaleString();
+
+
+  result.style.display =
+    "block";
 
 }
 
