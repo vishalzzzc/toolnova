@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Unit Converter - ToolNova</title>
+<title>Unit Converter - Length, Weight, Temperature & Data | ToolNova</title>
 
-<meta name="description" content="Free online unit converter for length, weight, temperature and data.">
+<meta name="description"
+content="Free online unit converter for length, weight, temperature and digital data. Convert km to miles, kg to pounds, Celsius to Fahrenheit, GB to MB and more.">
+
+<meta name="robots" content="index, follow">
 
 <style>
 
@@ -19,6 +23,7 @@ body {
   font-family: Arial, sans-serif;
   background: #0b0f19;
   color: white;
+  line-height: 1.6;
 }
 
 header {
@@ -27,7 +32,7 @@ header {
 }
 
 .logo {
-  max-width: 700px;
+  max-width: 850px;
   margin: auto;
   font-size: 26px;
   font-weight: bold;
@@ -38,8 +43,8 @@ header {
 }
 
 .container {
-  max-width: 700px;
-  margin: 45px auto;
+  max-width: 850px;
+  margin: 40px auto;
   padding: 20px;
 }
 
@@ -58,18 +63,24 @@ header {
 
 h1 {
   margin-top: 0;
+  font-size: 34px;
 }
 
 .description {
   color: #9da7bb;
-  line-height: 1.6;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #cbd2df;
 }
 
 select,
 input {
   width: 100%;
   padding: 15px;
-  margin-top: 10px;
   border-radius: 12px;
   border: 1px solid #354057;
   background: #0d1320;
@@ -78,10 +89,9 @@ input {
   outline: none;
 }
 
-label {
-  display: block;
-  margin-top: 20px;
-  color: #cbd2df;
+select:focus,
+input:focus {
+  border-color: #718cff;
 }
 
 .units {
@@ -92,7 +102,7 @@ label {
 
 button {
   width: 100%;
-  margin-top: 25px;
+  margin-top: 24px;
   padding: 16px;
   border: 0;
   border-radius: 12px;
@@ -101,6 +111,10 @@ button {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
 }
 
 .result {
@@ -119,34 +133,93 @@ button {
 .result-value {
   margin-top: 8px;
   color: #8da5ff;
-  font-size: 26px;
+  font-size: 27px;
   font-weight: bold;
   word-break: break-word;
 }
 
-footer {
-  text-align: center;
-  color: #687287;
-  padding: 30px;
-  font-size: 13px;
+.content {
+  margin-top: 35px;
+  padding: 25px;
+  background: #111827;
+  border: 1px solid #293348;
+  border-radius: 18px;
 }
 
-@media (max-width: 500px) {
+.content h2 {
+  color: #8da5ff;
+  margin-top: 25px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #aeb7c9;
+}
+
+.faq {
+  margin-top: 12px;
+  padding: 15px;
+  background: #141a28;
+  border-radius: 12px;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+footer {
+  border-top: 1px solid #293348;
+  text-align: center;
+  padding: 30px 15px;
+  color: #687287;
+}
+
+footer a {
+  color: #8da5ff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@media (max-width: 550px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .card,
+  .content {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
   .units {
     grid-template-columns: 1fr;
   }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    Tool<span>Nova</span>
-  </div>
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
 </header>
+
 
 <div class="container">
 
@@ -154,24 +227,43 @@ footer {
 ← Back to ToolNova
 </a>
 
+
 <div class="card">
 
 <h1>📏 Unit Converter</h1>
 
 <p class="description">
-Convert length, weight, temperature and data units quickly and easily.
+Convert length, weight, temperature and digital data units
+quickly and easily.
 </p>
+
 
 <label for="category">
 Choose Category
 </label>
 
-<select id="category" onchange="loadUnits()">
-  <option value="length">📏 Length</option>
-  <option value="weight">⚖️ Weight</option>
-  <option value="temperature">🌡️ Temperature</option>
-  <option value="data">💾 Data</option>
+<select
+id="category"
+onchange="loadUnits()">
+
+<option value="length">
+📏 Length
+</option>
+
+<option value="weight">
+⚖️ Weight
+</option>
+
+<option value="temperature">
+🌡️ Temperature
+</option>
+
+<option value="data">
+💾 Digital Data
+</option>
+
 </select>
+
 
 <div class="units">
 
@@ -186,6 +278,7 @@ From
 
 </div>
 
+
 <div>
 
 <label for="toUnit">
@@ -199,6 +292,7 @@ To
 
 </div>
 
+
 <label for="value">
 Enter Value
 </label>
@@ -206,35 +300,149 @@ Enter Value
 <input
 type="number"
 id="value"
-placeholder="Enter value"
+placeholder="Example: 100"
+inputmode="decimal"
 oninput="convert()"
 >
+
 
 <button onclick="convert()">
 Convert
 </button>
 
+
 <div class="result">
 
 <div class="result-title">
-Result
+Conversion Result
 </div>
 
 <div
 class="result-value"
 id="result">
+
 0
-</div>
 
 </div>
 
 </div>
 
 </div>
+
+
+<div class="content">
+
+<h2>
+What is a Unit Converter?
+</h2>
+
+<p>
+A unit converter changes a measurement from one unit into another.
+For example, you can convert kilometers to miles, kilograms to
+pounds, Celsius to Fahrenheit or gigabytes to megabytes.
+</p>
+
+
+<h2>
+Available Conversions
+</h2>
+
+<ul>
+
+<li>Length: meter, kilometer, centimeter, millimeter, mile, yard, foot and inch.</li>
+
+<li>Weight: kilogram, gram, milligram, pound and ounce.</li>
+
+<li>Temperature: Celsius, Fahrenheit and Kelvin.</li>
+
+<li>Digital data: byte, KB, MB, GB and TB.</li>
+
+</ul>
+
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<div class="faq">
+
+<strong>
+How many meters are in one kilometer?
+</strong>
+
+<p>
+One kilometer equals 1,000 meters.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+How many pounds are in one kilogram?
+</strong>
+
+<p>
+One kilogram is approximately 2.20462 pounds.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+How do I convert Celsius to Fahrenheit?
+</strong>
+
+<p>
+Multiply the Celsius temperature by 9/5 and add 32.
+The converter performs this calculation automatically.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+How many MB are in one GB?
+</strong>
+
+<p>
+For digital storage calculations, ToolNova uses
+1 GB = 1,024 MB.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 
 <footer>
+
 ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="privacy.html">Privacy</a>
+
+<a href="contact.html">Contact</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
 </footer>
+
 
 <script>
 
@@ -294,12 +502,29 @@ pound: "Pound",
 ounce: "Ounce",
 
 byte: "Byte",
-kilobyte: "Kilobyte",
-megabyte: "Megabyte",
-gigabyte: "Gigabyte",
-terabyte: "Terabyte"
+kilobyte: "KB",
+megabyte: "MB",
+gigabyte: "GB",
+terabyte: "TB"
 
 };
+
+
+function addOption(
+select,
+value,
+text
+) {
+
+const option =
+document.createElement("option");
+
+option.value = value;
+option.textContent = text;
+
+select.appendChild(option);
+
+}
 
 
 function loadUnits() {
@@ -319,17 +544,48 @@ to.innerHTML = "";
 
 if (category === "temperature") {
 
-addOption(from, "celsius", "Celsius");
-addOption(from, "fahrenheit", "Fahrenheit");
-addOption(from, "kelvin", "Kelvin");
+addOption(
+from,
+"celsius",
+"Celsius"
+);
 
-addOption(to, "celsius", "Celsius");
-addOption(to, "fahrenheit", "Fahrenheit");
-addOption(to, "kelvin", "Kelvin");
+addOption(
+from,
+"fahrenheit",
+"Fahrenheit"
+);
+
+addOption(
+from,
+"kelvin",
+"Kelvin"
+);
+
+
+addOption(
+to,
+"celsius",
+"Celsius"
+);
+
+addOption(
+to,
+"fahrenheit",
+"Fahrenheit"
+);
+
+addOption(
+to,
+"kelvin",
+"Kelvin"
+);
 
 } else {
 
-Object.keys(units[category]).forEach(function(unit) {
+Object.keys(
+units[category]
+).forEach(function(unit) {
 
 addOption(
 from,
@@ -348,19 +604,6 @@ names[unit]
 }
 
 convert();
-
-}
-
-
-function addOption(select, value, text) {
-
-const option =
-document.createElement("option");
-
-option.value = value;
-option.textContent = text;
-
-select.appendChild(option);
 
 }
 
@@ -387,7 +630,8 @@ document.getElementById("result");
 
 if (isNaN(value)) {
 
-result.textContent = "0";
+result.textContent =
+"0";
 
 return;
 
@@ -409,107 +653,8 @@ to
 } else {
 
 const baseValue =
-value * units[category][from];
+value *
+units[category][from];
 
 answer =
-baseValue /
-units[category][to];
-
-}
-
-
-if (!isFinite(answer)) {
-
-result.textContent = "Invalid";
-
-return;
-
-}
-
-
-result.textContent =
-formatNumber(answer) +
-" " +
-names[to];
-
-}
-
-
-function convertTemperature(
-value,
-from,
-to
-) {
-
-let celsius;
-
-
-if (from === "celsius") {
-
-celsius = value;
-
-} else if (from === "fahrenheit") {
-
-celsius =
-(value - 32) * 5 / 9;
-
-} else {
-
-celsius =
-value - 273.15;
-
-}
-
-
-if (to === "celsius") {
-
-return celsius;
-
-}
-
-if (to === "fahrenheit") {
-
-return celsius * 9 / 5 + 32;
-
-}
-
-return celsius + 273.15;
-
-}
-
-
-function formatNumber(number) {
-
-if (Math.abs(number) >= 1000000000) {
-
-return number.toExponential(6);
-
-}
-
-return Number(
-number.toFixed(8)
-).toLocaleString();
-
-}
-
-
-document
-.getElementById("fromUnit")
-.addEventListener(
-"change",
-convert
-);
-
-document
-.getElementById("toUnit")
-.addEventListener(
-"change",
-convert
-);
-
-loadUnits();
-
-</script>
-
-</body>
-</html>
+base
