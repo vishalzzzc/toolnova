@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ToolNova — Free Online Tools</title>
 
 <meta name="description"
-      content="ToolNova — free online calculators, converters, image tools, text tools, QR tools and everyday utilities.">
-
-<meta name="robots"
-      content="index, follow">
-
-<link rel="canonical"
-      href="https://vishalzzzc.github.io/toolnova/">
+content="ToolNova provides free online calculators, converters, image tools, text tools and useful everyday utilities.">
 
 <style>
 
-/* =========================================================
+/* ==============================
    RESET
-========================================================= */
+============================== */
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -37,213 +27,128 @@ html{
 
 body{
     min-height:100vh;
-    overflow-x:hidden;
-
     font-family:
     -apple-system,
     BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
     "Segoe UI",
     Arial,
     sans-serif;
 
-    color:#fff;
+    color:#ffffff;
 
     background:
     radial-gradient(
-        circle at 10% 5%,
-        rgba(65,105,255,.22),
-        transparent 30%
+        circle at 10% 0%,
+        #182b70 0,
+        transparent 32%
     ),
     radial-gradient(
         circle at 90% 20%,
-        rgba(155,75,255,.16),
+        #35175d 0,
         transparent 30%
     ),
-    radial-gradient(
-        circle at 50% 100%,
-        rgba(20,140,255,.12),
-        transparent 30%
-    ),
-    #05070d;
+    linear-gradient(
+        135deg,
+        #05070d,
+        #080d1d 50%,
+        #05070d
+    );
+
+    overflow-x:hidden;
 }
 
 
-/* =========================================================
+/* ==============================
    BACKGROUND
-========================================================= */
+============================== */
 
-.background{
+.bg{
     position:fixed;
     inset:0;
-
-    overflow:hidden;
-
+    z-index:-1;
     pointer-events:none;
-
-    z-index:-10;
 }
 
-.glow{
+.ball{
     position:absolute;
-
     border-radius:50%;
-
     filter:blur(70px);
-
-    opacity:.32;
-
-    will-change:transform;
+    opacity:.25;
 }
 
-.glow.one{
-    width:340px;
-    height:340px;
-
-    left:-110px;
-    top:-110px;
-
-    background:#3568ff;
-
-    animation:
-    glowOne 18s ease-in-out infinite alternate;
-}
-
-.glow.two{
+.ball1{
     width:300px;
     height:300px;
+    background:#2463ff;
+    top:-100px;
+    left:-100px;
+}
 
+.ball2{
+    width:280px;
+    height:280px;
+    background:#8b35ff;
     right:-100px;
-    top:28%;
-
-    background:#913fff;
-
-    animation:
-    glowTwo 21s ease-in-out infinite alternate;
+    top:35%;
 }
 
-.glow.three{
-    width:270px;
-    height:270px;
-
-    left:35%;
-    bottom:-130px;
-
+.ball3{
+    width:250px;
+    height:250px;
     background:#008cff;
-
-    animation:
-    glowThree 20s ease-in-out infinite alternate;
-}
-
-@keyframes glowOne{
-
-    from{
-        transform:translate3d(0,0,0);
-    }
-
-    to{
-        transform:translate3d(55px,35px,0);
-    }
-
-}
-
-@keyframes glowTwo{
-
-    from{
-        transform:translate3d(0,0,0);
-    }
-
-    to{
-        transform:translate3d(-50px,-40px,0);
-    }
-
-}
-
-@keyframes glowThree{
-
-    from{
-        transform:translate3d(0,0,0);
-    }
-
-    to{
-        transform:translate3d(45px,-35px,0);
-    }
-
+    left:35%;
+    bottom:-120px;
 }
 
 
-/* =========================================================
+/* ==============================
    HEADER
-========================================================= */
+============================== */
 
 header{
     position:sticky;
-
     top:10px;
+    z-index:100;
 
-    z-index:1000;
+    width:calc(100% - 24px);
+    max-width:1150px;
 
-    width:
-    min(1120px,calc(100% - 24px));
-
-    margin:
-    12px auto 0;
+    margin:10px auto;
 }
 
 .nav{
-    min-height:68px;
-
-    padding:
-    10px 18px;
+    min-height:65px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
-    border-radius:23px;
+    padding:10px 18px;
 
-    background:
-    rgba(18,23,35,.68);
+    border-radius:22px;
 
-    border:
-    1px solid
-    rgba(255,255,255,.14);
+    background:rgba(20,25,40,.82);
+
+    border:1px solid rgba(255,255,255,.14);
 
     box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.12),
+    0 15px 50px rgba(0,0,0,.3),
+    inset 0 1px 0 rgba(255,255,255,.12);
 
-    0 18px 55px
-    rgba(0,0,0,.24);
-
-    backdrop-filter:
-    blur(20px)
-    saturate(150%);
-
-    -webkit-backdrop-filter:
-    blur(20px)
-    saturate(150%);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
 }
 
 .logo{
     display:flex;
-
     align-items:center;
-
     gap:10px;
 
-    color:#fff;
-
+    color:#ffffff;
     text-decoration:none;
 
     font-size:24px;
-
-    font-weight:900;
-
-    letter-spacing:-1px;
+    font-weight:800;
 }
 
 .logo-icon{
@@ -251,108 +156,76 @@ header{
     height:38px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     border-radius:12px;
 
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
-        #6688ff,
-        #9b65ff
+        #4285ff,
+        #8b5cff
     );
 
     box-shadow:
-    0 8px 25px
-    rgba(90,115,255,.32);
+    0 8px 25px rgba(70,100,255,.35);
 }
 
-.logo-blue{
-    color:#8da6ff;
+.logo span{
+    color:#78a0ff;
 }
 
 .nav-links{
     display:flex;
-
-    align-items:center;
-
-    gap:4px;
+    gap:5px;
 }
 
 .nav-links a{
     color:#aeb8ca;
-
     text-decoration:none;
 
+    padding:10px 13px;
+    border-radius:11px;
+
     font-size:14px;
-
-    padding:
-    10px 13px;
-
-    border-radius:12px;
-
-    transition:.25s;
 }
 
 .nav-links a:hover{
-    color:#fff;
-
-    background:
-    rgba(255,255,255,.08);
+    color:white;
+    background:rgba(255,255,255,.08);
 }
 
 
-/* =========================================================
+/* ==============================
    HERO
-========================================================= */
+============================== */
 
 .hero{
-    width:
-    min(1000px,calc(100% - 24px));
+    width:calc(100% - 24px);
+    max-width:1000px;
 
     margin:auto;
 
-    padding:
-    105px 10px 70px;
-
     text-align:center;
+
+    padding:
+    90px 10px 65px;
 }
 
-.hero-badge{
-    display:inline-flex;
+.badge{
+    display:inline-block;
 
-    align-items:center;
-
-    gap:8px;
-
-    padding:
-    9px 15px;
+    padding:9px 15px;
 
     border-radius:999px;
 
-    color:#b9c7ff;
+    color:#b9c9ff;
 
-    background:
-    rgba(105,135,255,.10);
+    background:rgba(100,130,255,.10);
 
-    border:
-    1px solid
-    rgba(135,160,255,.24);
-}
+    border:1px solid rgba(130,160,255,.25);
 
-.live-dot{
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:#79a1ff;
-
-    box-shadow:
-    0 0 14px
-    #79a1ff;
+    font-size:13px;
 }
 
 .hero h1{
@@ -361,133 +234,71 @@ header{
     font-size:
     clamp(44px,8vw,82px);
 
-    line-height:.99;
+    line-height:1;
 
-    letter-spacing:-5px;
-
-    font-weight:900;
+    letter-spacing:-4px;
 }
 
-.hero-title{
-    display:block;
-}
-
-.hero-gradient{
+.gradient{
     display:block;
 
     margin-top:8px;
 
-    background:
-    linear-gradient(
-        90deg,
-        #7192ff,
-        #a46cff,
-        #65d5ff,
-        #7192ff
-    );
-
-    background-size:
-    300% auto;
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-    gradientFlow 8s linear infinite;
+    color:#7195ff;
 }
 
-@keyframes gradientFlow{
-
-    to{
-        background-position:
-        300% center;
-    }
-
-}
-
-.hero-description{
+.hero p{
     max-width:720px;
 
     margin:
-    28px auto 0;
+    25px auto 0;
 
-    color:#929daf;
+    color:#909bad;
 
     font-size:17px;
 
-    line-height:1.8;
+    line-height:1.7;
 }
 
 
-/* =========================================================
+/* ==============================
    SEARCH
-========================================================= */
+============================== */
 
-.search-box{
+.search{
+    position:relative;
+
     max-width:680px;
 
-    margin:
-    35px auto 0;
-
-    position:relative;
+    margin:35px auto 0;
 }
 
-.search-box input{
+.search input{
     width:100%;
-
-    height:62px;
+    height:60px;
 
     padding:
-    0 24px 0 58px;
+    0 22px 0 55px;
 
     outline:none;
 
-    border:
-    1px solid
-    rgba(255,255,255,.15);
+    border-radius:20px;
 
-    border-radius:21px;
+    border:1px solid rgba(255,255,255,.15);
 
-    color:#fff;
+    background:rgba(255,255,255,.08);
 
-    background:
-    rgba(255,255,255,.075);
+    color:white;
 
     font-size:16px;
 
     box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.10),
-
-    0 15px 45px
-    rgba(0,0,0,.18);
-
-    backdrop-filter:
-    blur(18px);
-
-    -webkit-backdrop-filter:
-    blur(18px);
-
-    transition:.25s;
+    inset 0 1px 0 rgba(255,255,255,.1),
+    0 15px 45px rgba(0,0,0,.2);
 }
 
-.search-box input::placeholder{
-    color:#69768a;
-}
-
-.search-box input:focus{
-    border-color:
-    rgba(125,155,255,.65);
-
-    box-shadow:
-    0 0 0 4px
-    rgba(110,140,255,.08),
-
-    0 20px 55px
-    rgba(0,0,0,.24);
+.search input::placeholder{
+    color:#758196;
 }
 
 .search-icon{
@@ -496,397 +307,247 @@ header{
     left:20px;
     top:17px;
 
-    color:#94aaff;
+    font-size:22px;
 
-    font-size:24px;
-
-    pointer-events:none;
+    color:#8eabff;
 }
 
 
-/* =========================================================
-   TOOLS SECTION
-========================================================= */
+/* ==============================
+   TOOLS
+============================== */
 
-.tools-section{
-    width:
-    min(1120px,calc(100% - 24px));
+.tools{
+    width:calc(100% - 24px);
+    max-width:1150px;
 
     margin:auto;
 
-    padding:
-    10px 0 80px;
+    padding-bottom:70px;
 }
 
-.section-top{
+.tools-header{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
-.section-title{
+.tools-title{
     display:flex;
-
     align-items:center;
-
     gap:12px;
 }
 
-.section-icon{
-    width:46px;
-    height:46px;
+.tools-icon{
+    width:45px;
+    height:45px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    border-radius:14px;
+    border-radius:13px;
 
-    background:
-    rgba(110,140,255,.12);
+    background:rgba(100,135,255,.13);
 
-    border:
-    1px solid
-    rgba(140,165,255,.18);
+    border:1px solid rgba(130,160,255,.2);
 
-    font-size:22px;
+    font-size:21px;
 }
 
-.section-title h2{
+.tools-title h2{
     font-size:28px;
-
-    letter-spacing:-1px;
 }
 
-.section-title p{
+.tools-title p{
     margin-top:4px;
 
-    color:#6d788b;
+    color:#718096;
 
     font-size:13px;
 }
 
-.tool-count{
-    color:#8d99ad;
+.count{
+    color:#8c99ad;
 
     font-size:12px;
 
-    padding:
-    8px 13px;
+    padding:8px 13px;
 
     border-radius:999px;
 
-    background:
-    rgba(255,255,255,.05);
+    background:rgba(255,255,255,.05);
 
-    border:
-    1px solid
-    rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
 }
 
 
-/* =========================================================
-   TOOL GRID
-========================================================= */
+/* ==============================
+   GRID
+============================== */
 
-.tools-grid{
+.tool-grid{
     display:grid;
 
     grid-template-columns:
-    repeat(3,minmax(0,1fr));
+    repeat(3, 1fr);
 
     gap:17px;
 
     width:100%;
-
-    height:auto;
-
-    max-height:none;
-
-    overflow:visible;
 }
 
 
-/* =========================================================
-   TOOL CARD
-========================================================= */
+/* ==============================
+   CARD
+============================== */
 
-.tool{
-    position:relative;
-
+.tool-card{
     display:block;
 
-    width:100%;
-
-    min-width:0;
+    position:relative;
 
     min-height:205px;
 
     padding:24px;
 
-    overflow:hidden;
-
-    color:#fff;
-
     text-decoration:none;
 
-    border-radius:25px;
+    color:white;
+
+    border-radius:24px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(255,255,255,.105),
-        rgba(255,255,255,.035)
+        rgba(255,255,255,.11),
+        rgba(255,255,255,.045)
     );
 
-    border:
-    1px solid
-    rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.13);
 
     box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.11),
-
-    0 18px 50px
-    rgba(0,0,0,.18);
-
-    backdrop-filter:
-    blur(18px)
-    saturate(140%);
-
-    -webkit-backdrop-filter:
-    blur(18px)
-    saturate(140%);
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 15px 45px rgba(0,0,0,.20);
 
     transition:
-    transform .28s ease,
-    border-color .28s ease,
-    box-shadow .28s ease;
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease;
 }
 
-.tool::before{
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    right:-90px;
-    top:-90px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(120,150,255,.28),
-        transparent 70%
-    );
-
-    transition:.35s;
-
-    pointer-events:none;
-}
-
-.tool:hover{
-    transform:
-    translateY(-7px);
+.tool-card:hover{
+    transform:translateY(-7px);
 
     border-color:
-    rgba(145,170,255,.40);
+    rgba(130,160,255,.45);
 
-    box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.15),
-
-    0 28px 65px
-    rgba(0,0,0,.28);
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.06)
+    );
 }
-
-.tool:hover::before{
-    transform:scale(1.45);
-}
-
-
-/* =========================================================
-   TOOL ICON
-========================================================= */
 
 .tool-icon{
-    position:relative;
-
-    width:56px;
-    height:56px;
+    width:55px;
+    height:55px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     border-radius:16px;
 
     background:
-    rgba(110,140,255,.12);
+    rgba(90,125,255,.14);
 
     border:
-    1px solid
-    rgba(145,170,255,.18);
+    1px solid rgba(130,160,255,.2);
 
     font-size:27px;
-
-    transition:.25s;
 }
 
-.tool:hover .tool-icon{
-    transform:
-    scale(1.06)
-    rotate(-3deg);
-}
-
-.tool h3{
-    position:relative;
-
+.tool-card h3{
     margin-top:18px;
 
     font-size:18px;
-
-    letter-spacing:-.2px;
 }
 
-.tool p{
-    position:relative;
+.tool-card p{
+    margin-top:8px;
 
     max-width:300px;
 
-    margin-top:8px;
-
-    color:#7e8a9f;
+    color:#7f8ca1;
 
     font-size:13px;
 
     line-height:1.6;
 }
 
-.tool-arrow{
+.arrow{
     position:absolute;
 
-    right:19px;
-    bottom:19px;
+    right:18px;
+    bottom:18px;
 
-    width:35px;
-    height:35px;
+    width:34px;
+    height:34px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     border-radius:50%;
 
-    color:#9db1ff;
+    background:rgba(255,255,255,.06);
 
-    background:
-    rgba(255,255,255,.055);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-
-    transition:.25s;
-}
-
-.tool:hover .tool-arrow{
-    transform:
-    translateX(5px);
-
-    background:
-    rgba(110,140,255,.14);
+    color:#91aaff;
 }
 
 
-/* =========================================================
-   NO RESULTS
-========================================================= */
-
-.no-results{
-    display:none;
-
-    padding:
-    40px 20px;
-
-    text-align:center;
-
-    color:#7e8a9f;
-
-    border-radius:22px;
-
-    background:
-    rgba(255,255,255,.04);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-}
-
-
-/* =========================================================
-   WHY TOOLNOVA
-========================================================= */
+/* ==============================
+   WHY
+============================== */
 
 .why{
-    width:
-    min(1120px,calc(100% - 24px));
+    width:calc(100% - 24px);
+    max-width:1150px;
 
     margin:
-    20px auto 80px;
+    10px auto 80px;
 }
 
-.why-card{
-    padding:42px;
+.why-box{
+    padding:40px;
 
-    border-radius:29px;
+    border-radius:28px;
 
-    background:
-    rgba(255,255,255,.055);
+    background:rgba(255,255,255,.055);
 
-    border:
-    1px solid
-    rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.1);
 
     box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.09),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 20px 60px rgba(0,0,0,.2);
 
-    0 25px 70px
-    rgba(0,0,0,.20);
-
-    backdrop-filter:
-    blur(18px);
-
-    -webkit-backdrop-filter:
-    blur(18px);
+    backdrop-filter:blur(15px);
 }
 
-.why-card h2{
-    font-size:32px;
-
-    letter-spacing:-1px;
+.why-box h2{
+    font-size:30px;
 }
 
-.why-card>p{
-    max-width:730px;
+.why-box>p{
+    max-width:750px;
 
     margin-top:12px;
 
     color:#8490a4;
-
-    font-size:15px;
 
     line-height:1.8;
 }
@@ -895,63 +556,35 @@ header{
     display:grid;
 
     grid-template-columns:
-    repeat(3,minmax(0,1fr));
+    repeat(3,1fr);
 
     gap:15px;
 
-    margin-top:30px;
+    margin-top:28px;
 }
 
 .feature{
-    padding:22px;
+    padding:20px;
 
-    border-radius:20px;
+    border-radius:19px;
 
-    background:
-    rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
-    transition:.25s;
-}
-
-.feature:hover{
-    transform:
-    translateY(-4px);
-
-    background:
-    rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.07);
 }
 
 .feature-icon{
-    width:44px;
-    height:44px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:13px;
-
-    background:
-    rgba(110,140,255,.10);
-
-    font-size:20px;
+    font-size:23px;
 }
 
 .feature h3{
-    margin-top:14px;
-
-    font-size:16px;
+    margin-top:12px;
 }
 
 .feature p{
     margin-top:7px;
 
-    color:#737f94;
+    color:#748096;
 
     font-size:13px;
 
@@ -959,75 +592,55 @@ header{
 }
 
 
-/* =========================================================
+/* ==============================
    CTA
-========================================================= */
+============================== */
 
 .cta{
-    width:
-    min(900px,calc(100% - 24px));
+    width:calc(100% - 24px);
+    max-width:850px;
 
     margin:
-    0 auto 90px;
+    0 auto 80px;
 
     text-align:center;
 }
 
 .cta-box{
-    padding:
-    48px 20px;
+    padding:45px 20px;
 
-    border-radius:29px;
+    border-radius:28px;
 
     background:
     linear-gradient(
         135deg,
-        rgba(110,140,255,.13),
-        rgba(150,90,255,.07),
-        rgba(255,255,255,.035)
+        rgba(75,110,255,.14),
+        rgba(145,80,255,.08)
     );
 
-    border:
-    1px solid
-    rgba(140,165,255,.19);
-
-    box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.10),
-
-    0 25px 65px
-    rgba(0,0,0,.20);
-
-    backdrop-filter:
-    blur(18px);
-
-    -webkit-backdrop-filter:
-    blur(18px);
+    border:1px solid rgba(130,160,255,.2);
 }
 
 .cta-box h2{
-    font-size:30px;
+    font-size:29px;
 }
 
 .cta-box p{
-    margin-top:10px;
+    margin-top:9px;
 
-    color:#7f8ca0;
+    color:#7f8ba0;
 }
 
-.cta-button{
-    display:inline-flex;
+.button{
+    display:inline-block;
 
-    align-items:center;
+    margin-top:23px;
 
-    margin-top:24px;
+    padding:14px 22px;
 
-    padding:
-    14px 21px;
+    border-radius:14px;
 
-    border-radius:15px;
-
-    color:#fff;
+    color:white;
 
     text-decoration:none;
 
@@ -1036,26 +649,15 @@ header{
     background:
     linear-gradient(
         135deg,
-        #6d8fff,
-        #8b68ff
+        #6088ff,
+        #8a63ff
     );
-
-    box-shadow:
-    0 12px 32px
-    rgba(80,105,255,.28);
-
-    transition:.25s;
-}
-
-.cta-button:hover{
-    transform:
-    translateY(-4px);
 }
 
 
-/* =========================================================
+/* ==============================
    FOOTER
-========================================================= */
+============================== */
 
 footer{
     padding:
@@ -1063,125 +665,73 @@ footer{
 
     text-align:center;
 
-    background:
-    rgba(2,4,9,.80);
+    background:#03050a;
 
     border-top:
-    1px solid
-    rgba(255,255,255,.07);
+    1px solid rgba(255,255,255,.07);
 }
 
 .footer-logo{
     font-size:24px;
-
-    font-weight:900;
+    font-weight:800;
 }
 
 .footer-logo span{
-    color:#8da6ff;
+    color:#789bff;
 }
 
 .footer-description{
     margin-top:8px;
 
-    color:#687488;
+    color:#687487;
 
     font-size:13px;
 }
 
 .footer-links{
-    margin:
-    22px 0;
+    margin:20px 0;
 }
 
 .footer-links a{
-    color:#7f8b9e;
+    color:#7e8a9d;
 
     text-decoration:none;
 
-    margin:
-    0 8px;
+    margin:0 8px;
 
     font-size:13px;
-
-    transition:.2s;
-}
-
-.footer-links a:hover{
-    color:#a1b3ff;
 }
 
 .copyright{
-    color:#4f5b6e;
+    color:#4d596c;
 
     font-size:11px;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* ==============================
+   MOBILE
+============================== */
 
 @media(max-width:1000px){
 
-    .tools-grid{
+    .tool-grid{
         grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(2, 1fr);
     }
 
     .features{
         grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(2, 1fr);
     }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:650px){
 
-    /* PERFORMANCE */
-
-    .glow{
-        animation:none !important;
-
-        filter:blur(40px) !important;
-
-        opacity:.22;
-    }
-
-    .nav,
-    .search-box input,
-    .tool,
-    .why-card,
-    .cta-box{
-        backdrop-filter:
-        blur(10px) !important;
-
-        -webkit-backdrop-filter:
-        blur(10px) !important;
-    }
-
-    .hero-gradient{
-        animation:none !important;
-
-        background-position:
-        center;
-    }
-
-
-    /* HEADER */
-
     header{
-        width:
-        calc(100% - 14px);
-
-        top:7px;
-
-        margin-top:7px;
+        width:calc(100% - 14px);
     }
 
     .nav{
@@ -1190,7 +740,7 @@ footer{
         padding:
         8px 10px;
 
-        border-radius:20px;
+        border-radius:19px;
     }
 
     .logo{
@@ -1200,302 +750,839 @@ footer{
     .logo-icon{
         width:34px;
         height:34px;
-
-        border-radius:10px;
-    }
-
-    .nav-links{
-        gap:1px;
     }
 
     .nav-links a{
-        padding:
-        8px 6px;
+        padding:8px 6px;
 
         font-size:11px;
     }
 
-
-    /* HERO */
-
     .hero{
         padding:
-        78px 8px 55px;
+        75px 8px 55px;
     }
 
     .hero h1{
         font-size:
-        clamp(41px,13vw,62px);
+        clamp(40px,13vw,60px);
 
         letter-spacing:-3px;
     }
 
-    .hero-description{
+    .hero p{
         font-size:15px;
-
-        line-height:1.7;
     }
 
-    .search-box input{
-        height:58px;
+    .search input{
+        height:57px;
 
         border-radius:18px;
     }
 
-
-    /* TOOLS */
-
-    .tools-section{
-        width:
-        calc(100% - 18px);
+    .tools{
+        width:calc(100% - 18px);
     }
 
-    .section-title h2{
+    .tools-header{
+        margin-bottom:20px;
+    }
+
+    .tools-title h2{
         font-size:25px;
     }
 
-    .tool-count{
+    .count{
         display:none;
     }
 
-    .tools-grid{
-        grid-template-columns:
-        1fr !important;
+    .tool-grid{
+        grid-template-columns:1fr;
 
-        gap:14px !important;
-
-        width:100% !important;
-
-        max-height:none !important;
-
-        overflow:visible !important;
+        gap:14px;
     }
 
-    .tool{
-        display:block !important;
-
-        visibility:visible !important;
-
-        opacity:1 !important;
-
+    .tool-card{
         min-height:185px;
 
         padding:22px;
 
-        border-radius:22px;
-
-        box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.09),
-
-        0 10px 30px
-        rgba(0,0,0,.15);
+        border-radius:21px;
     }
-
-    .tool:hover{
-        transform:none;
-    }
-
-    .tool:hover .tool-icon{
-        transform:none;
-    }
-
-    .tool:hover .tool-arrow{
-        transform:none;
-    }
-
-
-    /* WHY */
 
     .why{
-        width:
-        calc(100% - 18px);
-
-        margin:
-        30px auto 60px;
+        width:calc(100% - 18px);
     }
 
-    .why-card{
-        padding:
-        28px 20px;
+    .why-box{
+        padding:28px 20px;
 
         border-radius:24px;
     }
 
-    .why-card h2{
+    .why-box h2{
         font-size:27px;
     }
 
     .features{
-        grid-template-columns:
-        1fr;
+        grid-template-columns:1fr;
     }
-
-
-    /* CTA */
 
     .cta{
-        width:
-        calc(100% - 18px);
-
-        margin-bottom:60px;
-    }
-
-    .cta-box{
-        padding:
-        40px 18px;
-
-        border-radius:24px;
-    }
-
-    .cta-box h2{
-        font-size:27px;
+        width:calc(100% - 18px);
     }
 
 }
 
 
-/* =========================================================
-   VERY SMALL DEVICES
-========================================================= */
+/* ==============================
+   VERY SMALL PHONE
+============================== */
 
-@media(max-width:400px){
+@media(max-width:380px){
 
-    .glow{
-        display:none;
+    .nav-links a{
+        padding:7px 4px;
+
+        font-size:10px;
     }
 
-    .nav,
-    .search-box input,
-    .tool,
-    .why-card,
-    .cta-box{
-        backdrop-filter:none !important;
-
-        -webkit-backdrop-filter:none !important;
+    .logo{
+        font-size:18px;
     }
 
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation:none !important;
-
-        transition:none !important;
+    .hero h1{
+        font-size:38px;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =======================================================
-     BACKGROUND
-======================================================= -->
+<!-- BACKGROUND -->
 
-<div class="background">
-
-    <div class="glow one"></div>
-
-    <div class="glow two"></div>
-
-    <div class="glow three"></div>
-
+<div class="bg">
+    <div class="ball ball1"></div>
+    <div class="ball ball2"></div>
+    <div class="ball ball3"></div>
 </div>
 
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
+<!-- HEADER -->
 
 <header>
 
 <nav class="nav">
 
-    <a
-    href="index.html"
-    class="logo">
+<a href="index.html" class="logo">
 
-        <span class="logo-icon">
-            ✦
-        </span>
+    <div class="logo-icon">
+        ✦
+    </div>
 
-        Tool<span class="logo-blue">
-            Nova
-        </span>
+    Tool<span>Nova</span>
 
+</a>
+
+
+<div class="nav-links">
+
+    <a href="#tools">
+        Tools
     </a>
 
+    <a href="about.html">
+        About
+    </a>
 
-    <div class="nav-links">
+    <a href="contact.html">
+        Contact
+    </a>
 
-        <a href="#tools">
-            Tools
-        </a>
-
-        <a href="about.html">
-            About
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </div>
+</div>
 
 </nav>
 
 </header>
 
 
-<!-- =======================================================
-     MAIN
-======================================================= -->
-
-<main>
-
-
-<!-- =======================================================
-     HERO
-======================================================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-
-<div class="hero-badge">
-
-    <span class="live-dot"></span>
-
-    Free • Fast • No Account Required
-
+<div class="badge">
+    ✦ Free • Fast • No Account Required
 </div>
 
 
 <h1>
 
-    <span class="hero-title">
-        Everything You Need.
-    </span>
+    Everything You Need.
 
-    <span class="hero-gradient">
+    <span class="gradient">
         All in One Place.
     </span>
 
 </h1>
 
 
-<p class="hero-description
+<p>
+
+    Powerful and easy-to-use online tools
+    for calculations, images, text,
+    conversions and everyday digital tasks.
+
+</p>
+
+
+<div class="search">
+
+    <span class="search-icon">
+        🔍
+    </span>
+
+    <input
+        id="search"
+        type="search"
+        placeholder="Search for a tool..."
+        autocomplete="off"
+    >
+
+</div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<section class="tools" id="tools">
+
+
+<div class="tools-header">
+
+<div class="tools-title">
+
+    <div class="tools-icon">
+        ✨
+    </div>
+
+    <div>
+
+        <h2>
+            All Tools
+        </h2>
+
+        <p>
+            Useful tools, instantly available
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="count">
+    14 Tools
+</div>
+
+</div>
+
+
+<!-- ==============================
+     TOOL GRID
+============================== -->
+
+<div class="tool-grid" id="toolGrid">
+
+
+<!-- 1 -->
+
+<a
+href="emi-calculator.html"
+class="tool-card"
+data-search="emi calculator loan finance">
+
+<div class="tool-icon">
+    💰
+</div>
+
+<h3>
+    EMI Calculator
+</h3>
+
+<p>
+    Calculate monthly EMI, interest
+    and total loan payment.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 2 -->
+
+<a
+href="gst-calculator.html"
+class="tool-card"
+data-search="gst calculator tax cgst sgst">
+
+<div class="tool-icon">
+    🧾
+</div>
+
+<h3>
+    GST Calculator
+</h3>
+
+<p>
+    Calculate GST amount and
+    final price quickly.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 3 -->
+
+<a
+href="discount-calculator.html"
+class="tool-card"
+data-search="discount calculator sale shopping savings">
+
+<div class="tool-icon">
+    🏷️
+</div>
+
+<h3>
+    Discount Calculator
+</h3>
+
+<p>
+    Calculate discount, final price
+    and total savings.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 4 -->
+
+<a
+href="bmi-calculator.html"
+class="tool-card"
+data-search="bmi calculator body mass weight height">
+
+<div class="tool-icon">
+    ⚖️
+</div>
+
+<h3>
+    BMI Calculator
+</h3>
+
+<p>
+    Calculate BMI using height
+    and weight.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 5 -->
+
+<a
+href="date-calculator.html"
+class="tool-card"
+data-search="date calculator days date difference">
+
+<div class="tool-icon">
+    📅
+</div>
+
+<h3>
+    Date Calculator
+</h3>
+
+<p>
+    Calculate days between
+    two dates.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 6 -->
+
+<a
+href="compound-interest-calculator.html"
+class="tool-card"
+data-search="compound interest calculator investment finance">
+
+<div class="tool-icon">
+    📈
+</div>
+
+<h3>
+    Compound Interest
+</h3>
+
+<p>
+    Calculate investment value
+    and interest earned.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 7 -->
+
+<a
+href="age.html"
+class="tool-card"
+data-search="age calculator birthday date years months days">
+
+<div class="tool-icon">
+    🎂
+</div>
+
+<h3>
+    Age Calculator
+</h3>
+
+<p>
+    Calculate exact age in years,
+    months and days.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 8 -->
+
+<a
+href="percentage.html"
+class="tool-card"
+data-search="percentage calculator percent increase decrease">
+
+<div class="tool-icon">
+    🧮
+</div>
+
+<h3>
+    Percentage Calculator
+</h3>
+
+<p>
+    Calculate percentages,
+    increases and decreases.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 9 -->
+
+<a
+href="qr-generator.html"
+class="tool-card"
+data-search="qr generator qr code link text">
+
+<div class="tool-icon">
+    🔗
+</div>
+
+<h3>
+    QR Code Generator
+</h3>
+
+<p>
+    Generate QR codes from
+    links and text.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 10 -->
+
+<a
+href="unit-converter.html"
+class="tool-card"
+data-search="unit converter length weight temperature data">
+
+<div class="tool-icon">
+    📏
+</div>
+
+<h3>
+    Unit Converter
+</h3>
+
+<p>
+    Convert length, weight,
+    temperature and more.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 11 -->
+
+<a
+href="word-counter.html"
+class="tool-card"
+data-search="word counter words characters text">
+
+<div class="tool-icon">
+    📝
+</div>
+
+<h3>
+    Word Counter
+</h3>
+
+<p>
+    Count words, characters
+    and text statistics.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 12 -->
+
+<a
+href="password-generator.html"
+class="tool-card"
+data-search="password generator secure random password security">
+
+<div class="tool-icon">
+    🔐
+</div>
+
+<h3>
+    Password Generator
+</h3>
+
+<p>
+    Generate strong random
+    passwords instantly.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 13 -->
+
+<a
+href="image-compressor.html"
+class="tool-card"
+data-search="image compressor compress photo image size">
+
+<div class="tool-icon">
+    🖼️
+</div>
+
+<h3>
+    Image Compressor
+</h3>
+
+<p>
+    Reduce image file size
+    directly in your browser.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+<!-- 14 -->
+
+<a
+href="image-resizer.html"
+class="tool-card"
+data-search="image resizer resize photo dimensions">
+
+<div class="tool-icon">
+    📐
+</div>
+
+<h3>
+    Image Resizer
+</h3>
+
+<p>
+    Resize images to custom
+    dimensions.
+</p>
+
+<span class="arrow">
+    →
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<!-- WHY -->
+
+<section class="why">
+
+<div class="why-box">
+
+<h2>
+    Built for everyday tasks.
+</h2>
+
+<p>
+    ToolNova brings useful digital utilities
+    into one clean and simple website.
+    Many tools work directly in the browser.
+</p>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        ⚡
+    </div>
+
+    <h3>
+        Fast
+    </h3>
+
+    <p>
+        Lightweight tools designed
+        for quick results.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🔒
+    </div>
+
+    <h3>
+        Privacy Friendly
+    </h3>
+
+    <p>
+        Many tools process data
+        directly in your browser.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        📱
+    </div>
+
+    <h3>
+        Works Everywhere
+    </h3>
+
+    <p>
+        Designed for phones,
+        tablets and computers.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="cta-box">
+
+<h2>
+    One website. Many useful tools.
+</h2>
+
+<p>
+    Pick a tool and get your result in seconds.
+</p>
+
+<a
+href="#tools"
+class="button">
+
+    Explore All Tools →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-logo">
+    Tool<span>Nova</span>
+</div>
+
+<div class="footer-description">
+    Free online tools for everyday digital tasks.
+</div>
+
+<div class="footer-links">
+
+<a href="index.html">
+    Home
+</a>
+
+<a href="about.html">
+    About
+</a>
+
+<a href="privacy.html">
+    Privacy
+</a>
+
+<a href="contact.html">
+    Contact
+</a>
+
+</div>
+
+<div class="copyright">
+    © 2026 ToolNova. All rights reserved.
+</div>
+
+</footer>
+
+
+<!-- SEARCH SCRIPT -->
+
+<script>
+
+const searchInput =
+document.getElementById("search");
+
+const cards =
+document.querySelectorAll(".tool-card");
+
+
+searchInput.addEventListener(
+"input",
+function(){
+
+    const query =
+    this.value
+    .toLowerCase()
+    .trim();
+
+
+    cards.forEach(
+    function(card){
+
+        const text =
+        (
+            card.innerText +
+            " " +
+            card.dataset.search
+        ).toLowerCase();
+
+
+        if(
+            query === "" ||
+            text.includes(query)
+        ){
+
+            card.style.display =
+            "block";
+
+        }else{
+
+            card.style.display =
+            "none";
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
