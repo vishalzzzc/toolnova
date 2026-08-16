@@ -1,93 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Age Calculator - ToolNova</title>
+<title>Age Calculator - ToolNova</title>
 
-  <meta name="description"
-    content="Free online age calculator. Calculate exact age in years, months and days.">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f19;
+  color: white;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
-    }
+header {
+  padding: 20px;
+  border-bottom: 1px solid #293348;
+}
 
-    header {
-      padding: 20px;
-      border-bottom: 1px solid #252e40;
-    }
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+}
 
-    .logo {
-      max-width: 700px;
-      margin: auto;
-      font-size: 26px;
-      font-weight: bold;
-    }
+.logo span {
+  color: #718cff;
+}
 
-    .logo span {
-      color: #718cff;
-    }
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+}
 
-    .container {
-      max-width: 650px;
-      margin: 45px auto;
-      padding: 20px;
-    }
+.back {
+  color: #8da5ff;
+  text-decoration: none;
+}
 
-    .back {
-      display: inline-block;
-      margin-bottom: 20px;
-      color: #8da5ff;
-      text-decoration: none;
-    }
+.card {
+  margin-top: 25px;
+  background: #141a28;
+  border: 1px solid #293348;
+  border-radius: 20px;
+  padding: 30px;
+}
 
-    .card {
-      background: #141a28;
-      border: 1px solid #293348;
-      border-radius: 20px;
-      padding: 28px;
-    }
+h1 {
+  margin-top: 0;
+}
 
-    h1 {
-      margin-top: 0;
-      font-size: 32px;
-    }
+p {
+  color: #9da7bb;
+  line-height: 1.6;
+}
 
-    .description {
-      color: #9da7bb;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  background: #0d1320;
+  color: white;
+  border: 1px solid #354057;
+  border-radius: 12px;
+  font-size: 16px;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
+button {
+  width: 100%;
+  padding: 16px;
+  background: #718cff;
+  color: white;
+  border: 0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
 
-    input {
-      width: 100%;
-      padding: 15px;
-      border-radius: 12px;
-      border: 1px solid #354057;
-      background: #0d1320;
-      color: white;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
+#result {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  background: #18233a;
+  border-radius: 15px;
+  text-align: center;
+}
 
-    button {
-      width: 100%;
-      padding: 16px;
-      border: 0;
-      border-radius: 12px;
-      background: #718cff;
-      color:
+#answer {
+  color: #8da5ff;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  color: #687287;
+  padding: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    Tool<span>Nova</span>
+  </div>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">
+← Back to ToolNova
+</a>
+
+<div class="card">
+
+<h1>🎂 Age Calculator</h1>
+
+<p>
+Enter your date of birth and calculate your exact age.
+</p>
+
+<input type="date" id="dob">
+
+<button onclick="calculateAge()">
+Calculate Age
+</button>
+
+<div id="result">
+
+<h2>Your Age</h2>
+
+<div id="answer"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+ToolNova — Free Tools. Simple. Fast.
+</footer>
+
+<script>
+
+function calculateAge() {
+
+var value = document.getElementById("dob").value;
+
+if (!value) {
+alert("Please select your date of birth.");
+return;
+}
+
+var dob = new Date(value);
+var today = new Date();
+
+var years = today.getFullYear() - dob.getFullYear();
+
+var months = today.getMonth() - dob.getMonth();
+
+var days = today.getDate() - dob.getDate();
+
+if (days < 0) {
+months--;
+days += new Date(
+today.getFullYear(),
+today.getMonth(),
+0
+).getDate();
+}
+
+if (months < 0) {
+years--;
+months += 12;
+}
+
+if (dob > today) {
+alert("Date of birth cannot be in the future.");
+return;
+}
+
+document.getElementById("answer").innerHTML =
+years + " Years<br>" +
+months + " Months<br>" +
+days + " Days";
+
+document.getElementById("result").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
