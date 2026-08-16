@@ -6,7 +6,7 @@
 
   <title>ToolNova - Free Online Tools</title>
 
-  <meta name="description" content="ToolNova provides free, fast and simple online tools including calculators, converters, image tools and generators.">
+  <meta name="description" content="ToolNova provides free, fast and simple online tools including age calculator, percentage calculator, image tools and more.">
 
   <style>
     * {
@@ -18,7 +18,7 @@
     body {
       font-family: Arial, sans-serif;
       background: #0b0f19;
-      color: #ffffff;
+      color: white;
       min-height: 100vh;
     }
 
@@ -43,7 +43,6 @@
     .logo {
       font-size: 26px;
       font-weight: 800;
-      letter-spacing: -1px;
     }
 
     .logo span {
@@ -134,7 +133,6 @@
       border-radius: 18px;
       transition: 0.25s;
       cursor: pointer;
-
       text-decoration: none;
       color: inherit;
       display: block;
@@ -220,7 +218,6 @@
     }
 
     @media (max-width: 500px) {
-
       .hero {
         padding-top: 45px;
       }
@@ -302,187 +299,152 @@
     🔥 Popular Tools
   </h2>
 
-  <div class="tools" id="tools">
-
-    <!-- Image Compressor -->
+  <div class="tools">
 
     <div class="tool" data-name="image compressor">
-
-      <div class="icon">
-        🖼️
-      </div>
-
-      <h3>
-        Image Compressor
-      </h3>
-
-      <p>
-        Reduce image size while keeping good quality.
-      </p>
-
-      <span class="tag">
-        Image
-      </span>
-
+      <div class="icon">🖼️</div>
+      <h3>Image Compressor</h3>
+      <p>Reduce image size while keeping good quality.</p>
+      <span class="tag">Image</span>
     </div>
-
-
-    <!-- Image Resizer -->
 
     <div class="tool" data-name="image resizer">
-
-      <div class="icon">
-        📐
-      </div>
-
-      <h3>
-        Image Resizer
-      </h3>
-
-      <p>
-        Resize images quickly for social media and websites.
-      </p>
-
-      <span class="tag">
-        Image
-      </span>
-
+      <div class="icon">📐</div>
+      <h3>Image Resizer</h3>
+      <p>Resize images quickly for social media and websites.</p>
+      <span class="tag">Image</span>
     </div>
 
-
-    <!-- QR Generator -->
-
-    <div class="tool" data-name="qr code generator">
-
-      <div class="icon">
-        🔗
-      </div>
-
-      <h3>
-        QR Generator
-      </h3>
-
-      <p>
-        Create QR codes for links, text and more.
-      </p>
-
-      <span class="tag">
-        Generator
-      </span>
-
+    <div class="tool" data-name="qr generator">
+      <div class="icon">🔗</div>
+      <h3>QR Generator</h3>
+      <p>Create QR codes for links, text and more.</p>
+      <span class="tag">Generator</span>
     </div>
 
-
-    <!-- Age Calculator -->
-
-    <div class="tool" data-name="age calculator">
-
-      <div class="icon">
-        🎂
-      </div>
-
-      <h3>
-        Age Calculator
-      </h3>
-
-      <p>
-        Calculate exact age from date of birth.
-      </p>
-
-      <span class="tag">
-        Calculator
-      </span>
-
-    </div>
-
-
-    <!-- Percentage Calculator -->
+    <!-- AGE CALCULATOR CONNECTED -->
 
     <a
-      href="percentage.html"
+      href="./age.html"
+      class="tool"
+      data-name="age calculator"
+    >
+      <div class="icon">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>Calculate your exact age from your date of birth.</p>
+      <span class="tag">Calculator</span>
+    </a>
+
+    <!-- PERCENTAGE CALCULATOR CONNECTED -->
+
+    <a
+      href="./percentage.html"
       class="tool"
       data-name="percentage calculator"
     >
-
-      <div class="icon">
-        🧮
-      </div>
-
-      <h3>
-        Percentage Calculator
-      </h3>
-
-      <p>
-        Calculate percentages quickly and easily.
-      </p>
-
-      <span class="tag">
-        Calculator
-      </span>
-
+      <div class="icon">🧮</div>
+      <h3>Percentage Calculator</h3>
+      <p>Calculate percentages quickly and easily.</p>
+      <span class="tag">Calculator</span>
     </a>
 
-
-    <!-- Unit Converter -->
-
     <div class="tool" data-name="unit converter">
-
-      <div class="icon">
-        📏
-      </div>
-
-      <h3>
-        Unit Converter
-      </h3>
-
-      <p>
-        Convert length, weight, temperature and more.
-      </p>
-
-      <span class="tag">
-        Converter
-      </span>
-
+      <div class="icon">📏</div>
+      <h3>Unit Converter</h3>
+      <p>Convert length, weight, temperature and more.</p>
+      <span class="tag">Converter</span>
     </div>
 
-
-    <!-- Word Counter -->
-
-    <div
-      class="tool"
-      data-name="word counter character counter"
-    >
-
-      <div class="icon">
-        📝
-      </div>
-
-      <h3>
-        Word Counter
-      </h3>
-
-      <p>
-        Count words, characters and sentences instantly.
-      </p>
-
-      <span class="tag">
-        Text
-      </span>
-
+    <div class="tool" data-name="word counter">
+      <div class="icon">📝</div>
+      <h3>Word Counter</h3>
+      <p>Count words, characters and sentences instantly.</p>
+      <span class="tag">Text</span>
     </div>
-
-
-    <!-- Password Generator -->
 
     <div class="tool" data-name="password generator">
+      <div class="icon">🔐</div>
+      <h3>Password Generator</h3>
+      <p>Generate strong random passwords instantly.</p>
+      <span class="tag">Security</span>
+    </div>
 
-      <div class="icon">
-        🔐
-      </div>
+  </div>
 
-      <h3>
-        Password Generator
-      </h3>
+  <div class="empty" id="empty">
+    No tools found 🔎
+  </div>
 
-      <p>
-        Generate strong
+  <div class="info">
+
+    <h2>🛠️ Free Online Tools</h2>
+
+    <p>
+      ToolNova is a collection of simple, fast and useful
+      online tools. Calculate age and percentages, work with
+      images, generate passwords, convert units and more.
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+
+  <strong>ToolNova</strong>
+  — Free Tools. Simple. Fast.
+
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Privacy</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <br>
+
+  © 2026 ToolNova. All rights reserved.
+
+</footer>
+
+<script>
+
+function searchTools() {
+
+  const input =
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const tools =
+    document.querySelectorAll(".tool");
+
+  let found = 0;
+
+  tools.forEach(function(tool) {
+
+    const name =
+      tool.dataset.name.toLowerCase();
+
+    if (name.includes(input)) {
+
+      tool.style.display = "block";
+      found++;
+
+    } else {
+
+      tool.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("empty").style.display =
+    found === 0 ? "block" : "none";
+}
+
+</script>
+
+</body>
+</html>
