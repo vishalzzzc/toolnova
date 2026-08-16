@@ -1,292 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Image Resizer - Resize Images Online | ToolNova</title>
 
-<meta name="description"
-content="Resize JPG, PNG and WebP images online for free. Set custom width and height and download the resized image with ToolNova.">
-
-<meta name="robots" content="index, follow">
+<meta name="description" content="Free online image resizer. Resize JPG, PNG and WebP images to custom dimensions directly in your browser.">
 
 <style>
-
-* {
-  box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0f19;
-  color: white;
-  line-height: 1.6;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b0f19;
+    color:white;
+    line-height:1.6;
 }
 
-header {
-  padding: 20px;
-  border-bottom: 1px solid #293348;
+header{
+    padding:20px;
+    border-bottom:1px solid #293348;
 }
 
-.logo {
-  max-width: 850px;
-  margin: auto;
-  font-size: 26px;
-  font-weight: bold;
+.logo{
+    max-width:850px;
+    margin:auto;
+    font-size:28px;
+    font-weight:bold;
 }
 
-.logo span {
-  color: #718cff;
+.logo span{
+    color:#718cff;
 }
 
-.container {
-  max-width: 850px;
-  margin: 40px auto;
-  padding: 20px;
+.container{
+    max-width:850px;
+    margin:40px auto;
+    padding:20px;
 }
 
-.back {
-  color: #8da5ff;
-  text-decoration: none;
+.back{
+    color:#8da5ff;
+    text-decoration:none;
+    font-size:18px;
 }
 
-.card {
-  margin-top: 25px;
-  background: #141a28;
-  border: 1px solid #293348;
-  border-radius: 20px;
-  padding: 28px;
+.card{
+    margin-top:25px;
+    background:#141a28;
+    border:1px solid #293348;
+    border-radius:20px;
+    padding:28px;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 34px;
+h1{
+    margin-top:0;
+    font-size:34px;
 }
 
-.description {
-  color: #9da7bb;
+.description{
+    color:#9da7bb;
+    font-size:18px;
 }
 
-.upload {
-  margin-top: 25px;
-  padding: 30px 20px;
-  border: 2px dashed #354057;
-  border-radius: 16px;
-  text-align: center;
+.upload{
+    margin-top:25px;
+    padding:30px 20px;
+    border:2px dashed #354057;
+    border-radius:16px;
+    text-align:center;
 }
 
-.upload input {
-  display: none;
+.upload input{
+    display:block;
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    background:#0d1320;
+    color:white;
+    border:1px solid #354057;
+    border-radius:10px;
 }
 
-.upload label {
-  display: inline-block;
-  padding: 15px 22px;
-  border-radius: 12px;
-  background: #718cff;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.file-name{
+    margin-top:15px;
+    color:#9da7bb;
+    word-break:break-word;
 }
 
-.file-name {
-  margin-top: 15px;
-  color: #9da7bb;
-  word-break: break-word;
+.controls{
+    display:none;
+    margin-top:25px;
 }
 
-.controls {
-  display: none;
-  margin-top: 25px;
+.dimensions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
-.dimensions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+.field label{
+    display:block;
+    margin-bottom:8px;
+    color:#cbd2df;
 }
 
-label.field-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #cbd2df;
+.field input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #354057;
+    background:#0d1320;
+    color:white;
+    font-size:16px;
 }
 
-input[type="number"] {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #354057;
-  background: #0d1320;
-  color: white;
-  font-size: 16px;
-  outline: none;
+.option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+    color:#cbd2df;
 }
 
-input[type="number"]:focus {
-  border-color: #718cff;
+.option input{
+    width:18px;
+    height:18px;
 }
 
-.option {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  color: #cbd2df;
+button{
+    width:100%;
+    margin-top:20px;
+    padding:16px;
+    border:0;
+    border-radius:12px;
+    background:#718cff;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.option input {
-  width: 18px;
-  height: 18px;
+button:disabled{
+    opacity:.5;
 }
 
-button {
-  width: 100%;
-  margin-top: 20px;
-  padding: 16px;
-  border: 0;
-  border-radius: 12px;
-  background: #718cff;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
+button.secondary{
+    background:#27334d;
 }
 
-button.secondary {
-  background: #27334d;
+.result{
+    display:none;
+    margin-top:25px;
+    padding:20px;
+    background:#111827;
+    border:1px solid #293348;
+    border-radius:16px;
 }
 
-button:hover {
-  opacity: .9;
+.preview{
+    display:none;
+    max-width:100%;
+    max-height:350px;
+    margin:20px auto;
+    border-radius:12px;
+    background:white;
 }
 
-.result {
-  display: none;
-  margin-top: 25px;
-  padding: 20px;
-  background: #111827;
-  border: 1px solid #293348;
-  border-radius: 16px;
+.result p{
+    color:#aeb7c9;
 }
 
-.preview {
-  max-width: 100%;
-  max-height: 350px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-  background: white;
+.download{
+    display:none;
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    background:#718cff;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    border-radius:12px;
+    font-weight:bold;
 }
 
-.result p {
-  color: #aeb7c9;
+.error{
+    margin-top:15px;
+    color:#ff8585;
+    text-align:center;
 }
 
-.download {
-  display: none;
-  width: 100%;
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 12px;
-  background: #718cff;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  font-weight: bold;
+.success{
+    margin-top:15px;
+    color:#7ee2a8;
+    text-align:center;
 }
 
-.error {
-  color: #ff8585;
-  text-align: center;
-  margin-top: 15px;
+.content{
+    margin-top:35px;
+    padding:25px;
+    background:#111827;
+    border:1px solid #293348;
+    border-radius:18px;
 }
 
-.content {
-  margin-top: 35px;
-  padding: 25px;
-  background: #111827;
-  border: 1px solid #293348;
-  border-radius: 18px;
-}
-
-.content h2 {
-  color: #8da5ff;
-  margin-top: 25px;
-}
-
-.content h2:first-child {
-  margin-top: 0;
+.content h2{
+    color:#8da5ff;
 }
 
 .content p,
-.content li {
-  color: #aeb7c9;
+.content li{
+    color:#aeb7c9;
 }
 
-.faq {
-  margin-top: 12px;
-  padding: 15px;
-  background: #141a28;
-  border-radius: 12px;
+footer{
+    margin-top:40px;
+    padding:30px;
+    border-top:1px solid #293348;
+    text-align:center;
+    color:#687287;
 }
 
-.faq strong {
-  display: block;
-  margin-bottom: 5px;
+footer a{
+    color:#8da5ff;
+    text-decoration:none;
+    margin:0 8px;
 }
 
-footer {
-  border-top: 1px solid #293348;
-  text-align: center;
-  padding: 30px 15px;
-  color: #687287;
+@media(max-width:550px){
+
+    .container{
+        padding:15px;
+    }
+
+    .card,
+    .content{
+        padding:20px;
+    }
+
+    h1{
+        font-size:29px;
+    }
+
+    .dimensions{
+        grid-template-columns:1fr;
+    }
 }
-
-footer a {
-  color: #8da5ff;
-  text-decoration: none;
-  margin: 0 8px;
-}
-
-@media (max-width: 550px) {
-
-  .container {
-    padding: 15px;
-  }
-
-  .card,
-  .content {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 29px;
-  }
-
-  .dimensions {
-    grid-template-columns: 1fr;
-  }
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">
 Tool<span>Nova</span>
 </div>
-
 </header>
-
 
 <div class="container">
 
@@ -294,48 +267,42 @@ Tool<span>Nova</span>
 ← Back to ToolNova
 </a>
 
-
 <div class="card">
 
 <h1>📐 Image Resizer</h1>
 
 <p class="description">
-Resize JPG, PNG and WebP images to custom dimensions directly
-in your browser.
+Resize JPG, PNG and WebP images to any custom size directly in your browser.
 </p>
-
 
 <div class="upload">
 
-<label for="imageInput">
-📁 Choose Image
-</label>
+<strong>Select an image</strong>
 
 <input
 type="file"
 id="imageInput"
-accept="image/jpeg,image/png,image/webp">
+accept="image/jpeg,image/png,image/webp"
+onchange="selectImage(this)"
+>
 
-<div
-class="file-name"
-id="fileName">
+<div id="fileName" class="file-name">
 No image selected
 </div>
 
 </div>
 
+<div id="error" class="error"></div>
 
-<div
-class="controls"
-id="controls">
+<div id="success" class="success"></div>
+
+<div id="controls" class="controls">
 
 <div class="dimensions">
 
-<div>
+<div class="field">
 
-<label
-class="field-label"
-for="width">
+<label for="width">
 Width (px)
 </label>
 
@@ -343,16 +310,14 @@ Width (px)
 type="number"
 id="width"
 min="1"
-placeholder="Width">
+placeholder="Width"
+>
 
 </div>
 
+<div class="field">
 
-<div>
-
-<label
-class="field-label"
-for="height">
+<label for="height">
 Height (px)
 </label>
 
@@ -360,11 +325,422 @@ Height (px)
 type="number"
 id="height"
 min="1"
-placeholder="Height">
+placeholder="Height"
+>
 
 </div>
 
 </div>
 
+<label class="option">
 
-<label
+<input
+type="checkbox"
+id="lockRatio"
+checked
+>
+
+Keep aspect ratio
+
+</label>
+
+<button
+id="resizeButton"
+onclick="resizeImage()">
+
+📐 Resize Image
+
+</button>
+
+<button
+class="secondary"
+onclick="resetTool()">
+
+Reset
+
+</button>
+
+</div>
+
+<div id="result" class="result">
+
+<h3>Resized Image</h3>
+
+<img
+id="preview"
+class="preview"
+alt="Resized image"
+>
+
+<p id="originalSize"></p>
+
+<p id="newSize"></p>
+
+<a
+id="download"
+class="download"
+download="toolnova-resized-image.png">
+
+⬇️ Download Resized Image
+
+</a>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<h2>What is an Image Resizer?</h2>
+
+<p>
+An image resizer changes the width and height of an image.
+It is useful for websites, social media, documents and other
+digital platforms.
+</p>
+
+<h2>How to Resize an Image</h2>
+
+<ol>
+<li>Select an image.</li>
+<li>Enter the desired width and height.</li>
+<li>Keep aspect ratio enabled to maintain proportions.</li>
+<li>Tap Resize Image.</li>
+<li>Download the resized image.</li>
+</ol>
+
+<h2>Privacy</h2>
+
+<p>
+The image is processed directly in your browser. The selected
+image is not intentionally uploaded to a ToolNova server.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
+<a href="contact.html">Contact</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
+</footer>
+
+<script>
+
+let selectedFile = null;
+let originalWidth = 0;
+let originalHeight = 0;
+let imageData = null;
+let resizedURL = null;
+
+
+/* SELECT IMAGE */
+
+function selectImage(input){
+
+    const error = document.getElementById("error");
+    const success = document.getElementById("success");
+    const controls = document.getElementById("controls");
+    const result = document.getElementById("result");
+    const fileName = document.getElementById("fileName");
+
+    error.textContent = "";
+    success.textContent = "";
+    result.style.display = "none";
+
+    if(!input.files || input.files.length === 0){
+
+        selectedFile = null;
+        controls.style.display = "none";
+        fileName.textContent = "No image selected";
+
+        return;
+    }
+
+    selectedFile = input.files[0];
+
+    fileName.innerHTML =
+        "✅ " + selectedFile.name;
+
+    const reader = new FileReader();
+
+    reader.onload = function(event){
+
+        imageData = event.target.result;
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            originalWidth = img.naturalWidth;
+            originalHeight = img.naturalHeight;
+
+            document.getElementById("width").value =
+                originalWidth;
+
+            document.getElementById("height").value =
+                originalHeight;
+
+            controls.style.display = "block";
+
+            success.textContent =
+                "Image selected successfully! " +
+                originalWidth + " × " +
+                originalHeight + " px";
+
+        };
+
+        img.onerror = function(){
+
+            error.textContent =
+                "This image could not be opened.";
+
+            controls.style.display = "none";
+
+        };
+
+        img.src = imageData;
+
+    };
+
+    reader.onerror = function(){
+
+        error.textContent =
+            "Could not read the selected image.";
+
+    };
+
+    reader.readAsDataURL(selectedFile);
+}
+
+
+/* WIDTH */
+
+document.getElementById("width")
+.addEventListener("input", function(){
+
+    const lock =
+        document.getElementById("lockRatio").checked;
+
+    if(!lock || originalWidth === 0){
+        return;
+    }
+
+    const width =
+        Number(this.value);
+
+    if(width > 0){
+
+        document.getElementById("height").value =
+            Math.round(
+                width *
+                originalHeight /
+                originalWidth
+            );
+
+    }
+
+});
+
+
+/* HEIGHT */
+
+document.getElementById("height")
+.addEventListener("input", function(){
+
+    const lock =
+        document.getElementById("lockRatio").checked;
+
+    if(!lock || originalHeight === 0){
+        return;
+    }
+
+    const height =
+        Number(this.value);
+
+    if(height > 0){
+
+        document.getElementById("width").value =
+            Math.round(
+                height *
+                originalWidth /
+                originalHeight
+            );
+
+    }
+
+});
+
+
+/* RESIZE */
+
+function resizeImage(){
+
+    const error =
+        document.getElementById("error");
+
+    const success =
+        document.getElementById("success");
+
+    const button =
+        document.getElementById("resizeButton");
+
+    if(!selectedFile || !imageData){
+
+        error.textContent =
+            "Please select an image first.";
+
+        return;
+    }
+
+    const width =
+        Number(
+            document.getElementById("width").value
+        );
+
+    const height =
+        Number(
+            document.getElementById("height").value
+        );
+
+    if(!width || !height || width < 1 || height < 1){
+
+        error.textContent =
+            "Please enter a valid width and height.";
+
+        return;
+    }
+
+    if(width > 8000 || height > 8000){
+
+        error.textContent =
+            "Maximum size is 8000 × 8000 pixels.";
+
+        return;
+    }
+
+    error.textContent = "";
+    success.textContent = "";
+
+    button.disabled = true;
+    button.textContent = "⏳ Resizing...";
+
+    const img = new Image();
+
+    img.onload = function(){
+
+        const canvas =
+            document.createElement("canvas");
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx =
+            canvas.getContext("2d");
+
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+        );
+
+        canvas.toBlob(function(blob){
+
+            button.disabled = false;
+            button.textContent = "📐 Resize Image";
+
+            if(!blob){
+
+                error.textContent =
+                    "Resizing failed. Please try again.";
+
+                return;
+            }
+
+            if(resizedURL){
+
+                URL.revokeObjectURL(resizedURL);
+
+            }
+
+            resizedURL =
+                URL.createObjectURL(blob);
+
+            const preview =
+                document.getElementById("preview");
+
+            preview.src = resizedURL;
+            preview.style.display = "block";
+
+            document.getElementById("originalSize")
+            .textContent =
+                "Original: " +
+                originalWidth +
+                " × " +
+                originalHeight +
+                " px";
+
+            document.getElementById("newSize")
+            .textContent =
+                "New size: " +
+                width +
+                " × " +
+                height +
+                " px";
+
+            const download =
+                document.getElementById("download");
+
+            download.href = resizedURL;
+            download.style.display = "block";
+
+            document.getElementById("result")
+            .style.display = "block";
+
+            success.textContent =
+                "✅ Image resized successfully!";
+
+        }, "image/png");
+
+    };
+
+    img.onerror = function(){
+
+        button.disabled = false;
+        button.textContent = "📐 Resize Image";
+
+        error.textContent =
+            "Could not process this image.";
+
+    };
+
+    img.src = imageData;
+}
+
+
+/* RESET */
+
+function resetTool(){
+
+    selectedFile = null;
+    originalWidth = 0;
+    originalHeight = 0;
+    imageData = null;
+
+    if(resizedURL){
+
+        URL.revokeObject
