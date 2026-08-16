@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ToolNova - Free Online Tools</title>
+  <title>Age Calculator - ToolNova</title>
 
-  <meta name="description" content="ToolNova provides free, fast and simple online tools including calculators, converters, image tools and generators.">
+  <meta
+    name="description"
+    content="Calculate your exact age in years, months and days with ToolNova's free online age calculator."
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -25,19 +29,11 @@
     header {
       padding: 20px 18px;
       border-bottom: 1px solid #202737;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11, 15, 25, 0.95);
-      backdrop-filter: blur(12px);
     }
 
     .nav {
-      max-width: 1100px;
+      max-width: 900px;
       margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     .logo {
@@ -49,338 +45,323 @@
       color: #718cff;
     }
 
-    .rocket {
-      font-size: 22px;
+    .container {
+      max-width: 650px;
+      margin: 45px auto;
+      padding: 20px;
     }
 
-    .hero {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-      padding: 65px 18px 40px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #17213a;
+    .back {
       color: #8da5ff;
-      padding: 8px 15px;
-      border-radius: 50px;
-      font-size: 13px;
-      margin-bottom: 20px;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #141a28;
+      border: 1px solid #293348;
+      border-radius: 20px;
+      padding: 28px;
     }
 
     h1 {
-      font-size: clamp(38px, 8vw, 68px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
+      font-size: 32px;
+      margin-bottom: 10px;
     }
 
-    h1 span {
-      color: #718cff;
-    }
-
-    .hero p {
-      color: #9da7bb;
-      font-size: 17px;
+    .description {
+      color: #929caf;
       line-height: 1.6;
-      max-width: 650px;
-      margin: auto;
+      margin-bottom: 28px;
     }
 
-    .search {
-      max-width: 650px;
-      margin: 32px auto 0;
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #cbd2df;
     }
 
-    .search input {
+    input {
       width: 100%;
-      padding: 17px 20px;
-      border-radius: 14px;
-      border: 1px solid #30394d;
-      background: #141a28;
+      padding: 15px;
+      margin-bottom: 22px;
+      border-radius: 12px;
+      border: 1px solid #354057;
+      background: #0d1320;
       color: white;
       font-size: 16px;
       outline: none;
     }
 
-    .search input:focus {
+    input:focus {
       border-color: #718cff;
     }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 25px 18px 70px;
-    }
-
-    .section-title {
-      font-size: 25px;
-      margin: 25px 0 18px;
-    }
-
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-
-    .tool {
-      background: #141a28;
-      border: 1px solid #252e40;
-      padding: 22px;
-      border-radius: 18px;
-      transition: 0.25s;
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #718cff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
     }
 
-    .tool:hover {
-      transform: translateY(-4px);
-      border-color: #718cff;
-      background: #182033;
+    button:hover {
+      opacity: 0.9;
     }
 
-    .icon {
-      font-size: 30px;
-      margin-bottom: 14px;
-    }
-
-    .tool h3 {
-      margin-bottom: 8px;
-      font-size: 18px;
-    }
-
-    .tool p {
-      color: #8f99ad;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-top: 14px;
-      color: #8da5ff;
-      font-size: 12px;
-      background: #1a2540;
-      padding: 5px 9px;
-      border-radius: 20px;
-    }
-
-    .empty {
+    .result {
       display: none;
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: 15px;
+      background: #18233a;
       text-align: center;
-      color: #8993a8;
-      padding: 30px;
     }
 
-    .info {
-      margin-top: 45px;
-      padding: 25px;
-      background: #111827;
-      border: 1px solid #252e40;
-      border-radius: 18px;
+    .result h2 {
+      margin-bottom: 15px;
     }
 
-    .info h2 {
-      margin-bottom: 12px;
-    }
-
-    .info p {
-      color: #929caf;
+    .age {
+      color: #8da5ff;
+      font-size: 25px;
+      font-weight: bold;
       line-height: 1.7;
+    }
+
+    .details {
+      margin-top: 18px;
+      color: #aeb7c9;
       font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .error {
+      display: none;
+      color: #ff8d8d;
+      margin-top: 15px;
+      text-align: center;
     }
 
     footer {
-      border-top: 1px solid #202737;
-      padding: 30px 18px;
       text-align: center;
-      color: #788297;
+      color: #687287;
+      padding: 30px;
       font-size: 13px;
     }
 
-    footer strong {
-      color: white;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: #8da5ff;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    @media (max-width: 500px) {
-      .hero {
-        padding-top: 45px;
-      }
-
-      h1 {
-        letter-spacing: -1px;
-      }
-
-      .tools {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .tool {
-        padding: 17px;
-      }
-
-      .icon {
-        font-size: 26px;
-      }
-
-      .tool h3 {
-        font-size: 16px;
-      }
-
-      .tool p {
-        font-size: 12px;
-      }
-
-      .tag {
-        font-size: 11px;
-      }
-    }
   </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="nav">
+
     <div class="logo">
       Tool<span>Nova</span>
     </div>
 
-    <div class="rocket">🚀</div>
   </div>
+
 </header>
 
-<section class="hero">
 
-  <div class="badge">
-    ✨ Free Online Tools
-  </div>
+<div class="container">
 
-  <h1>
-    Powerful Tools.<br>
-    <span>Simple & Free.</span>
-  </h1>
+  <a
+    class="back"
+    href="index.html"
+  >
+    ← Back to all tools
+  </a>
 
-  <p>
-    Fast, useful and easy-to-use online tools for everyday tasks.
-    No complicated software required.
-  </p>
 
-  <div class="search">
+  <div class="card">
+
+    <h1>
+      🎂 Age Calculator
+    </h1>
+
+    <p class="description">
+      Enter your date of birth to calculate your exact age
+      in years, months and days.
+    </p>
+
+
+    <label for="dob">
+      Date of Birth
+    </label>
+
     <input
-      type="text"
-      id="searchInput"
-      placeholder="🔍 Search a tool..."
-      onkeyup="searchTools()"
+      type="date"
+      id="dob"
     >
-  </div>
 
-</section>
 
-<main>
+    <button onclick="calculateAge()">
+      Calculate Age
+    </button>
 
-  <h2 class="section-title">
-    🔥 Popular Tools
-  </h2>
 
-  <div class="tools">
-
-    <div class="tool" data-name="image compressor">
-      <div class="icon">🖼️</div>
-      <h3>Image Compressor</h3>
-      <p>Reduce image size while keeping good quality.</p>
-      <span class="tag">Image</span>
-    </div>
-
-    <div class="tool" data-name="image resizer">
-      <div class="icon">📐</div>
-      <h3>Image Resizer</h3>
-      <p>Resize images quickly for social media and websites.</p>
-      <span class="tag">Image</span>
-    </div>
-
-    <div class="tool" data-name="qr code generator">
-      <div class="icon">🔗</div>
-      <h3>QR Generator</h3>
-      <p>Create QR codes for links, text and more.</p>
-      <span class="tag">Generator</span>
-    </div>
-
-    <!-- AGE CALCULATOR CONNECTED -->
-
-    <a
-      href="age.html"
-      class="tool"
-      data-name="age calculator"
+    <div
+      class="error"
+      id="error"
     >
-      <div class="icon">🎂</div>
-      <h3>Age Calculator</h3>
-      <p>Calculate your exact age from your date of birth.</p>
-      <span class="tag">Calculator</span>
-    </a>
+      Please enter a valid date of birth.
+    </div>
 
-    <!-- PERCENTAGE CALCULATOR CONNECTED -->
 
-    <a
-      href="percentage.html"
-      class="tool"
-      data-name="percentage calculator"
+    <div
+      class="result"
+      id="result"
     >
-      <div class="icon">🧮</div>
-      <h3>Percentage Calculator</h3>
-      <p>Calculate percentages quickly and easily.</p>
-      <span class="tag">Calculator</span>
-    </a>
 
-    <div class="tool" data-name="unit converter">
-      <div class="icon">📏</div>
-      <h3>Unit Converter</h3>
-      <p>Convert length, weight, temperature and more.</p>
-      <span class="tag">Converter</span>
-    </div>
+      <h2>
+        Your Exact Age
+      </h2>
 
-    <div class="tool" data-name="word counter">
-      <div class="icon">📝</div>
-      <h3>Word Counter</h3>
-      <p>Count words, characters and sentences instantly.</p>
-      <span class="tag">Text</span>
-    </div>
+      <div
+        class="age"
+        id="ageResult"
+      ></div>
 
-    <div class="tool" data-name="password generator">
-      <div class="icon">🔐</div>
-      <h3>Password Generator</h3>
-      <p>Generate strong random passwords instantly.</p>
-      <span class="tag">Security</span>
+      <div
+        class="details"
+        id="details"
+      ></div>
+
     </div>
 
   </div>
 
-  <div class="empty" id="empty">
-    No tools found 🔎
-  </div>
+</div>
 
-  <div class="info">
 
-    <h2>🛠️ Free Online Tools</h2>
+<footer>
 
-    <p>
-      ToolNova is a collection of simple, fast and useful
-      online tools. Calculate percentages, calculate age,
-      work with images, generate passwords, convert units
-      and more — directly from your
+  ToolNova — Free Tools. Simple. Fast.
+
+</footer>
+
+
+<script>
+
+function calculateAge() {
+
+  const input =
+    document.getElementById("dob").value;
+
+  const error =
+    document.getElementById("error");
+
+  const result =
+    document.getElementById("result");
+
+  const ageResult =
+    document.getElementById("ageResult");
+
+  const details =
+    document.getElementById("details");
+
+
+  if (!input) {
+
+    error.style.display = "block";
+    result.style.display = "none";
+
+    return;
+  }
+
+
+  const dob =
+    new Date(input + "T00:00:00");
+
+
+  const today =
+    new Date();
+
+
+  if (dob > today) {
+
+    error.style.display = "block";
+    result.style.display = "none";
+
+    return;
+  }
+
+
+  let years =
+    today.getFullYear() -
+    dob.getFullYear();
+
+
+  let months =
+    today.getMonth() -
+    dob.getMonth();
+
+
+  let days =
+    today.getDate() -
+    dob.getDate();
+
+
+  if (days < 0) {
+
+    months--;
+
+    const previousMonth =
+      new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      );
+
+    days += previousMonth.getDate();
+
+  }
+
+
+  if (months < 0) {
+
+    years--;
+    months += 12;
+
+  }
+
+
+  const totalDays =
+    Math.floor(
+      (today - dob) /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  error.style.display = "none";
+
+  result.style.display = "block";
+
+
+  ageResult.innerHTML =
+    years + " Years<br>" +
+    months + " Months<br>" +
+    days + " Days";
+
+
+  details.innerHTML =
+    "Approximately " +
+    totalDays.toLocaleString() +
+    " days old.";
+
+}
+
+</script>
+
+</body>
+</html>
