@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Image Resizer - Free Online Tool | ToolNova</title>
-
-<meta name="description" content="Resize JPG, PNG and WebP images online for free. Change image width and height directly in your browser.">
+<title>Image Resizer | ToolNova</title>
 
 <style>
 * {
@@ -37,7 +35,7 @@ header {
 }
 
 .container {
-    max-width: 850px;
+    max-width: 800px;
     margin: 40px auto;
     padding: 20px;
 }
@@ -52,29 +50,20 @@ header {
     background: #141a28;
     border: 1px solid #293348;
     border-radius: 20px;
-    padding: 28px;
+    padding: 25px;
 }
 
 h1 {
-    margin-top: 0;
-    font-size: 34px;
+    font-size: 32px;
 }
 
 .description {
     color: #9da7bb;
 }
 
-.upload {
-    margin-top: 25px;
-    padding: 25px;
-    border: 2px dashed #354057;
-    border-radius: 16px;
-    text-align: center;
-}
-
-#imageInput {
+input[type="file"] {
     width: 100%;
-    margin-top: 18px;
+    margin-top: 20px;
     padding: 12px;
     background: #0d1320;
     color: white;
@@ -85,7 +74,6 @@ h1 {
 #fileInfo {
     margin-top: 15px;
     color: #7ee2a8;
-    word-break: break-word;
 }
 
 #controls {
@@ -93,13 +81,470 @@ h1 {
     margin-top: 25px;
 }
 
-.inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.row {
+    display: flex;
     gap: 15px;
 }
 
-.field label {
+.field {
+    flex: 1;
+}
+
+label {
     display: block;
     margin-bottom: 8px;
-    color: #
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 14px;
+    background: #0d1320;
+    color: white;
+    border: 1px solid #354057;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.checkbox {
+    margin-top: 18px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    background: #718cff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#result {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #111827;
+    border-radius: 15px;
+}
+
+#preview {
+    display: block;
+    max-width: 100%;
+    max-height: 350px;
+    margin: 20px auto;
+}
+
+.download {
+    display: block;
+    padding: 15px;
+    background: #718cff;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">
+← Back to ToolNova
+</a>
+
+<div class="card">
+
+<h1>📐 Image Resizer</h1>
+
+<p class="description">
+Resize JPG, PNG and WebP images directly in your browser.
+</p>
+
+<input
+type="file"
+id="imageInput"
+accept="image/jpeg,image/png,image/webp"
+>
+
+<div id="fileInfo">
+No image selected
+</div>
+
+<div id="message"></div>
+
+<div id="controls">
+
+<div class="row">
+
+<div class="field">
+
+<label>Width (px)</label>
+
+<input
+type="number"
+id="width"
+min="1"
+>
+
+</div>
+
+<div class="field">
+
+<label>Height (px)</label>
+
+<input
+type="number"
+id="height"
+min="1"
+>
+
+</div>
+
+</div>
+
+<div class="checkbox">
+
+<label>
+
+<input
+type="checkbox"
+id="keepRatio"
+checked
+>
+
+Keep aspect ratio
+
+</label>
+
+</div>
+
+<button id="resizeBtn">
+📐 Resize Image
+</button>
+
+</div>
+
+<div id="result">
+
+<h3>Resized Image</h3>
+
+<img
+id="preview"
+alt="Resized image"
+>
+
+<p id="sizeInfo"></p>
+
+<a
+id="download"
+class="download"
+download="toolnova-resized-image.png">
+
+⬇️ Download Image
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedFile = null;
+let originalWidth = 0;
+let originalHeight = 0;
+let originalURL = null;
+let resizedURL = null;
+
+const imageInput =
+document.getElementById("imageInput");
+
+const fileInfo =
+document.getElementById("fileInfo");
+
+const controls =
+document.getElementById("controls");
+
+const message =
+document.getElementById("message");
+
+const widthInput =
+document.getElementById("width");
+
+const heightInput =
+document.getElementById("height");
+
+const keepRatio =
+document.getElementById("keepRatio");
+
+const result =
+document.getElementById("result");
+
+const preview =
+document.getElementById("preview");
+
+const download =
+document.getElementById("download");
+
+
+imageInput.addEventListener("change", function() {
+
+    selectedFile = this.files[0];
+
+    if (!selectedFile) {
+        fileInfo.textContent = "No image selected";
+        controls.style.display = "none";
+        return;
+    }
+
+    fileInfo.textContent =
+        "✅ " + selectedFile.name;
+
+    if (originalURL) {
+        URL.revokeObjectURL(originalURL);
+    }
+
+    originalURL =
+        URL.createObjectURL(selectedFile);
+
+    const img = new Image();
+
+    img.onload = function() {
+
+        originalWidth = img.naturalWidth;
+        originalHeight = img.naturalHeight;
+
+        widthInput.value =
+            originalWidth;
+
+        heightInput.value =
+            originalHeight;
+
+        controls.style.display =
+            "block";
+
+        message.style.color =
+            "#7ee2a8";
+
+        message.textContent =
+            "Image loaded: " +
+            originalWidth +
+            " × " +
+            originalHeight +
+            " px";
+    };
+
+    img.onerror = function() {
+
+        message.style.color =
+            "#ff8585";
+
+        message.textContent =
+            "Could not open this image.";
+
+        controls.style.display =
+            "none";
+    };
+
+    img.src = originalURL;
+
+});
+
+
+widthInput.addEventListener("input", function() {
+
+    if (!keepRatio.checked) return;
+
+    if (!originalWidth) return;
+
+    const width =
+        Number(widthInput.value);
+
+    if (width > 0) {
+
+        heightInput.value =
+            Math.round(
+                width *
+                originalHeight /
+                originalWidth
+            );
+    }
+
+});
+
+
+heightInput.addEventListener("input", function() {
+
+    if (!keepRatio.checked) return;
+
+    if (!originalHeight) return;
+
+    const height =
+        Number(heightInput.value);
+
+    if (height > 0) {
+
+        widthInput.value =
+            Math.round(
+                height *
+                originalWidth /
+                originalHeight
+            );
+    }
+
+});
+
+
+document.getElementById("resizeBtn")
+.addEventListener("click", function() {
+
+    if (!selectedFile) {
+
+        message.style.color =
+            "#ff8585";
+
+        message.textContent =
+            "Please select an image first.";
+
+        return;
+    }
+
+    const width =
+        Number(widthInput.value);
+
+    const height =
+        Number(heightInput.value);
+
+    if (
+        width < 1 ||
+        height < 1
+    ) {
+
+        message.style.color =
+            "#ff8585";
+
+        message.textContent =
+            "Enter valid width and height.";
+
+        return;
+    }
+
+    if (
+        width > 8000 ||
+        height > 8000
+    ) {
+
+        message.style.color =
+            "#ff8585";
+
+        message.textContent =
+            "Maximum size is 8000 × 8000.";
+
+        return;
+    }
+
+    const img =
+        new Image();
+
+    img.onload = function() {
+
+        const canvas =
+            document.createElement("canvas");
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx =
+            canvas.getContext("2d");
+
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+        );
+
+        canvas.toBlob(function(blob) {
+
+            if (!blob) {
+
+                message.textContent =
+                    "Resize failed.";
+
+                return;
+            }
+
+            if (resizedURL) {
+                URL.revokeObjectURL(resizedURL);
+            }
+
+            resizedURL =
+                URL.createObjectURL(blob);
+
+            preview.src =
+                resizedURL;
+
+            download.href =
+                resizedURL;
+
+            result.style.display =
+                "block";
+
+            sizeInfo.textContent =
+                "Original: " +
+                originalWidth +
+                " × " +
+                originalHeight +
+                " px | New: " +
+                width +
+                " × " +
+                height +
+                " px";
+
+            message.style.color =
+                "#7ee2a8";
+
+            message.textContent =
+                "✅ Image resized successfully.";
+
+        }, "image/png");
+
+    };
+
+    img.src = originalURL;
+
+});
+
+</script>
+
+</body>
+</html>
