@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vishalzzzc.github.io/toolnova/sitemap.xml
