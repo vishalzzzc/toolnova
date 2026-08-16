@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discount Calculator - Free Online Discount Calculator | ToolNova</title>
+
+<meta name="description" content="Calculate discount amount, final price and savings with ToolNova's free online Discount Calculator.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#070b14;
+color:#fff;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+padding:18px 20px;
+background:rgba(7,11,20,.92);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #263149;
+}
+
+.nav{
+max-width:900px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+}
+
+.logo span{color:#718cff}
+
+.nav a{
+color:#9da7bb;
+text-decoration:none;
+}
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+.back{
+color:#8da5ff;
+text-decoration:none;
+}
+
+.card{
+margin-top:25px;
+padding:30px;
+background:linear-gradient(145deg,#151d2d,#0e1420);
+border:1px solid #29354d;
+border-radius:24px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+h1{
+margin-top:0;
+font-size:36px;
+}
+
+.description{
+color:#929db1;
+line-height:1.7;
+}
+
+.input-group{
+margin-top:22px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+color:#cbd3e1;
+font-weight:bold;
+}
+
+input{
+width:100%;
+padding:16px;
+border-radius:12px;
+border:1px solid #35415a;
+background:#0c1220;
+color:#fff;
+font-size:17px;
+outline:none;
+}
+
+input:focus{
+border-color:#718cff;
+box-shadow:0 0 20px rgba(113,140,255,.12);
+}
+
+button{
+width:100%;
+margin-top:28px;
+padding:17px;
+border:0;
+border-radius:13px;
+background:linear-gradient(135deg,#718cff,#806cff);
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 12px 30px rgba(113,140,255,.22);
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.result{
+display:none;
+margin-top:30px;
+padding:25px;
+background:#0d1422;
+border:1px solid #29354d;
+border-radius:18px;
+}
+
+.result h2{
+margin-top:0;
+color:#9eafff;
+}
+
+.main-result{
+padding:22px;
+text-align:center;
+background:rgba(113,140,255,.08);
+border-radius:15px;
+}
+
+.main-result small{
+color:#8b97ab;
+}
+
+#finalPrice{
+display:block;
+margin-top:8px;
+font-size:34px;
+font-weight:900;
+color:#718cff;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:18px;
+}
+
+.stat{
+padding:18px;
+background:#141c2b;
+border-radius:14px;
+border:1px solid #29354d;
+}
+
+.stat-title{
+color:#7f8ba0;
+font-size:14px;
+}
+
+.stat-value{
+margin-top:8px;
+font-size:20px;
+font-weight:bold;
+}
+
+.content{
+margin-top:35px;
+padding:28px;
+background:#101722;
+border:1px solid #29354d;
+border-radius:20px;
+}
+
+.content h2{
+color:#8da5ff;
+}
+
+.content p,
+.content li{
+color:#aeb7c9;
+line-height:1.7;
+}
+
+footer{
+margin-top:50px;
+padding:35px 20px;
+border-top:1px solid #263149;
+text-align:center;
+color:#687287;
+}
+
+footer a{
+color:#8da5ff;
+text-decoration:none;
+margin:0 8px;
+line-height:2.5;
+}
+
+@media(max-width:600px){
+.container{padding:15px}
+.card,.content{padding:20px}
+h1{font-size:30px}
+.stats{grid-template-columns:1fr}
+#finalPrice{font-size:29px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<div class="logo">Tool<span>Nova</span></div>
+<a href="index.html">Home</a>
+</div>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">← Back to ToolNova</a>
+
+<div class="card">
+
+<h1>🏷️ Discount Calculator</h1>
+
+<p class="description">
+Calculate the discount amount, final price and total savings quickly.
+</p>
+
+<div class="input-group">
+<label for="price">Original Price</label>
+
+<input
+type="number"
+id="price"
+placeholder="Example: 2000"
+inputmode="decimal"
+min="0"
+step="any">
+</div>
+
+<div class="input-group">
+<label for="discount">Discount Percentage (%)</label>
+
+<input
+type="number"
+id="discount"
+placeholder="Example: 25"
+inputmode="decimal"
+min="0"
+max="100"
+step="any">
+</div>
+
+<button id="calculate">
+🏷️ Calculate Discount
+</button>
+
+<div class="result" id="result">
+
+<h2>Discount Summary</h2>
+
+<div class="main-result">
+
+<small>Final Price</small>
+
+<span id="finalPrice">₹0</span>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-title">Original Price</div>
+<div class="stat-value" id="originalPrice">₹0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">Discount Amount</div>
+<div class="stat-value" id="discountAmount">₹0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">Discount Percentage</div>
+<div class="stat-value" id="discountPercent">0%</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">You Save</div>
+<div class="stat-value" id="saving">₹0</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<h2>What is a Discount Calculator?</h2>
+
+<p>
+A discount calculator helps determine how much money is saved
+after applying a percentage discount to an original price.
+</p>
+
+<h2>How to Use</h2>
+
+<ol>
+<li>Enter the original price.</li>
+<li>Enter the discount percentage.</li>
+<li>Tap Calculate Discount.</li>
+</ol>
+
+<h2>Example</h2>
+
+<p>
+If an item costs ₹2,000 and has a 25% discount, the discount is
+₹500 and the final price is ₹1,500.
+</p>
+
+<h2>Important Note</h2>
+
+<p>
+The result is a mathematical calculation. Actual store prices
+may differ because of taxes, coupons, shipping charges or other offers.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
+<a href="contact.html">Contact</a>
+<a href="terms.html">Terms</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
+</footer>
+
+<script>
+
+const price=document.getElementById("price");
+const discount=document.getElementById("discount");
+const result=document.getElementById("result");
+
+function money(value){
+
+return new Intl.NumberFormat(
+"en-IN",
+{
+style:"currency",
+currency:"INR",
+maximumFractionDigits:2
+}
+).format(value);
+
+}
+
+function calculateDiscount(){
+
+const original=Number(price.value);
+const percent=Number(discount.value);
+
+if(
+!price.value ||
+!discount.value ||
+isNaN(original) ||
+isNaN(percent) ||
+original<0 ||
+percent<0 ||
+percent>100
+){
+
+alert("Please enter a valid price and discount between 0% and 100%.");
+return;
+
+}
+
+const discountValue=
+original*percent/100;
+
+const finalValue=
+original-discountValue;
+
+document.getElementById("finalPrice").textContent=
+money(finalValue);
+
+document.getElementById("originalPrice").textContent=
+money(original);
+
+document.getElementById("discountAmount").textContent=
+money(discountValue);
+
+document.getElementById("discountPercent").textContent=
+percent+"%";
+
+document.getElementById("saving").textContent=
+money(discountValue);
+
+result.style.display="block";
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+document
+.getElementById("calculate")
+.addEventListener("click",calculateDiscount);
+
+[price,discount].forEach(function(input){
+
+input.addEventListener("keydown",function(event){
+
+if(event.key==="Enter"){
+calculateDiscount();
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
