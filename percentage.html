@@ -1,207 +1,618 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Percentage Calculator - ToolNova</title>
-  <meta name="description" content="Calculate percentages quickly and easily with ToolNova's free online percentage calculator.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<title>Percentage Calculator - Free Online Tool | ToolNova</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
-      min-height: 100vh;
-    }
+<meta name="description"
+content="Free percentage calculator. Calculate percentages, percentage increase, decrease and what percentage one number is of another.">
 
-    header {
-      padding: 20px;
-      border-bottom: 1px solid #252e40;
-    }
+<meta name="robots" content="index, follow">
 
-    .nav {
-      max-width: 900px;
-      margin: auto;
-    }
+<style>
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .logo span {
-      color: #718cff;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f19;
+  color: white;
+  line-height: 1.6;
+}
 
-    .container {
-      max-width: 650px;
-      margin: 50px auto;
-      padding: 20px;
-    }
+header {
+  padding: 20px;
+  border-bottom: 1px solid #293348;
+}
 
-    .back {
-      color: #8da5ff;
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 25px;
-    }
+.logo {
+  max-width: 850px;
+  margin: auto;
+  font-size: 26px;
+  font-weight: bold;
+}
 
-    .card {
-      background: #141a28;
-      border: 1px solid #293348;
-      border-radius: 20px;
-      padding: 28px;
-    }
+.logo span {
+  color: #718cff;
+}
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
-    .description {
-      color: #929caf;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
+.back {
+  color: #8da5ff;
+  text-decoration: none;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #cbd2df;
-    }
+.card {
+  margin-top: 25px;
+  background: #141a28;
+  border: 1px solid #293348;
+  border-radius: 20px;
+  padding: 28px;
+}
 
-    input {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      border: 1px solid #354057;
-      background: #0d1320;
-      color: white;
-      font-size: 16px;
-      outline: none;
-    }
+h1 {
+  margin-top: 0;
+  font-size: 34px;
+}
 
-    input:focus {
-      border-color: #718cff;
-    }
+.description {
+  color: #9da7bb;
+}
 
-    button {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 12px;
-      background: #718cff;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.calculator {
+  margin-top: 25px;
+  padding: 22px;
+  background: #111827;
+  border-radius: 16px;
+  border: 1px solid #293348;
+}
 
-    button:hover {
-      opacity: 0.9;
-    }
+.calculator h2 {
+  color: #8da5ff;
+  font-size: 20px;
+}
 
-    .result {
-      display: none;
-      margin-top: 25px;
-      padding: 20px;
-      border-radius: 14px;
-      background: #18233a;
-      text-align: center;
-    }
+label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 7px;
+  color: #cbd2df;
+}
 
-    .result span {
-      color: #8da5ff;
-      font-size: 30px;
-      font-weight: bold;
-    }
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #354057;
+  background: #0d1320;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
 
-    footer {
-      text-align: center;
-      color: #687287;
-      padding: 30px;
-    }
-  </style>
+button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 15px;
+  border: 0;
+  border-radius: 12px;
+  background: #718cff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.result {
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  background: #18233a;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.result-value {
+  color: #8da5ff;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.content {
+  margin-top: 35px;
+  padding: 25px;
+  background: #111827;
+  border: 1px solid #293348;
+  border-radius: 18px;
+}
+
+.content h2 {
+  color: #8da5ff;
+  margin-top: 25px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #aeb7c9;
+}
+
+.faq {
+  margin-top: 12px;
+  padding: 15px;
+  background: #141a28;
+  border-radius: 12px;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.error {
+  color: #ff8585;
+  text-align: center;
+  margin-top: 15px;
+}
+
+footer {
+  border-top: 1px solid #293348;
+  text-align: center;
+  padding: 30px 15px;
+  color: #687287;
+}
+
+footer a {
+  color: #8da5ff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@media (max-width: 500px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">Tool<span>Nova</span></div>
-  </div>
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
 </header>
+
 
 <div class="container">
 
-  <a class="back" href="index.html">← Back to all tools</a>
+<a href="index.html" class="back">
+← Back to ToolNova
+</a>
 
-  <div class="card">
 
-    <h1>Percentage Calculator</h1>
+<div class="card">
 
-    <p class="description">
-      Calculate a percentage of any number instantly.
-    </p>
+<h1>🧮 Percentage Calculator</h1>
 
-    <label for="percentage">Percentage (%)</label>
-    <input
-      type="number"
-      id="percentage"
-      placeholder="Example: 20"
-    >
+<p class="description">
+Calculate percentages, percentage changes and percentage differences
+quickly with this free online calculator.
+</p>
 
-    <label for="number">Number</label>
-    <input
-      type="number"
-      id="number"
-      placeholder="Example: 500"
-    >
 
-    <button onclick="calculate()">Calculate</button>
+<!-- CALCULATOR 1 -->
 
-    <div class="result" id="result">
-      Result<br>
-      <span id="answer">0</span>
-    </div>
+<div class="calculator">
 
-  </div>
+<h2>
+What is X% of Y?
+</h2>
+
+<label for="percent1">
+Percentage (%)
+</label>
+
+<input
+type="number"
+id="percent1"
+placeholder="Example: 20"
+>
+
+<label for="number1">
+Number
+</label>
+
+<input
+type="number"
+id="number1"
+placeholder="Example: 500"
+>
+
+<button onclick="calculatePercentOf()">
+Calculate
+</button>
+
+<div
+class="result"
+id="result1">
+
+<div class="result-value"
+id="answer1">
+0
+</div>
 
 </div>
 
+</div>
+
+
+<!-- CALCULATOR 2 -->
+
+<div class="calculator">
+
+<h2>
+X is what percentage of Y?
+</h2>
+
+<label for="number2">
+First Number
+</label>
+
+<input
+type="number"
+id="number2"
+placeholder="Example: 50"
+>
+
+<label for="number3">
+Second Number
+</label>
+
+<input
+type="number"
+id="number3"
+placeholder="Example: 200"
+>
+
+<button onclick="calculateWhatPercent()">
+Calculate
+</button>
+
+<div
+class="result"
+id="result2">
+
+<div class="result-value"
+id="answer2">
+0%
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CALCULATOR 3 -->
+
+<div class="calculator">
+
+<h2>
+Percentage Increase / Decrease
+</h2>
+
+<label for="oldValue">
+Original Value
+</label>
+
+<input
+type="number"
+id="oldValue"
+placeholder="Example: 100"
+>
+
+<label for="newValue">
+New Value
+</label>
+
+<input
+type="number"
+id="newValue"
+placeholder="Example: 125"
+>
+
+<button onclick="calculateChange()">
+Calculate Change
+</button>
+
+<div
+class="result"
+id="result3">
+
+<div class="result-value"
+id="answer3">
+0%
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="error"
+id="error">
+</div>
+
+</div>
+
+
+<!-- SEO CONTENT -->
+
+<div class="content">
+
+<h2>
+What is a Percentage?
+</h2>
+
+<p>
+A percentage is a number expressed as a fraction of 100.
+The percentage symbol is %. Percentages are commonly used
+for discounts, marks, statistics, finance and everyday
+calculations.
+</p>
+
+
+<h2>
+How to Calculate a Percentage
+</h2>
+
+<p>
+To calculate a percentage of a number, multiply the number
+by the percentage and divide the result by 100.
+</p>
+
+<p>
+For example, 20% of 500 is:
+</p>
+
+<p>
+500 × 20 ÷ 100 = 100
+</p>
+
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<div class="faq">
+
+<strong>
+How do I calculate 20% of 500?
+</strong>
+
+<p>
+Enter 20 as the percentage and 500 as the number.
+The calculator will return 100.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+How do I calculate percentage increase?
+</strong>
+
+<p>
+Enter the original value and the new value in the
+Percentage Increase / Decrease calculator.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+Is this percentage calculator free?
+</strong>
+
+<p>
+Yes. ToolNova's percentage calculator is free to use
+directly in your browser.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
 <footer>
-  ToolNova — Free Tools. Simple. Fast.
+
+ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="privacy.html">Privacy</a>
+
+<a href="contact.html">Contact</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
 </footer>
 
+
 <script>
-  function calculate() {
 
-    const percentage =
-      parseFloat(document.getElementById("percentage").value);
+function calculatePercentOf() {
 
-    const number =
-      parseFloat(document.getElementById("number").value);
+const percentage =
+parseFloat(
+document.getElementById("percent1").value
+);
 
-    if (isNaN(percentage) || isNaN(number)) {
-      alert("Please enter both numbers.");
-      return;
-    }
+const number =
+parseFloat(
+document.getElementById("number1").value
+);
 
-    const result = (percentage / 100) * number;
+if (isNaN(percentage) || isNaN(number)) {
+return;
+}
 
-    document.getElementById("answer").textContent =
-      result.toLocaleString();
+const answer =
+(percentage * number) / 100;
 
-    document.getElementById("result").style.display = "block";
-  }
+document.getElementById("answer1")
+.textContent =
+formatNumber(answer);
+
+document.getElementById("result1")
+.style.display =
+"block";
+
+}
+
+
+function calculateWhatPercent() {
+
+const first =
+parseFloat(
+document.getElementById("number2").value
+);
+
+const second =
+parseFloat(
+document.getElementById("number3").value
+);
+
+if (
+isNaN(first) ||
+isNaN(second) ||
+second === 0
+) {
+return;
+}
+
+const answer =
+(first / second) * 100;
+
+document.getElementById("answer2")
+.textContent =
+formatNumber(answer) + "%";
+
+document.getElementById("result2")
+.style.display =
+"block";
+
+}
+
+
+function calculateChange() {
+
+const oldValue =
+parseFloat(
+document.getElementById("oldValue").value
+);
+
+const newValue =
+parseFloat(
+document.getElementById("newValue").value
+);
+
+if (
+isNaN(oldValue) ||
+isNaN(newValue) ||
+oldValue === 0
+) {
+return;
+}
+
+const change =
+((newValue - oldValue) / oldValue) * 100;
+
+let text;
+
+if (change > 0) {
+
+text =
+"Increase: " +
+formatNumber(change) +
+"%";
+
+} else if (change < 0) {
+
+text =
+"Decrease: " +
+formatNumber(Math.abs(change)) +
+"%";
+
+} else {
+
+text =
+"No Change: 0%";
+
+}
+
+document.getElementById("answer3")
+.textContent =
+text;
+
+document.getElementById("result3")
+.style.display =
+"block";
+
+}
+
+
+function formatNumber(number) {
+
+return Number(
+number.toFixed(8)
+).toLocaleString();
+
+}
+
 </script>
 
 </body>
