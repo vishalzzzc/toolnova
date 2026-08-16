@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>ToolNova — Free Online Tools</title>
 
 <meta name="description"
-content="ToolNova provides fast and free online tools for calculations, images, text, conversions and everyday digital tasks.">
+      content="ToolNova — free online calculators, converters, image tools, text tools, QR tools and everyday utilities.">
 
-<meta name="robots" content="index, follow">
+<meta name="robots"
+      content="index, follow">
 
-<link rel="canonical" href="https://vishalzzzc.github.io/toolnova/">
+<link rel="canonical"
+      href="https://vishalzzzc.github.io/toolnova/">
 
 <style>
 
-/* =====================================================
-   BASIC
-===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -38,6 +43,7 @@ body{
     -apple-system,
     BlinkMacSystemFont,
     "SF Pro Display",
+    "SF Pro Text",
     "Segoe UI",
     Arial,
     sans-serif;
@@ -46,133 +52,161 @@ body{
 
     background:
     radial-gradient(
-        circle at 10% 10%,
-        rgba(70,105,255,.24),
-        transparent 32%
+        circle at 10% 5%,
+        rgba(65,105,255,.22),
+        transparent 30%
     ),
     radial-gradient(
         circle at 90% 20%,
-        rgba(150,75,255,.17),
+        rgba(155,75,255,.16),
         transparent 30%
     ),
-    linear-gradient(
-        145deg,
-        #05070d,
-        #080c17 55%,
-        #04050a
-    );
+    radial-gradient(
+        circle at 50% 100%,
+        rgba(20,140,255,.12),
+        transparent 30%
+    ),
+    #05070d;
 }
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
 
-.bg{
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background{
     position:fixed;
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
-    z-index:0;
+
+    z-index:-10;
 }
 
-.orb{
+.glow{
     position:absolute;
+
     border-radius:50%;
+
     filter:blur(70px);
-    opacity:.38;
+
+    opacity:.32;
+
     will-change:transform;
 }
 
-.orb1{
-    width:320px;
-    height:320px;
-    top:-120px;
-    left:-100px;
-    background:#285cff;
-    animation:orbMove1 18s ease-in-out infinite alternate;
+.glow.one{
+    width:340px;
+    height:340px;
+
+    left:-110px;
+    top:-110px;
+
+    background:#3568ff;
+
+    animation:
+    glowOne 18s ease-in-out infinite alternate;
 }
 
-.orb2{
-    width:280px;
-    height:280px;
+.glow.two{
+    width:300px;
+    height:300px;
+
     right:-100px;
-    top:30%;
-    background:#8d35ff;
-    animation:orbMove2 21s ease-in-out infinite alternate;
+    top:28%;
+
+    background:#913fff;
+
+    animation:
+    glowTwo 21s ease-in-out infinite alternate;
 }
 
-.orb3{
-    width:250px;
-    height:250px;
+.glow.three{
+    width:270px;
+    height:270px;
+
     left:35%;
     bottom:-130px;
+
     background:#008cff;
-    animation:orbMove3 20s ease-in-out infinite alternate;
+
+    animation:
+    glowThree 20s ease-in-out infinite alternate;
 }
 
-@keyframes orbMove1{
+@keyframes glowOne{
+
     from{
         transform:translate3d(0,0,0);
     }
+
     to{
-        transform:translate3d(50px,35px,0);
+        transform:translate3d(55px,35px,0);
     }
+
 }
 
-@keyframes orbMove2{
+@keyframes glowTwo{
+
     from{
         transform:translate3d(0,0,0);
     }
+
     to{
-        transform:translate3d(-45px,-40px,0);
+        transform:translate3d(-50px,-40px,0);
     }
+
 }
 
-@keyframes orbMove3{
+@keyframes glowThree{
+
     from{
         transform:translate3d(0,0,0);
     }
+
     to{
-        transform:translate3d(40px,-35px,0);
+        transform:translate3d(45px,-35px,0);
     }
-}
 
-/* CONTENT ALWAYS ABOVE BACKGROUND */
-
-header,
-main,
-footer{
-    position:relative;
-    z-index:2;
 }
 
 
-/* =====================================================
-   NAVBAR
-===================================================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
-    width:min(1120px,calc(100% - 24px));
-    margin:12px auto 0;
-
     position:sticky;
+
     top:10px;
 
-    z-index:100;
+    z-index:1000;
+
+    width:
+    min(1120px,calc(100% - 24px));
+
+    margin:
+    12px auto 0;
 }
 
 .nav{
     min-height:68px;
 
+    padding:
+    10px 18px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    padding:10px 18px;
+    border-radius:23px;
 
-    border-radius:22px;
-
-    background:rgba(18,23,35,.70);
+    background:
+    rgba(18,23,35,.68);
 
     border:
     1px solid
@@ -182,23 +216,33 @@ header{
     inset 0 1px 0
     rgba(255,255,255,.12),
 
-    0 18px 50px
+    0 18px 55px
     rgba(0,0,0,.24);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:
+    blur(20px)
+    saturate(150%);
+
+    -webkit-backdrop-filter:
+    blur(20px)
+    saturate(150%);
 }
 
 .logo{
     display:flex;
+
     align-items:center;
+
     gap:10px;
 
-    text-decoration:none;
     color:#fff;
 
+    text-decoration:none;
+
     font-size:24px;
+
     font-weight:900;
+
     letter-spacing:-1px;
 }
 
@@ -206,57 +250,67 @@ header{
     width:38px;
     height:38px;
 
-    display:grid;
-    place-items:center;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     border-radius:12px;
 
     background:
     linear-gradient(
         135deg,
-        #6687ff,
-        #9a63ff
+        #6688ff,
+        #9b65ff
     );
 
     box-shadow:
-    0 7px 22px
-    rgba(80,105,255,.30);
+    0 8px 25px
+    rgba(90,115,255,.32);
 }
 
 .logo-blue{
-    color:#8ba3ff;
+    color:#8da6ff;
 }
 
 .nav-links{
     display:flex;
-    gap:5px;
+
+    align-items:center;
+
+    gap:4px;
 }
 
 .nav-links a{
     color:#aeb8ca;
+
     text-decoration:none;
 
-    padding:10px 13px;
+    font-size:14px;
+
+    padding:
+    10px 13px;
 
     border-radius:12px;
-
-    font-size:14px;
 
     transition:.25s;
 }
 
 .nav-links a:hover{
     color:#fff;
-    background:rgba(255,255,255,.08);
+
+    background:
+    rgba(255,255,255,.08);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
-    width:min(1000px,calc(100% - 24px));
+    width:
+    min(1000px,calc(100% - 24px));
 
     margin:auto;
 
@@ -266,10 +320,11 @@ header{
     text-align:center;
 }
 
-.badge{
+.hero-badge{
     display:inline-flex;
 
     align-items:center;
+
     gap:8px;
 
     padding:
@@ -277,47 +332,47 @@ header{
 
     border-radius:999px;
 
-    color:#b7c6ff;
+    color:#b9c7ff;
 
     background:
-    rgba(100,130,255,.10);
+    rgba(105,135,255,.10);
 
     border:
     1px solid
-    rgba(130,155,255,.24);
+    rgba(135,160,255,.24);
 }
 
-.dot{
+.live-dot{
     width:7px;
     height:7px;
 
     border-radius:50%;
 
-    background:#78a0ff;
+    background:#79a1ff;
 
     box-shadow:
-    0 0 13px
-    #78a0ff;
+    0 0 14px
+    #79a1ff;
 }
 
 .hero h1{
     margin-top:25px;
 
     font-size:
-    clamp(45px,8vw,82px);
+    clamp(44px,8vw,82px);
 
-    line-height:1;
+    line-height:.99;
 
     letter-spacing:-5px;
 
     font-weight:900;
 }
 
-.white-title{
+.hero-title{
     display:block;
 }
 
-.gradient-title{
+.hero-gradient{
     display:block;
 
     margin-top:8px;
@@ -325,24 +380,26 @@ header{
     background:
     linear-gradient(
         90deg,
-        #7292ff,
-        #a66cff,
-        #63d5ff,
-        #7292ff
+        #7192ff,
+        #a46cff,
+        #65d5ff,
+        #7192ff
     );
 
-    background-size:300% auto;
+    background-size:
+    300% auto;
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
 
     animation:
-    gradientMove 8s linear infinite;
+    gradientFlow 8s linear infinite;
 }
 
-@keyframes gradientMove{
+@keyframes gradientFlow{
 
     to{
         background-position:
@@ -352,8 +409,7 @@ header{
 }
 
 .hero-description{
-
-    max-width:700px;
+    max-width:720px;
 
     margin:
     28px auto 0;
@@ -366,11 +422,11 @@ header{
 }
 
 
-/* =====================================================
+/* =========================================================
    SEARCH
-===================================================== */
+========================================================= */
 
-.search{
+.search-box{
     max-width:680px;
 
     margin:
@@ -379,22 +435,21 @@ header{
     position:relative;
 }
 
-.search input{
-
+.search-box input{
     width:100%;
 
     height:62px;
 
     padding:
-    0 25px 0 58px;
+    0 24px 0 58px;
+
+    outline:none;
 
     border:
     1px solid
     rgba(255,255,255,.15);
 
-    border-radius:20px;
-
-    outline:none;
+    border-radius:21px;
 
     color:#fff;
 
@@ -408,61 +463,62 @@ header{
     rgba(255,255,255,.10),
 
     0 15px 45px
-    rgba(0,0,0,.17);
+    rgba(0,0,0,.18);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+    blur(18px);
+
+    -webkit-backdrop-filter:
+    blur(18px);
 
     transition:.25s;
 }
 
-.search input:focus{
+.search-box input::placeholder{
+    color:#69768a;
+}
 
+.search-box input:focus{
     border-color:
     rgba(125,155,255,.65);
 
     box-shadow:
     0 0 0 4px
-    rgba(110,140,255,.09),
+    rgba(110,140,255,.08),
 
     0 20px 55px
-    rgba(0,0,0,.23);
-}
-
-.search input::placeholder{
-    color:#69768a;
+    rgba(0,0,0,.24);
 }
 
 .search-icon{
-
     position:absolute;
 
-    left:21px;
+    left:20px;
     top:17px;
 
-    font-size:24px;
+    color:#94aaff;
 
-    color:#91a8ff;
+    font-size:24px;
 
     pointer-events:none;
 }
 
 
-/* =====================================================
-   TOOLS
-===================================================== */
+/* =========================================================
+   TOOLS SECTION
+========================================================= */
 
-.tools{
-
-    width:min(1120px,calc(100% - 24px));
+.tools-section{
+    width:
+    min(1120px,calc(100% - 24px));
 
     margin:auto;
 
-    padding-bottom:75px;
+    padding:
+    10px 0 80px;
 }
 
-.section-head{
-
+.section-top{
     display:flex;
 
     align-items:center;
@@ -473,7 +529,6 @@ header{
 }
 
 .section-title{
-
     display:flex;
 
     align-items:center;
@@ -482,13 +537,13 @@ header{
 }
 
 .section-icon{
-
     width:46px;
     height:46px;
 
-    display:grid;
+    display:flex;
 
-    place-items:center;
+    align-items:center;
+    justify-content:center;
 
     border-radius:14px;
 
@@ -497,27 +552,27 @@ header{
 
     border:
     1px solid
-    rgba(130,155,255,.18);
+    rgba(140,165,255,.18);
 
     font-size:22px;
 }
 
 .section-title h2{
     font-size:28px;
+
+    letter-spacing:-1px;
 }
 
 .section-title p{
-
     margin-top:4px;
 
-    color:#69758a;
+    color:#6d788b;
 
     font-size:13px;
 }
 
-.count{
-
-    color:#8e9aad;
+.tool-count{
+    color:#8d99ad;
 
     font-size:12px;
 
@@ -535,28 +590,40 @@ header{
 }
 
 
-/* =====================================================
-   GRID
-===================================================== */
+/* =========================================================
+   TOOL GRID
+========================================================= */
 
-.grid{
-
+.tools-grid{
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+    repeat(3,minmax(0,1fr));
 
     gap:17px;
+
+    width:100%;
+
+    height:auto;
+
+    max-height:none;
+
+    overflow:visible;
 }
 
 
-/* =====================================================
+/* =========================================================
    TOOL CARD
-===================================================== */
+========================================================= */
 
-.card{
-
+.tool{
     position:relative;
+
+    display:block;
+
+    width:100%;
+
+    min-width:0;
 
     min-height:205px;
 
@@ -568,11 +635,7 @@ header{
 
     text-decoration:none;
 
-    border-radius:24px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.12);
+    border-radius:25px;
 
     background:
     linear-gradient(
@@ -581,15 +644,24 @@ header{
         rgba(255,255,255,.035)
     );
 
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
     box-shadow:
     inset 0 1px 0
     rgba(255,255,255,.11),
 
-    0 18px 45px
+    0 18px 50px
     rgba(0,0,0,.18);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+    blur(18px)
+    saturate(140%);
+
+    -webkit-backdrop-filter:
+    blur(18px)
+    saturate(140%);
 
     transition:
     transform .28s ease,
@@ -597,8 +669,7 @@ header{
     box-shadow .28s ease;
 }
 
-.card::before{
-
+.tool::before{
     content:"";
 
     position:absolute;
@@ -614,15 +685,16 @@ header{
     background:
     radial-gradient(
         circle,
-        rgba(110,140,255,.27),
+        rgba(120,150,255,.28),
         transparent 70%
     );
 
     transition:.35s;
+
+    pointer-events:none;
 }
 
-.card:hover{
-
+.tool:hover{
     transform:
     translateY(-7px);
 
@@ -633,24 +705,29 @@ header{
     inset 0 1px 0
     rgba(255,255,255,.15),
 
-    0 25px 60px
-    rgba(0,0,0,.27);
+    0 28px 65px
+    rgba(0,0,0,.28);
 }
 
-.card:hover::before{
+.tool:hover::before{
     transform:scale(1.45);
 }
 
-.icon{
 
+/* =========================================================
+   TOOL ICON
+========================================================= */
+
+.tool-icon{
     position:relative;
 
     width:56px;
     height:56px;
 
-    display:grid;
+    display:flex;
 
-    place-items:center;
+    align-items:center;
+    justify-content:center;
 
     border-radius:16px;
 
@@ -659,35 +736,35 @@ header{
 
     border:
     1px solid
-    rgba(145,170,255,.17);
+    rgba(145,170,255,.18);
 
     font-size:27px;
 
     transition:.25s;
 }
 
-.card:hover .icon{
+.tool:hover .tool-icon{
     transform:
     scale(1.06)
     rotate(-3deg);
 }
 
-.card h3{
-
+.tool h3{
     position:relative;
 
     margin-top:18px;
 
     font-size:18px;
+
+    letter-spacing:-.2px;
 }
 
-.card p{
-
+.tool p{
     position:relative;
 
-    margin-top:8px;
-
     max-width:300px;
+
+    margin-top:8px;
 
     color:#7e8a9f;
 
@@ -696,8 +773,7 @@ header{
     line-height:1.6;
 }
 
-.arrow{
-
+.tool-arrow{
     position:absolute;
 
     right:19px;
@@ -706,13 +782,14 @@ header{
     width:35px;
     height:35px;
 
-    display:grid;
+    display:flex;
 
-    place-items:center;
+    align-items:center;
+    justify-content:center;
 
     border-radius:50%;
 
-    color:#9eb2ff;
+    color:#9db1ff;
 
     background:
     rgba(255,255,255,.055);
@@ -724,8 +801,7 @@ header{
     transition:.25s;
 }
 
-.card:hover .arrow{
-
+.tool:hover .tool-arrow{
     transform:
     translateX(5px);
 
@@ -734,21 +810,21 @@ header{
 }
 
 
-/* =====================================================
+/* =========================================================
    NO RESULTS
-===================================================== */
+========================================================= */
 
 .no-results{
-
     display:none;
 
-    padding:40px;
+    padding:
+    40px 20px;
 
     text-align:center;
 
-    color:#7e8ba0;
+    color:#7e8a9f;
 
-    border-radius:20px;
+    border-radius:22px;
 
     background:
     rgba(255,255,255,.04);
@@ -759,23 +835,22 @@ header{
 }
 
 
-/* =====================================================
-   WHY
-===================================================== */
+/* =========================================================
+   WHY TOOLNOVA
+========================================================= */
 
 .why{
-
-    width:min(1120px,calc(100% - 24px));
+    width:
+    min(1120px,calc(100% - 24px));
 
     margin:
     20px auto 80px;
 }
 
-.why-box{
-
+.why-card{
     padding:42px;
 
-    border-radius:28px;
+    border-radius:29px;
 
     background:
     rgba(255,255,255,.055);
@@ -788,34 +863,39 @@ header{
     inset 0 1px 0
     rgba(255,255,255,.09),
 
-    0 25px 65px
+    0 25px 70px
     rgba(0,0,0,.20);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+    blur(18px);
+
+    -webkit-backdrop-filter:
+    blur(18px);
 }
 
-.why-box h2{
+.why-card h2{
     font-size:32px;
+
+    letter-spacing:-1px;
 }
 
-.why-box>p{
-
-    max-width:720px;
+.why-card>p{
+    max-width:730px;
 
     margin-top:12px;
 
     color:#8490a4;
 
+    font-size:15px;
+
     line-height:1.8;
 }
 
 .features{
-
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+    repeat(3,minmax(0,1fr));
 
     gap:15px;
 
@@ -823,10 +903,9 @@ header{
 }
 
 .feature{
-
     padding:22px;
 
-    border-radius:19px;
+    border-radius:20px;
 
     background:
     rgba(255,255,255,.04);
@@ -839,7 +918,6 @@ header{
 }
 
 .feature:hover{
-
     transform:
     translateY(-4px);
 
@@ -848,13 +926,13 @@ header{
 }
 
 .feature-icon{
-
     width:44px;
     height:44px;
 
-    display:grid;
+    display:flex;
 
-    place-items:center;
+    align-items:center;
+    justify-content:center;
 
     border-radius:13px;
 
@@ -866,11 +944,11 @@ header{
 
 .feature h3{
     margin-top:14px;
+
     font-size:16px;
 }
 
 .feature p{
-
     margin-top:7px;
 
     color:#737f94;
@@ -881,13 +959,13 @@ header{
 }
 
 
-/* =====================================================
+/* =========================================================
    CTA
-===================================================== */
+========================================================= */
 
 .cta{
-
-    width:min(900px,calc(100% - 24px));
+    width:
+    min(900px,calc(100% - 24px));
 
     margin:
     0 auto 90px;
@@ -896,11 +974,10 @@ header{
 }
 
 .cta-box{
-
     padding:
     48px 20px;
 
-    border-radius:28px;
+    border-radius:29px;
 
     background:
     linear-gradient(
@@ -918,11 +995,14 @@ header{
     inset 0 1px 0
     rgba(255,255,255,.10),
 
-    0 20px 60px
-    rgba(0,0,0,.18);
+    0 25px 65px
+    rgba(0,0,0,.20);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+    blur(18px);
+
+    -webkit-backdrop-filter:
+    blur(18px);
 }
 
 .cta-box h2{
@@ -930,14 +1010,12 @@ header{
 }
 
 .cta-box p{
-
     margin-top:10px;
 
     color:#7f8ca0;
 }
 
 .cta-button{
-
     display:inline-flex;
 
     align-items:center;
@@ -963,30 +1041,30 @@ header{
     );
 
     box-shadow:
-    0 12px 30px
-    rgba(80,105,255,.27);
+    0 12px 32px
+    rgba(80,105,255,.28);
 
     transition:.25s;
 }
 
 .cta-button:hover{
-    transform:translateY(-4px);
+    transform:
+    translateY(-4px);
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer{
-
     padding:
     45px 20px 35px;
 
     text-align:center;
 
     background:
-    rgba(2,4,9,.78);
+    rgba(2,4,9,.80);
 
     border-top:
     1px solid
@@ -994,18 +1072,16 @@ footer{
 }
 
 .footer-logo{
-
     font-size:24px;
 
     font-weight:900;
 }
 
 .footer-logo span{
-    color:#8ca5ff;
+    color:#8da6ff;
 }
 
 .footer-description{
-
     margin-top:8px;
 
     color:#687488;
@@ -1014,13 +1090,11 @@ footer{
 }
 
 .footer-links{
-
     margin:
     22px 0;
 }
 
 .footer-links a{
-
     color:#7f8b9e;
 
     text-decoration:none;
@@ -1029,6 +1103,8 @@ footer{
     0 8px;
 
     font-size:13px;
+
+    transition:.2s;
 }
 
 .footer-links a:hover{
@@ -1036,81 +1112,70 @@ footer{
 }
 
 .copyright{
-
     color:#4f5b6e;
 
     font-size:11px;
 }
 
 
-/* =====================================================
+/* =========================================================
    TABLET
-===================================================== */
+========================================================= */
 
 @media(max-width:1000px){
 
-    .grid{
+    .tools-grid{
         grid-template-columns:
-        repeat(2,1fr);
+        repeat(2,minmax(0,1fr));
+    }
+
+    .features{
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
     }
 
 }
 
 
-/* =====================================================
-   MOBILE PERFORMANCE MODE
-===================================================== */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:650px){
 
-    /* Disable expensive animated orbs */
-    .orb{
+    /* PERFORMANCE */
+
+    .glow{
         animation:none !important;
+
         filter:blur(40px) !important;
-        opacity:.22 !important;
+
+        opacity:.22;
     }
 
-    /* Reduce glass blur */
     .nav,
-    .search input,
-    .card,
-    .why-box,
+    .search-box input,
+    .tool,
+    .why-card,
     .cta-box{
-        backdrop-filter:blur(10px) !important;
-        -webkit-backdrop-filter:blur(10px) !important;
+        backdrop-filter:
+        blur(10px) !important;
+
+        -webkit-backdrop-filter:
+        blur(10px) !important;
     }
 
-    /* Remove expensive hover effects */
-    .card:hover{
-        transform:none;
+    .hero-gradient{
+        animation:none !important;
+
+        background-position:
+        center;
     }
 
-    .card:hover .icon{
-        transform:none;
-    }
 
-    .card:hover .arrow{
-        transform:none;
-    }
-
-    /* Stop animated gradient */
-    .gradient-title{
-        animation:none;
-        background-position:center;
-    }
-
-    /* Smaller shadows */
-    .card{
-        box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.09),
-
-        0 10px 30px
-        rgba(0,0,0,.15);
-    }
+    /* HEADER */
 
     header{
-
         width:
         calc(100% - 14px);
 
@@ -1120,13 +1185,12 @@ footer{
     }
 
     .nav{
-
         min-height:60px;
 
         padding:
         8px 10px;
 
-        border-radius:19px;
+        border-radius:20px;
     }
 
     .logo{
@@ -1134,31 +1198,32 @@ footer{
     }
 
     .logo-icon{
-
         width:34px;
         height:34px;
+
+        border-radius:10px;
     }
 
     .nav-links{
-        gap:2px;
+        gap:1px;
     }
 
     .nav-links a{
-
         padding:
         8px 6px;
 
         font-size:11px;
     }
 
-    .hero{
 
+    /* HERO */
+
+    .hero{
         padding:
         78px 8px 55px;
     }
 
     .hero h1{
-
         font-size:
         clamp(41px,13vw,62px);
 
@@ -1167,14 +1232,20 @@ footer{
 
     .hero-description{
         font-size:15px;
+
+        line-height:1.7;
     }
 
-    .search input{
+    .search-box input{
         height:58px;
+
+        border-radius:18px;
     }
 
-    .tools{
 
+    /* TOOLS */
+
+    .tools-section{
         width:
         calc(100% - 18px);
     }
@@ -1183,56 +1254,94 @@ footer{
         font-size:25px;
     }
 
-    .count{
+    .tool-count{
         display:none;
     }
 
-    .grid{
+    .tools-grid{
+        grid-template-columns:
+        1fr !important;
 
-        grid-template-columns:1fr;
+        gap:14px !important;
 
-        gap:14px;
+        width:100% !important;
+
+        max-height:none !important;
+
+        overflow:visible !important;
     }
 
-    .card{
+    .tool{
+        display:block !important;
+
+        visibility:visible !important;
+
+        opacity:1 !important;
 
         min-height:185px;
 
         padding:22px;
 
         border-radius:22px;
+
+        box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.09),
+
+        0 10px 30px
+        rgba(0,0,0,.15);
     }
+
+    .tool:hover{
+        transform:none;
+    }
+
+    .tool:hover .tool-icon{
+        transform:none;
+    }
+
+    .tool:hover .tool-arrow{
+        transform:none;
+    }
+
+
+    /* WHY */
 
     .why{
-
         width:
         calc(100% - 18px);
+
+        margin:
+        30px auto 60px;
     }
 
-    .why-box{
-
+    .why-card{
         padding:
         28px 20px;
 
         border-radius:24px;
     }
 
-    .why-box h2{
+    .why-card h2{
         font-size:27px;
     }
 
     .features{
-        grid-template-columns:1fr;
+        grid-template-columns:
+        1fr;
     }
 
-    .cta{
 
+    /* CTA */
+
+    .cta{
         width:
         calc(100% - 18px);
+
+        margin-bottom:60px;
     }
 
     .cta-box{
-
         padding:
         40px 18px;
 
@@ -1246,22 +1355,21 @@ footer{
 }
 
 
-/* =====================================================
-   VERY LOW POWER DEVICES
-===================================================== */
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
 
 @media(max-width:400px){
 
-    .orb{
+    .glow{
         display:none;
     }
 
     .nav,
-    .search input,
-    .card,
-    .why-box,
+    .search-box input,
+    .tool,
+    .why-card,
     .cta-box{
-
         backdrop-filter:none !important;
 
         -webkit-backdrop-filter:none !important;
@@ -1270,9 +1378,9 @@ footer{
 }
 
 
-/* =====================================================
+/* =========================================================
    REDUCED MOTION
-===================================================== */
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1288,30 +1396,31 @@ footer{
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =======================================================
      BACKGROUND
-===================================================== -->
+======================================================= -->
 
-<div class="bg">
+<div class="background">
 
-    <div class="orb orb1"></div>
+    <div class="glow one"></div>
 
-    <div class="orb orb2"></div>
+    <div class="glow two"></div>
 
-    <div class="orb orb3"></div>
+    <div class="glow three"></div>
 
 </div>
 
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
 <header>
 
@@ -1353,19 +1462,23 @@ footer{
 </header>
 
 
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
 <main>
 
 
-<!-- =====================================================
+<!-- =======================================================
      HERO
-===================================================== -->
+======================================================= -->
 
 <section class="hero">
 
 
-<div class="badge">
+<div class="hero-badge">
 
-    <span class="dot"></span>
+    <span class="live-dot"></span>
 
     Free • Fast • No Account Required
 
@@ -1374,153 +1487,15 @@ footer{
 
 <h1>
 
-    <span class="white-title">
+    <span class="hero-title">
         Everything You Need.
     </span>
 
-    <span class="gradient-title">
+    <span class="hero-gradient">
         All in One Place.
     </span>
 
 </h1>
 
 
-<p class="hero-description">
-
-    Powerful, beautiful and easy-to-use online tools
-    for calculations, images, text, conversions,
-    passwords and everyday digital tasks.
-
-</p>
-
-
-<div class="search">
-
-    <span class="search-icon">
-        ⌕
-    </span>
-
-    <input
-        id="search"
-        type="search"
-        placeholder="Search for a tool..."
-        autocomplete="off"
-        aria-label="Search tools"
-    >
-
-</div>
-
-
-</section>
-
-
-<!-- =====================================================
-     TOOLS
-===================================================== -->
-
-<section
-class="tools"
-id="tools">
-
-
-<div class="section-head">
-
-
-<div class="section-title">
-
-    <div class="section-icon">
-        ✨
-    </div>
-
-    <div>
-
-        <h2>
-            All Tools
-        </h2>
-
-        <p>
-            Useful tools, instantly available
-        </p>
-
-    </div>
-
-</div>
-
-
-<div class="count">
-    14 Tools
-</div>
-
-
-</div>
-
-
-<div
-class="grid"
-id="toolGrid">
-
-
-<!-- 1 -->
-
-<a
-href="emi-calculator.html"
-class="card"
-data-search="emi calculator loan finance monthly payment">
-
-<div class="icon">
-    💰
-</div>
-
-<h3>
-    EMI Calculator
-</h3>
-
-<p>
-    Calculate monthly EMI, interest
-    and total loan payment.
-</p>
-
-<span class="arrow">
-    →
-</span>
-
-</a>
-
-
-<!-- 2 -->
-
-<a
-href="gst-calculator.html"
-class="card"
-data-search="gst calculator tax cgst sgst">
-
-<div class="icon">
-    🧾
-</div>
-
-<h3>
-    GST Calculator
-</h3>
-
-<p>
-    Calculate GST amount and
-    final price quickly.
-</p>
-
-<span class="arrow">
-    →
-</span>
-
-</a>
-
-
-<!-- 3 -->
-
-<a
-href="discount-calculator.html"
-class="card"
-data-search="discount calculator sale shopping savings price">
-
-<div class="icon">
-    🏷️
-</div>
+<p class="hero-description
