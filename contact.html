@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact ToolNova</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0b0f19;
+color:white;
+line-height:1.7
+}
+
+header{
+padding:20px;
+border-bottom:1px solid #293348
+}
+
+.logo{
+max-width:700px;
+margin:auto;
+font-size:26px;
+font-weight:bold
+}
+
+.logo span{
+color:#718cff
+}
+
+.container{
+max-width:650px;
+margin:40px auto;
+padding:20px
+}
+
+.back{
+color:#8da5ff;
+text-decoration:none
+}
+
+.card{
+margin-top:25px;
+background:#141a28;
+border:1px solid #293348;
+border-radius:20px;
+padding:30px
+}
+
+h1{
+margin-top:0
+}
+
+p{
+color:#aeb7c9
+}
+
+label{
+display:block;
+margin-top:18px;
+margin-bottom:8px
+}
+
+input,
+textarea{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:1px solid #354057;
+background:#0d1320;
+color:white;
+font-size:16px;
+outline:none
+}
+
+textarea{
+min-height:150px;
+resize:vertical
+}
+
+button{
+width:100%;
+margin-top:20px;
+padding:16px;
+border:0;
+border-radius:12px;
+background:#718cff;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer
+}
+
+.note{
+margin-top:15px;
+font-size:13px;
+color:#788297
+}
+
+footer{
+text-align:center;
+color:#687287;
+padding:30px
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back">
+← Back to ToolNova
+</a>
+
+<div class="card">
+
+<h1>📩 Contact ToolNova</h1>
+
+<p>
+Have a suggestion, feedback or found an issue?
+Send us a message.
+</p>
+
+<form
+action="https://formsubmit.co/YOUR_EMAIL@example.com"
+method="POST">
+
+<input
+type="hidden"
+name="_subject"
+value="ToolNova Contact Message">
+
+<input
+type="hidden"
+name="_captcha"
+value="false">
+
+<label>
+Name
+</label>
+
+<input
+type="text"
+name="name"
+placeholder="Your name"
+required>
+
+<label>
+Email
+</label>
+
+<input
+type="email"
+name="email"
+placeholder="Your email"
+required>
+
+<label>
+Message
+</label>
+
+<textarea
+name="message"
+placeholder="Write your message..."
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+<p class="note">
+Please replace YOUR_EMAIL@example.com with the email address
+where contact messages should be received.
+</p>
+
+</div>
+</div>
+
+<footer>
+ToolNova — Free Tools. Simple. Fast.
+</footer>
+
+</body>
+</html>
