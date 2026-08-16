@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Word Counter - ToolNova</title>
+<title>Word Counter - Free Online Word & Character Counter | ToolNova</title>
 
-<meta name="description" content="Free online word counter. Count words, characters, sentences and reading time instantly.">
+<meta name="description"
+content="Free online word counter and character counter. Count words, characters, sentences, paragraphs and reading time instantly with ToolNova.">
+
+<meta name="robots" content="index, follow">
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -18,6 +23,7 @@ body {
   font-family: Arial, sans-serif;
   background: #0b0f19;
   color: white;
+  line-height: 1.6;
 }
 
 header {
@@ -26,7 +32,7 @@ header {
 }
 
 .logo {
-  max-width: 700px;
+  max-width: 850px;
   margin: auto;
   font-size: 26px;
   font-weight: bold;
@@ -37,8 +43,8 @@ header {
 }
 
 .container {
-  max-width: 750px;
-  margin: 45px auto;
+  max-width: 850px;
+  margin: 40px auto;
   padding: 20px;
 }
 
@@ -52,30 +58,30 @@ header {
   background: #141a28;
   border: 1px solid #293348;
   border-radius: 20px;
-  padding: 25px;
+  padding: 28px;
 }
 
 h1 {
   margin-top: 0;
+  font-size: 34px;
 }
 
 .description {
   color: #9da7bb;
-  line-height: 1.6;
 }
 
 textarea {
   width: 100%;
-  min-height: 250px;
+  min-height: 260px;
   margin-top: 20px;
-  padding: 18px;
-  resize: vertical;
+  padding: 16px;
   border-radius: 14px;
   border: 1px solid #354057;
   background: #0d1320;
   color: white;
   font-size: 16px;
   line-height: 1.6;
+  resize: vertical;
   outline: none;
 }
 
@@ -91,63 +97,138 @@ textarea:focus {
 }
 
 .stat {
-  background: #18233a;
-  padding: 18px;
+  background: #111827;
+  border: 1px solid #293348;
   border-radius: 14px;
+  padding: 18px;
   text-align: center;
 }
 
 .stat-number {
   display: block;
   color: #8da5ff;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
 .stat-label {
-  color: #9da7bb;
+  color: #8f99ad;
   font-size: 13px;
 }
 
-.clear {
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+button {
   width: 100%;
   margin-top: 18px;
-  padding: 14px;
+  padding: 15px;
   border: 0;
   border-radius: 12px;
   background: #718cff;
   color: white;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
 }
 
-footer {
-  text-align: center;
-  color: #687287;
-  padding: 30px;
+button.secondary {
+  background: #27334d;
 }
 
-@media (max-width: 500px) {
+button:hover {
+  opacity: 0.9;
+}
+
+.content {
+  margin-top: 35px;
+  padding: 25px;
+  background: #111827;
+  border: 1px solid #293348;
+  border-radius: 18px;
+}
+
+.content h2 {
+  color: #8da5ff;
+  margin-top: 25px;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  color: #aeb7c9;
+}
+
+.faq {
+  margin-top: 12px;
+  padding: 15px;
+  background: #141a28;
+  border-radius: 12px;
+}
+
+.faq strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+footer {
+  border-top: 1px solid #293348;
+  text-align: center;
+  padding: 30px 15px;
+  color: #687287;
+}
+
+footer a {
+  color: #8da5ff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@media (max-width: 550px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .card,
+  .content {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
   .stats {
     grid-template-columns: 1fr 1fr;
   }
 
-  .card {
-    padding: 20px;
+  .buttons {
+    grid-template-columns: 1fr;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    Tool<span>Nova</span>
-  </div>
+
+<div class="logo">
+Tool<span>Nova</span>
+</div>
+
 </header>
+
 
 <div class="container">
 
@@ -155,116 +236,395 @@ footer {
 ← Back to ToolNova
 </a>
 
+
 <div class="card">
 
 <h1>📝 Word Counter</h1>
 
 <p class="description">
-Count words, characters, sentences and estimated reading time instantly.
+Count words, characters, sentences, paragraphs and estimated
+reading time instantly.
 </p>
 
+
 <textarea
-id="text"
+id="textInput"
 placeholder="Start typing or paste your text here..."
-oninput="countText()"
-></textarea>
+oninput="countText()"></textarea>
+
 
 <div class="stats">
 
 <div class="stat">
-<span class="stat-number" id="words">0</span>
-<span class="stat-label">Words</span>
+
+<span
+class="stat-number"
+id="words">
+0
+</span>
+
+<span class="stat-label">
+Words
+</span>
+
 </div>
+
 
 <div class="stat">
-<span class="stat-number" id="characters">0</span>
-<span class="stat-label">Characters</span>
+
+<span
+class="stat-number"
+id="characters">
+0
+</span>
+
+<span class="stat-label">
+Characters
+</span>
+
 </div>
+
 
 <div class="stat">
-<span class="stat-number" id="sentences">0</span>
-<span class="stat-label">Sentences</span>
+
+<span
+class="stat-number"
+id="charactersNoSpaces">
+0
+</span>
+
+<span class="stat-label">
+Without Spaces
+</span>
+
 </div>
+
 
 <div class="stat">
-<span class="stat-number" id="reading">0 min</span>
-<span class="stat-label">Reading Time</span>
-</div>
+
+<span
+class="stat-number"
+id="sentences">
+0
+</span>
+
+<span class="stat-label">
+Sentences
+</span>
 
 </div>
 
-<button class="clear" onclick="clearText()">
-Clear Text
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="paragraphs">
+0
+</span>
+
+<span class="stat-label">
+Paragraphs
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span
+class="stat-number"
+id="readingTime">
+0 min
+</span>
+
+<span class="stat-label">
+Reading Time
+</span>
+
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<button
+onclick="copyText()">
+📋 Copy Text
+</button>
+
+<button
+class="secondary"
+onclick="clearText()">
+🗑️ Clear
 </button>
 
 </div>
 
 </div>
 
+
+<div class="content">
+
+<h2>
+What is a Word Counter?
+</h2>
+
+<p>
+A word counter is a tool that counts the number of words in
+a piece of text. It can also count characters, sentences and
+paragraphs. Writers, students, bloggers and content creators
+often use word counters to meet writing limits.
+</p>
+
+
+<h2>
+How to Use the Word Counter
+</h2>
+
+<ol>
+
+<li>
+Type or paste text into the text box.
+</li>
+
+<li>
+The word and character counts update automatically.
+</li>
+
+<li>
+Use Copy Text to copy your text or Clear to start again.
+</li>
+
+</ol>
+
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<div class="faq">
+
+<strong>
+Is this word counter free?
+</strong>
+
+<p>
+Yes. ToolNova's word counter is free to use directly
+in your browser.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+Does the word counter work on mobile?
+</strong>
+
+<p>
+Yes. The tool is designed to work on smartphones,
+tablets and desktop browsers.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+Does it count characters with spaces?
+</strong>
+
+<p>
+Yes. The tool provides both total characters including
+spaces and characters excluding spaces.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+How is reading time calculated?
+</strong>
+
+<p>
+Estimated reading time is calculated using approximately
+200 words per minute.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
 <footer>
+
 ToolNova — Free Tools. Simple. Fast.
+
+<br><br>
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="privacy.html">Privacy</a>
+
+<a href="contact.html">Contact</a>
+
+<br><br>
+
+© 2026 ToolNova. All rights reserved.
+
 </footer>
+
 
 <script>
 
 function countText() {
 
-const text =
-document.getElementById("text").value;
+  const text =
+    document.getElementById("textInput")
+    .value;
 
-const trimmed =
-text.trim();
 
-let words = 0;
+  const characters =
+    text.length;
 
-if (trimmed.length > 0) {
 
-words =
-trimmed.split(/\s+/).length;
+  const charactersNoSpaces =
+    text.replace(/\s/g, "").length;
+
+
+  const trimmed =
+    text.trim();
+
+
+  let words = 0;
+
+
+  if (trimmed.length > 0) {
+
+    words =
+      trimmed.split(/\s+/).length;
+
+  }
+
+
+  const sentenceMatches =
+    text.match(/[.!?]+(?=\s|$)/g);
+
+
+  const sentences =
+    sentenceMatches
+      ? sentenceMatches.length
+      : 0;
+
+
+  const paragraphMatches =
+    text
+      .split(/\n\s*\n/)
+      .filter(function(paragraph) {
+
+        return paragraph.trim().length > 0;
+
+      });
+
+
+  const paragraphs =
+    trimmed.length > 0
+      ? paragraphMatches.length
+      : 0;
+
+
+  const minutes =
+    words === 0
+      ? 0
+      : Math.ceil(words / 200);
+
+
+  document.getElementById("words")
+    .textContent =
+    words.toLocaleString();
+
+
+  document.getElementById("characters")
+    .textContent =
+    characters.toLocaleString();
+
+
+  document.getElementById("charactersNoSpaces")
+    .textContent =
+    charactersNoSpaces.toLocaleString();
+
+
+  document.getElementById("sentences")
+    .textContent =
+    sentences.toLocaleString();
+
+
+  document.getElementById("paragraphs")
+    .textContent =
+    paragraphs.toLocaleString();
+
+
+  document.getElementById("readingTime")
+    .textContent =
+    minutes + " min";
 
 }
 
-const characters =
-text.length;
 
-let sentences = 0;
+function copyText() {
 
-if (trimmed.length > 0) {
+  const text =
+    document.getElementById("textInput")
+    .value;
 
-const matches =
-trimmed.match(/[.!?]+/g);
 
-sentences =
-matches ? matches.length : 0;
+  if (!text.trim()) {
 
-}
+    return;
 
-const readingMinutes =
-words === 0
-? 0
-: Math.max(1, Math.ceil(words / 200));
+  }
 
-document.getElementById("words").textContent =
-words.toLocaleString();
 
-document.getElementById("characters").textContent =
-characters.toLocaleString();
+  if (navigator.clipboard) {
 
-document.getElementById("sentences").textContent =
-sentences.toLocaleString();
+    navigator.clipboard.writeText(text);
 
-document.getElementById("reading").textContent =
-readingMinutes + " min";
+  } else {
+
+    const textarea =
+      document.getElementById("textInput");
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+  }
 
 }
+
 
 function clearText() {
 
-document.getElementById("text").value = "";
+  document.getElementById("textInput")
+    .value = "";
 
-countText();
+  countText();
 
 }
+
+
+countText();
 
 </script>
 
