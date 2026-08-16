@@ -4,46 +4,142 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ToolNova - Free Online Tools</title>
 
 <meta name="description"
-content="ToolNova offers free, fast and easy online tools including calculators, converters, image tools, text tools and password generators.">
+content="ToolNova offers free online calculators, converters, image tools, text tools and productivity utilities.">
 
 <meta name="robots" content="index, follow">
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#080c15;
-color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050811;
+    color:#fff;
+    overflow-x:hidden;
 }
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    top:-300px;
+    left:-250px;
+    background:radial-gradient(
+        circle,
+        rgba(113,140,255,.18),
+        transparent 65%
+    );
+    pointer-events:none;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    right:-250px;
+    bottom:-250px;
+    background:radial-gradient(
+        circle,
+        rgba(140,80,255,.14),
+        transparent 65%
+    );
+    pointer-events:none;
+    z-index:-2;
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:#718cff;
+    border-radius:50%;
+    opacity:.45;
+    animation:floatParticle linear infinite;
+}
+
+.p1{left:8%;top:25%;animation-duration:12s;}
+.p2{left:20%;top:70%;animation-duration:17s;}
+.p3{left:35%;top:40%;animation-duration:14s;}
+.p4{left:52%;top:80%;animation-duration:19s;}
+.p5{left:67%;top:25%;animation-duration:15s;}
+.p6{left:82%;top:60%;animation-duration:18s;}
+.p7{left:91%;top:20%;animation-duration:13s;}
+.p8{left:45%;top:15%;animation-duration:20s;}
+
+@keyframes floatParticle{
+
+0%{
+transform:translateY(0) translateX(0);
+}
+
+50%{
+transform:translateY(-90px) translateX(30px);
+}
+
+100%{
+transform:translateY(0) translateX(0);
+}
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
 position:sticky;
 top:0;
-z-index:100;
-background:rgba(8,12,21,.94);
-backdrop-filter:blur(12px);
-border-bottom:1px solid #202a3d;
+z-index:1000;
+background:rgba(5,8,17,.72);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .nav{
-max-width:1100px;
+max-width:1150px;
 margin:auto;
-padding:18px 20px;
+padding:17px 20px;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -51,259 +147,529 @@ justify-content:space-between;
 
 .logo{
 font-size:28px;
-font-weight:800;
+font-weight:900;
 letter-spacing:-1px;
 }
 
 .logo span{
 color:#718cff;
+text-shadow:0 0 20px rgba(113,140,255,.5);
 }
 
 .nav-links{
 display:flex;
-gap:20px;
+gap:24px;
 }
 
 .nav-links a{
-color:#aeb7c9;
+color:#aab3c7;
 text-decoration:none;
-font-size:15px;
+font-size:14px;
+transition:.25s;
 }
 
 .nav-links a:hover{
 color:#fff;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-max-width:1100px;
+max-width:1150px;
 margin:auto;
-padding:75px 20px 45px;
+padding:105px 20px 70px;
 text-align:center;
 }
 
 .badge{
-display:inline-block;
-padding:8px 14px;
-border:1px solid #29385a;
-border-radius:30px;
-background:#10182a;
-color:#9eafff;
-font-size:14px;
-margin-bottom:20px;
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:9px 17px;
+border:1px solid rgba(113,140,255,.35);
+border-radius:50px;
+background:rgba(113,140,255,.08);
+color:#aab8ff;
+font-size:13px;
+box-shadow:0 0 25px rgba(113,140,255,.08);
+animation:badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse{
+
+0%,100%{
+box-shadow:0 0 20px rgba(113,140,255,.08);
+}
+
+50%{
+box-shadow:0 0 35px rgba(113,140,255,.25);
+}
+
 }
 
 .hero h1{
-font-size:clamp(38px,7vw,64px);
-line-height:1.05;
-margin:0;
-letter-spacing:-2px;
+margin-top:25px;
+font-size:clamp(42px,8vw,78px);
+line-height:.98;
+letter-spacing:-4px;
+font-weight:900;
 }
 
-.hero h1 span{
-color:#718cff;
+.gradient-text{
+background:linear-gradient(
+90deg,
+#718cff,
+#9b7cff,
+#718cff
+);
+background-size:200% auto;
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+animation:gradientMove 4s linear infinite;
 }
 
-.hero p{
-max-width:680px;
-margin:22px auto 0;
-color:#9da7bb;
+@keyframes gradientMove{
+
+to{
+background-position:200% center;
+}
+
+}
+
+.hero-description{
+max-width:700px;
+margin:25px auto 0;
 font-size:18px;
-line-height:1.7;
+line-height:1.8;
+color:#8e99ad;
 }
 
-.search-box{
-max-width:620px;
-margin:32px auto 0;
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-wrapper{
+max-width:650px;
+margin:35px auto 0;
 position:relative;
+}
+
+.search-wrapper::before{
+content:"⌕";
+position:absolute;
+left:19px;
+top:13px;
+font-size:25px;
+color:#718cff;
+z-index:2;
 }
 
 #search{
 width:100%;
-padding:17px 20px;
-border-radius:14px;
-border:1px solid #303c55;
-background:#111827;
+height:58px;
+padding:0 20px 0 52px;
+border:1px solid rgba(113,140,255,.25);
+border-radius:17px;
+background:rgba(15,22,36,.82);
 color:#fff;
 font-size:16px;
 outline:none;
+box-shadow:
+0 15px 50px rgba(0,0,0,.25),
+inset 0 0 20px rgba(255,255,255,.015);
+transition:.3s;
 }
 
 #search:focus{
 border-color:#718cff;
+box-shadow:
+0 0 30px rgba(113,140,255,.18),
+0 15px 50px rgba(0,0,0,.3);
 }
+
+#search::placeholder{
+color:#69758b;
+}
+
+
+/* =========================
+   TOOLS SECTION
+========================= */
 
 .section{
-max-width:1100px;
-margin:25px auto;
-padding:20px;
+max-width:1150px;
+margin:auto;
+padding:25px 20px;
 }
 
-.section-title{
+.section-heading{
 display:flex;
-align-items:center;
 justify-content:space-between;
-margin-bottom:20px;
+align-items:end;
+margin-bottom:25px;
 }
 
-.section-title h2{
-margin:0;
-font-size:27px;
+.section-heading h2{
+font-size:30px;
 }
 
-.section-title p{
-margin:0;
-color:#758097;
+.section-heading p{
+color:#68758b;
+font-size:14px;
 }
+
 
 .tools{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:16px;
+gap:18px;
 }
 
+
+/* =========================
+   TOOL CARD
+========================= */
+
 .tool{
-display:block;
-min-height:190px;
-padding:22px;
-background:linear-gradient(145deg,#151c2b,#101621);
-border:1px solid #263149;
-border-radius:18px;
+position:relative;
+overflow:hidden;
+min-height:210px;
+padding:25px;
+border:1px solid rgba(255,255,255,.07);
+border-radius:22px;
+background:
+linear-gradient(
+145deg,
+rgba(22,29,45,.94),
+rgba(10,15,25,.94)
+);
 text-decoration:none;
 color:#fff;
-transition:.2s;
+transition:
+transform .35s ease,
+border-color .35s ease,
+box-shadow .35s ease;
+opacity:0;
+transform:translateY(35px);
+}
+
+.tool.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.tool::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+top:-100px;
+right:-90px;
+background:#718cff;
+opacity:.08;
+border-radius:50%;
+transition:.4s;
+}
+
+.tool:hover::before{
+transform:scale(1.7);
+opacity:.15;
 }
 
 .tool:hover{
-transform:translateY(-5px);
-border-color:#718cff;
-box-shadow:0 15px 35px rgba(0,0,0,.25);
+transform:translateY(-8px) !important;
+border-color:rgba(113,140,255,.5);
+box-shadow:
+0 20px 45px rgba(0,0,0,.35),
+0 0 30px rgba(113,140,255,.08);
 }
 
-.icon{
-font-size:34px;
-margin-bottom:15px;
+.tool-icon{
+width:58px;
+height:58px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:17px;
+background:rgba(113,140,255,.1);
+border:1px solid rgba(113,140,255,.15);
+font-size:29px;
+margin-bottom:20px;
+transition:.35s;
+}
+
+.tool:hover .tool-icon{
+transform:rotate(-6deg) scale(1.08);
+background:rgba(113,140,255,.18);
 }
 
 .tool h3{
-margin:0 0 9px;
 font-size:19px;
+margin-bottom:9px;
 }
 
 .tool p{
-margin:0;
-color:#8994a9;
 font-size:14px;
-line-height:1.5;
+line-height:1.6;
+color:#7f8ba0;
 }
+
+.arrow{
+position:absolute;
+right:20px;
+bottom:20px;
+color:#718cff;
+font-size:20px;
+transition:.3s;
+}
+
+.tool:hover .arrow{
+transform:translateX(6px);
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
 
 .no-results{
 display:none;
-padding:30px;
+padding:35px;
 text-align:center;
-color:#8e98aa;
-background:#111827;
-border-radius:15px;
+border:1px solid #263149;
+border-radius:18px;
+background:#101722;
+color:#77839a;
 }
 
+
+/* =========================
+   INFO
+========================= */
+
 .info{
-max-width:1100px;
-margin:45px auto;
+max-width:1150px;
+margin:80px auto;
 padding:20px;
 }
 
 .info-card{
-background:#101722;
-border:1px solid #263149;
-border-radius:20px;
-padding:30px;
+position:relative;
+overflow:hidden;
+padding:40px;
+border-radius:25px;
+border:1px solid rgba(113,140,255,.14);
+background:
+linear-gradient(
+135deg,
+rgba(18,25,40,.9),
+rgba(9,14,24,.95)
+);
+}
+
+.info-card::after{
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+right:-150px;
+top:-150px;
+border-radius:50%;
+background:#718cff;
+opacity:.05;
 }
 
 .info-card h2{
-color:#8da5ff;
-margin-top:0;
+font-size:30px;
+color:#9aabff;
 }
 
-.info-card p{
-color:#aeb7c9;
+.info-card>p{
+max-width:750px;
+margin-top:15px;
+color:#8995aa;
 line-height:1.8;
 }
 
 .features{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-top:25px;
+gap:18px;
+margin-top:30px;
 }
 
 .feature{
-padding:20px;
-background:#141b29;
-border-radius:15px;
-border:1px solid #263149;
+padding:23px;
+border-radius:18px;
+background:rgba(255,255,255,.025);
+border:1px solid rgba(255,255,255,.06);
+transition:.3s;
+}
+
+.feature:hover{
+transform:translateY(-5px);
+border-color:rgba(113,140,255,.3);
+}
+
+.feature-icon{
+font-size:27px;
+margin-bottom:12px;
 }
 
 .feature h3{
-margin-top:0;
+margin-bottom:8px;
 }
 
 .feature p{
 font-size:14px;
-margin-bottom:0;
+line-height:1.6;
+color:#78859a;
 }
 
-footer{
-margin-top:60px;
-padding:40px 20px;
-border-top:1px solid #202a3d;
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+max-width:900px;
+margin:70px auto;
+padding:20px;
 text-align:center;
-color:#687287;
+}
+
+.cta-box{
+padding:45px 25px;
+border-radius:25px;
+border:1px solid rgba(113,140,255,.18);
+background:
+radial-gradient(
+circle at center,
+rgba(113,140,255,.11),
+transparent 65%
+);
+}
+
+.cta h2{
+font-size:32px;
+}
+
+.cta p{
+margin-top:12px;
+color:#7e8a9f;
+}
+
+.cta-button{
+display:inline-block;
+margin-top:25px;
+padding:14px 24px;
+border-radius:13px;
+background:#718cff;
+color:white;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 10px 30px rgba(113,140,255,.25);
+transition:.3s;
+}
+
+.cta-button:hover{
+transform:translateY(-3px);
+box-shadow:0 15px 40px rgba(113,140,255,.35);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+margin-top:80px;
+padding:45px 20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.07);
+background:#04070e;
+color:#626e82;
 }
 
 .footer-logo{
-font-size:24px;
-font-weight:bold;
-color:#fff;
+font-size:26px;
+font-weight:900;
+color:white;
 }
 
 .footer-logo span{
 color:#718cff;
 }
 
-.footer-links{
-margin:18px 0;
-}
-
-.footer-links a{
-color:#8da5ff;
-text-decoration:none;
-margin:0 9px;
+.footer-text{
+margin-top:10px;
 font-size:14px;
 }
 
+.footer-links{
+margin:22px 0;
+}
+
+.footer-links a{
+color:#8390a6;
+text-decoration:none;
+font-size:14px;
+margin:0 9px;
+transition:.25s;
+}
+
 .footer-links a:hover{
-color:#fff;
+color:#718cff;
 }
 
 .copyright{
-font-size:13px;
+font-size:12px;
 }
 
-@media(max-width:900px){
+
+/* =========================
+   SCROLL TOP
+========================= */
+
+#topButton{
+position:fixed;
+right:20px;
+bottom:20px;
+width:48px;
+height:48px;
+border-radius:50%;
+border:1px solid rgba(113,140,255,.3);
+background:#101827;
+color:#718cff;
+font-size:20px;
+cursor:pointer;
+display:none;
+z-index:500;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
 
 .tools{
 grid-template-columns:repeat(2,1fr);
 }
 
-.features{
-grid-template-columns:1fr;
 }
 
-}
-
-@media(max-width:600px){
+@media(max-width:650px){
 
 .nav{
-padding:16px;
+padding:15px;
 }
 
 .logo{
@@ -311,23 +677,26 @@ font-size:24px;
 }
 
 .nav-links{
-gap:10px;
+gap:11px;
 }
 
 .nav-links a{
-font-size:13px;
+font-size:12px;
 }
 
 .hero{
-padding:55px 15px 35px;
+padding:75px 15px 50px;
 }
 
-.hero p{
+.hero h1{
+letter-spacing:-2px;
+}
+
+.hero-description{
 font-size:16px;
 }
 
-.section,
-.info{
+.section{
 padding:15px;
 }
 
@@ -336,15 +705,51 @@ grid-template-columns:1fr;
 }
 
 .tool{
-min-height:auto;
+min-height:180px;
 }
 
-.section-title{
+.section-heading{
 display:block;
 }
 
-.section-title p{
-margin-top:7px;
+.section-heading p{
+margin-top:8px;
+}
+
+.info{
+padding:15px;
+margin:50px auto;
+}
+
+.info-card{
+padding:27px 20px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.cta{
+padding:15px;
+}
+
+.cta h2{
+font-size:27px;
+}
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+scroll-behavior:auto !important;
+animation:none !important;
+transition:none !important;
 }
 
 }
@@ -356,6 +761,25 @@ margin-top:7px;
 
 <body>
 
+
+<!-- Floating background particles -->
+
+<div class="particles">
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+<div class="particle p6"></div>
+<div class="particle p7"></div>
+<div class="particle p8"></div>
+
+</div>
+
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -387,29 +811,40 @@ Contact
 
 
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div class="badge">
 ⚡ Free • Fast • Browser Based
 </div>
 
+
 <h1>
-Powerful <span>Free Tools</span><br>
-For Everyday Tasks
+
+Everything You Need.<br>
+
+<span class="gradient-text">
+All in One Place.
+</span>
+
 </h1>
 
-<p>
-Calculate, convert, edit images, generate passwords and
-handle everyday digital tasks with simple online tools.
+
+<p class="hero-description">
+
+Powerful, simple and free online tools for calculations,
+images, text, passwords and everyday digital tasks.
+
 </p>
 
 
-<div class="search-box">
+<div class="search-wrapper">
 
 <input
 type="search"
 id="search"
-placeholder="🔎 Search a tool..."
+placeholder="Search for a tool..."
 autocomplete="off"
 >
 
@@ -419,65 +854,95 @@ autocomplete="off"
 
 
 
-<section class="section" id="tools">
+<!-- TOOLS -->
 
-<div class="section-title">
+<section
+class="section"
+id="tools">
+
+
+<div class="section-heading">
 
 <div>
+
 <h2>
 🧰 All Tools
 </h2>
 
 <p>
-Simple tools. No account required.
+No account required • Free to use
 </p>
-</div>
 
 </div>
 
+</div>
 
-<div class="tools" id="toolGrid">
 
 
-<a class="tool"
+<div
+class="tools"
+id="toolGrid">
+
+
+
+<a
+class="tool"
 href="age.html"
 data-name="age calculator">
 
-<div class="icon">🎂</div>
+<div class="tool-icon">
+🎂
+</div>
 
 <h3>
 Age Calculator
 </h3>
 
 <p>
-Calculate your exact age in years, months and days.
+Calculate exact age in years, months and days.
 </p>
+
+<span class="arrow">
+→
+</span>
 
 </a>
 
 
-<a class="tool"
+
+<a
+class="tool"
 href="percentage.html"
 data-name="percentage calculator">
 
-<div class="icon">🧮</div>
+<div class="tool-icon">
+🧮
+</div>
 
 <h3>
 Percentage Calculator
 </h3>
 
 <p>
-Calculate percentages, increases and decreases easily.
+Calculate percentages, increases and decreases.
 </p>
+
+<span class="arrow">
+→
+</span>
 
 </a>
 
 
-<a class="tool"
-href="qr-generator.html"
-data-name="qr code generator">
 
-<div class="icon">🔗</div>
+<a
+class="tool"
+href="qr-generator.html"
+data-name="qr code generator qr">
+
+<div class="tool-icon">
+🔗
+</div>
 
 <h3>
 QR Code Generator
@@ -487,14 +952,22 @@ QR Code Generator
 Create QR codes from text and website links.
 </p>
 
+<span class="arrow">
+→
+</span>
+
 </a>
 
 
-<a class="tool"
+
+<a
+class="tool"
 href="unit-converter.html"
 data-name="unit converter">
 
-<div class="icon">📏</div>
+<div class="tool-icon">
+📏
+</div>
 
 <h3>
 Unit Converter
@@ -504,14 +977,22 @@ Unit Converter
 Convert length, weight, temperature, data and time.
 </p>
 
+<span class="arrow">
+→
+</span>
+
 </a>
 
 
-<a class="tool"
-href="word-counter.html"
-data-name="word counter">
 
-<div class="icon">📝</div>
+<a
+class="tool"
+href="word-counter.html"
+data-name="word counter text">
+
+<div class="tool-icon">
+📝
+</div>
 
 <h3>
 Word Counter
@@ -521,14 +1002,22 @@ Word Counter
 Count words, characters and basic text statistics.
 </p>
 
+<span class="arrow">
+→
+</span>
+
 </a>
 
 
-<a class="tool"
-href="password-generator.html"
-data-name="password generator">
 
-<div class="icon">🔐</div>
+<a
+class="tool"
+href="password-generator.html"
+data-name="password generator security">
+
+<div class="tool-icon">
+🔐
+</div>
 
 <h3>
 Password Generator
@@ -538,39 +1027,59 @@ Password Generator
 Generate strong random passwords instantly.
 </p>
 
+<span class="arrow">
+→
+</span>
+
 </a>
 
 
-<a class="tool"
-href="image-compressor.html"
-data-name="image compressor">
 
-<div class="icon">🖼️</div>
+<a
+class="tool"
+href="image-compressor.html"
+data-name="image compressor image">
+
+<div class="tool-icon">
+🖼️
+</div>
 
 <h3>
 Image Compressor
 </h3>
 
 <p>
-Compress images directly in your browser.
+Compress images directly inside your browser.
 </p>
+
+<span class="arrow">
+→
+</span>
 
 </a>
 
 
-<a class="tool"
-href="image-resizer.html"
-data-name="image resizer">
 
-<div class="icon">📐</div>
+<a
+class="tool"
+href="image-resizer.html"
+data-name="image resizer resize">
+
+<div class="tool-icon">
+📐
+</div>
 
 <h3>
 Image Resizer
 </h3>
 
 <p>
-Resize images to custom dimensions quickly.
+Resize images to custom dimensions.
 </p>
+
+<span class="arrow">
+→
+</span>
 
 </a>
 
@@ -578,32 +1087,41 @@ Resize images to custom dimensions quickly.
 </div>
 
 
+
 <div
 class="no-results"
 id="noResults">
 
-No tool found. Try another search.
+🔎 No tool found.<br>
+Try searching for something else.
 
 </div>
+
 
 </section>
 
 
 
+<!-- INFO -->
+
 <section class="info">
 
 <div class="info-card">
 
+
 <h2>
-Why use ToolNova?
+Why ToolNova?
 </h2>
 
+
 <p>
-ToolNova is designed to make common online tasks simple,
-fast and accessible from phones, tablets and computers.
-Many tools work directly inside the browser, making them
-convenient for everyday use.
+
+ToolNova is built to make everyday digital tasks faster and
+simpler. Use useful tools directly from your browser without
+unnecessary steps.
+
 </p>
+
 
 
 <div class="features">
@@ -611,46 +1129,59 @@ convenient for everyday use.
 
 <div class="feature">
 
+<div class="feature-icon">
+⚡
+</div>
+
 <h3>
-⚡ Fast
+Fast
 </h3>
 
 <p>
-Tools are designed to work quickly without unnecessary steps.
+Lightweight tools designed to work quickly in your browser.
 </p>
 
 </div>
+
 
 
 <div class="feature">
 
+<div class="feature-icon">
+📱
+</div>
+
 <h3>
-📱 Mobile Friendly
+Mobile Friendly
 </h3>
 
 <p>
-The website is designed to work on mobile devices as well
-as desktop computers.
+Designed to work smoothly on phones, tablets and computers.
 </p>
 
 </div>
+
 
 
 <div class="feature">
 
+<div class="feature-icon">
+🆓
+</div>
+
 <h3>
-🆓 Free to Use
+Free
 </h3>
 
 <p>
-ToolNova provides its online tools without requiring an
-account for basic usage.
+Use ToolNova's available tools without creating an account.
 </p>
 
 </div>
 
 
 </div>
+
 
 </div>
 
@@ -658,15 +1189,47 @@ account for basic usage.
 
 
 
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="cta-box">
+
+<h2>
+Ready to use a tool?
+</h2>
+
+<p>
+Choose a tool above and get started instantly.
+</p>
+
+<a
+href="#tools"
+class="cta-button">
+
+Explore Tools →
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
 <footer>
+
 
 <div class="footer-logo">
 Tool<span>Nova</span>
 </div>
 
-<p>
+
+<div class="footer-text">
 Free tools for everyday digital tasks.
-</p>
+</div>
 
 
 <div class="footer-links">
@@ -698,11 +1261,28 @@ Terms
 © 2026 ToolNova. All rights reserved.
 </div>
 
+
 </footer>
 
 
 
+<!-- TOP BUTTON -->
+
+<button
+id="topButton"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+↑
+
+</button>
+
+
+
 <script>
+
+/* =========================
+   SEARCH
+========================= */
 
 const search =
 document.getElementById("search");
@@ -733,16 +1313,15 @@ const name =
 tool.dataset.name
 .toLowerCase();
 
-if(
-name.includes(query)
-){
+if(name.includes(query)){
 
-tool.style.display = "block";
+tool.style.display="block";
+
 found++;
 
 }else{
 
-tool.style.display = "none";
+tool.style.display="none";
 
 }
 
@@ -751,13 +1330,135 @@ tool.style.display = "none";
 
 if(found === 0){
 
-noResults.style.display = "block";
+noResults.style.display="block";
 
 }else{
 
-noResults.style.display = "none";
+noResults.style.display="none";
 
 }
+
+});
+
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+new IntersectionObserver(
+function(entries){
+
+entries.forEach(
+function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+
+tools.forEach(
+function(tool){
+
+observer.observe(tool);
+
+});
+
+
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+const topButton =
+document.getElementById("topButton");
+
+
+window.addEventListener(
+"scroll",
+function(){
+
+if(window.scrollY > 500){
+
+topButton.style.display="block";
+
+}else{
+
+topButton.style.display="none";
+
+}
+
+});
+
+
+
+/* =========================
+   CARD TILT EFFECT
+========================= */
+
+tools.forEach(
+function(card){
+
+card.addEventListener(
+"mousemove",
+function(event){
+
+if(window.innerWidth < 700){
+return;
+}
+
+const rect =
+card.getBoundingClientRect();
+
+const x =
+event.clientX - rect.left;
+
+const y =
+event.clientY - rect.top;
+
+const centerX =
+rect.width / 2;
+
+const centerY =
+rect.height / 2;
+
+const rotateX =
+((y-centerY)/centerY)*-3;
+
+const rotateY =
+((x-centerX)/centerX)*3;
+
+card.style.transform =
+"translateY(-8px) rotateX("
++
+rotateX
++
+"deg) rotateY("
++
+rotateY
++
+"deg)";
+
+});
+
+card.addEventListener(
+"mouseleave",
+function(){
+
+card.style.transform="";
+
+});
 
 });
 
